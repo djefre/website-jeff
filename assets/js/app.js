@@ -594,7 +594,7 @@ function sendEmail() {
                 // ON REJECT
                 $('#submit-btn').html('Verstuur');
                 $('#message').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
-                $('.toast-body').html('<strong> Error : </strong> Er is iets verkeerd gegaan, probeer het nog een opnieuw.');
+                $('.toast-body').html('<strong> Error : </strong> Er is iets verkeerd gegaan, probeer het aub opnieuw.');
             });
 
         // $.ajax({
