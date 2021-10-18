@@ -64,7 +64,6 @@ header {
 
 .logo {
   position: fixed;
-  margin-top: -17px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -899,6 +898,9 @@ ul.timeline > li:before {
   }
   .right-social ul li {
     display: inline-block;
+  }
+  .logo{
+    margin-top: -17px;
   }
 }
 
