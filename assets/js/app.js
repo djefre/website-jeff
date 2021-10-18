@@ -14,15 +14,15 @@ $(document).ready(function () {
     validateEmail();
     $('.owl-item.active .hero-slide').addClass('zoom');
         
-    // Detect preferred theme and set theme to dark if user is a darkmode user
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    // // Detect preferred theme and set theme to dark if user is a darkmode user
+    // if(window.matchMedia('(prefers-color-scheme: dark)').matches){
         //// Initiate dark mode hack
         //document.getElementById('darkmodebutton').click() 
         $("body").toggleClass('nill-dark');
         $('.section').toggleClass('bg-dark');
         $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
         $(this).removeClass('d-inline-block').addClass('d-none');
-    }
+    //}
 
     //setAge()
     //setPizzaCounter()
@@ -37,7 +37,7 @@ $(document).ready(function () {
     // Sets the copyright year
     document.getElementById('year').innerHTML = +(new Date()).getFullYear()
 
-    countup();
+    //countup();
 });
 
 $window.on("load", (function() {
@@ -102,7 +102,7 @@ function pagePilling(){
         anchors: ['hero', 'about', 'resume', 'contact'/*'services', 'portfolio', 'testimonial', 'blog'*/],
         navigation: {
             'position': 'right',
-            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/ 'CONTACT', 'FOOTER']
+            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/ 'CONTACT']
         },
         loopBottom: true,
         loopTop: true,
@@ -263,13 +263,13 @@ function skills() {
 /*-------------------------
             Count up
   -------------------------*/
-function countup() {
+// function countup() {
 
-    "use strict";
+//     "use strict";
 
-    $('.timer').countTo();
-    $('.count-number').removeClass('timer');
-}
+//     $('.timer').countTo();
+//     $('.count-number').removeClass('timer');
+// }
 
 /*-------------------------
      MAGNIFIC POPUP JS
