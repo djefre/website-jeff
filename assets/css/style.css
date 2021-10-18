@@ -22,7 +22,7 @@
 -------------------------*/
 body {
   font-family: "Muli", sans-serif;
-
+  overscroll-behavior-y: contain;
 }
 
 ::-moz-selection {
@@ -43,6 +43,10 @@ body {
 
 hr{
   border-top: 1px solid gray;
+}
+
+#comments{
+  min-height: 140px !important;
 }
 
 /* 

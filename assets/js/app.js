@@ -38,6 +38,8 @@ $(document).ready(function () {
     // document.getElementById('year').innerHTML = +(new Date()).getFullYear()
 
     //countup();
+    setupPhoneNumber()
+    setupEmail()
 });
 
 $window.on("load", (function() {
@@ -50,6 +52,34 @@ $window.on("load", (function() {
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
+
+function setupPhoneNumber() {
+    let wrapper = document.getElementById(`phoney-numbero-si-wrapper`)
+    wrapper.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopImmediatePropagation()
+        return
+    })
+    let el = document.getElementById("phoney-numbero-si")
+    el.innerHTML = '<a href="#" style="padding:0;">Klik voor nummer</a>'
+    el.addEventListener('click', (e) => {
+        el.innerHTML = atob(`PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+`)
+    })
+}
+
+function setupEmail(){
+    let wrapper = document.getElementById(`mailey-addresso-no-wrapper`)
+    wrapper.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopImmediatePropagation()
+        return
+    })
+    let el = document.getElementById("mailey-addresso-no")
+    el.innerHTML = '<a href="#" style="padding:0;">Klik voor email</a>'
+    el.addEventListener('click', (e) => {
+        el.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==`)
+    })
+}
 
 // function setExpCounter(){
 //     let el = document.getElementById('expcounter')

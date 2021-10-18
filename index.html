@@ -62,16 +62,36 @@
                                     <li data-menuanchor="home" class="list-group-item"><a href="#home">Home</a></li>
                                     <li data-menuanchor="about" class="list-group-item"><a href="#about">Over mij</a></li>
                                     <li data-menuanchor="exp" class="list-group-item"><a href="#exp">Ervaring</a></li>
+                                    <li class="list-group-item"><a href="#contact">Contact</a></li>
                                 </ul>
                                 <ul class="list-group contact-info text-left mb-0">
                                     <li class="list-group-item"><span>Contact Info :</span></li>
                                     <li class="list-group-item"><span><i class="lni-map-marker"></i> Drachten</span></li>
-                                    <li class="list-group-item"><span><i class="lni-phone-handset"></i> +31 [redacted]</span></li>
-                                    <li class="list-group-item"><span><i class="lni-envelope"></i> <a href="#contact">Contactformulier</a></span></li>
+                                    <li class="list-group-item">
+                                        <span id="phoney-numbero-si-wrapper">
+                                            <i class="lni-phone-handset"></i>
+                                            <span id="phoney-numbero-si" style="padding:0;">
+                                                +31 6 12 24 56 78
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span id="mailey-addresso-no-wrapper">
+                                            <i class="lni-envelope"></i>
+                                            <span id="mailey-addresso-no" style="padding:0;">
+                                                sjaak@sjakiestrekkerij.inc
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <!-- <li class="list-group-item"><span><i class="lni-envelope"></i> <a href="#contact">Contactformulier</a></span></li> -->
                                     <li class="list-group-item"><span>Socials:</span></li>
                                     <li class="list-group-item">
                                         <ul class="list-inline socails">
-                                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/jeffrey-brocx-b5148585/"><i class="lni-linkedin-original"></i></a></li>
+                                            <li class="list-inline-item">
+                                                <a href="https://www.linkedin.com/in/jeffrey-brocx-b5148585/" target="_blank">
+                                                    <i class="lni-linkedin-original"></i>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -401,16 +421,16 @@
                                         <div class="row">
                                             <div class="col-lg-12 form-item">
                                                 <div class="form-group">
-                                                    <input id="email" name="email" type="email" class="form-control" placeholder="Your Email*" required >
+                                                    <input id="email" name="email" type="email" class="form-control" placeholder="Jouw email adres*" required >
                                                 </div>
                                             </div>
                                             <div class="col-12 form-item">
                                                 <div class="form-group">
-                                                    <textarea id="comments" name="message" rows="2" class="form-control h-auto" placeholder="Your message*"></textarea>
+                                                    <textarea id="comments" name="message" rows="2" class="form-control h-auto" placeholder="Je bericht*"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 mt-1 text-left">
-                                                <button id="submit-btn" type="button" class="pill-button">Send Message</button>
+                                                <button id="submit-btn" type="button" class="pill-button">Verstuur Bericht</button>
                                                 <div id="message" class="toast text-white shadow-none border-0" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000" >
                                                     <div class="toast-body d-inline-block"></div>
                                                     <button type="button" class="pr-3 close" data-dismiss="toast" aria-label="Close">
