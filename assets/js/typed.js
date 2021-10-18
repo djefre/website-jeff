@@ -276,7 +276,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          // end of character pause
 	          if (_this2.temporaryPause) {
 	            _this2.temporaryPause = false;
-	            _this2.options.onTypingResumed(_this2.arrayPos, _this2);
+	            _this2.options.onTypingexpd(_this2.arrayPos, _this2);
 	          }
 	        }, pauseTime);
 	
@@ -911,7 +911,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @param {number} arrayPos
 	   * @param {Typed} self
 	   */
-	  onTypingResumed: function onTypingResumed(arrayPos, self) {},
+	  onTypingexpd: function onTypingexpd(arrayPos, self) {},
 	
 	  /**
 	   * After reset

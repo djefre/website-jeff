@@ -12,7 +12,7 @@ $(document).ready(function () {
     typedJS();
     skills();
     validateEmail();
-    $('.owl-item.active .hero-slide').addClass('zoom');
+    $('.owl-item.active .home-slide').addClass('zoom');
         
     // // Detect preferred theme and set theme to dark if user is a darkmode user
     // if(window.matchMedia('(prefers-color-scheme: dark)').matches){
@@ -34,8 +34,8 @@ $(document).ready(function () {
         sendEmail()
     })
 
-    // Sets the copyright year
-    document.getElementById('year').innerHTML = +(new Date()).getFullYear()
+    // // Sets the copyright year
+    // document.getElementById('year').innerHTML = +(new Date()).getFullYear()
 
     //countup();
 });
@@ -99,7 +99,7 @@ function pagePilling(){
         menu: '#myMenu',
         direction: 'vertical',
         verticalCentered: true,
-        anchors: ['hero', 'about', 'resume', 'contact'/*'services', 'portfolio', 'testimonial', 'blog'*/],
+        anchors: ['home', 'about', 'exp', 'contact'/*'services', 'portfolio', 'testimonial', 'blog'*/],
         navigation: {
             'position': 'right',
             'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/ 'CONTACT']
@@ -160,7 +160,7 @@ function menuToggler() {
 function sliderOwlCarousel(){
     "use strict";
 
-    $('.hero .owl-carousel').owlCarousel({
+    $('.home .owl-carousel').owlCarousel({
         loop:true,
         items: 1,
         nav: false,
@@ -171,18 +171,18 @@ function sliderOwlCarousel(){
         animateOut: 'fadeOut',
         autoplayHoverPause: true,
     });
-    $('#hero-slider').on("translate.owl.carousel", function(){
+    $('#home-slider').on("translate.owl.carousel", function(){
         setTimeout(function(){
-            $('.hero-slide').removeClass("zoom");
+            $('.home-slide').removeClass("zoom");
         }, 1000)
 	});
-	$('#hero-slider').on("translated.owl.carousel", function(){
-		$('.owl-item.active .hero-slide').addClass("zoom");
+	$('#home-slider').on("translated.owl.carousel", function(){
+		$('.owl-item.active .home-slide').addClass("zoom");
     });
 }
 
 /*-----------------------------
-     HERO SWIPER SLIDER
+     home SWIPER SLIDER
 ------------------------------*/
 function swiperSlider(){
 
@@ -217,11 +217,11 @@ function swiperSlider(){
             },
           });
         
-        $(".hero-item-image").css('background', function () {
+        $(".home-item-image").css('background', function () {
             var bg = ('url(' + $(this).data("image-src") + ') no-repeat center');
             return bg;
         });
-        var $fullscreen = $(".hero-04, .hero-swiper, .hero-text, .hero-images");
+        var $fullscreen = $(".home-04, .home-swiper, .home-text, .home-images");
         $fullscreen.css("height", $window.height());
     }
 }
