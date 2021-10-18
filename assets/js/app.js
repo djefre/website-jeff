@@ -561,13 +561,13 @@ function sendEmail() {
 
     if(!email){
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
-        $('.toast-body').html('Email is  required');
+        $('.toast-body').html('Email is  verplicht');
     } else if(!validateEmail(email)){
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
-        $('.toast-body').html('Email is not valid');
+        $('.toast-body').html('Email is niet geldig');
     }else if(!message){
         $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
-        $('.toast-body').html('Comments is  required');
+        $('.toast-body').html('Bericht is verplicht');
     }else {
         let form = document.getElementById('contactForm')
         let data = new FormData(form);
