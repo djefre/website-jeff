@@ -1,4 +1,4 @@
-/************************
+/***********************
     1.GENERAL
     2.PRELOADER
     3.FIX
@@ -44,8 +44,8 @@ hr{
   border-top: 1px solid gray;
 }
 
-#scomments{
-  min-height: 140px !important;
+#comments{
+  min-height: 170px;
 }
 
 /* 
