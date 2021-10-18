@@ -11,15 +11,9 @@ $(document).ready(function () {
     swiperSlider();
     typedJS();
     skills();
-    // portfolioPopup(); // USED FOR PORTFOLIO
-    // mapInit();
     validateEmail();
     $('.owl-item.active .hero-slide').addClass('zoom');
-    
-    // =======================================
-    // OWN CODE
-    //========================================
-    
+        
     // Detect preferred theme and set theme to dark if user is a darkmode user
     if(window.matchMedia('(prefers-color-scheme: dark)').matches){
         //// Initiate dark mode hack
@@ -30,9 +24,9 @@ $(document).ready(function () {
         $(this).removeClass('d-inline-block').addClass('d-none');
     }
 
-    setAge()
-    setPizzaCounter()
-    setExpCounter()
+    //setAge()
+    //setPizzaCounter()
+    //setExpCounter()
 
     // Handle form submission
     document.getElementById('submit-btn').addEventListener('click', ()=>{
@@ -42,12 +36,7 @@ $(document).ready(function () {
 
     // Sets the copyright year
     document.getElementById('year').innerHTML = +(new Date()).getFullYear()
-    // =======================================
-    // END OF OWN CODE
-    //========================================
 
-
-    // Theme code:
     countup();
 });
 
@@ -62,30 +51,27 @@ $window.on("load", (function() {
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
 
-/*-------------------------
-       OWN FUNCTIONS
--------------------------*/
-function setExpCounter(){
-    let el = document.getElementById('expcounter')
-    el.attributes['data-to'].value = (+(new Date()).getFullYear()) - 2015
-}
+// function setExpCounter(){
+//     let el = document.getElementById('expcounter')
+//     el.attributes['data-to'].value = (+(new Date()).getFullYear()) - 2015
+// }
 
-function setPizzaCounter(){
-    let base = (Math.round((new Date()).getTime() / 10e5 / 250))
-    let el = document.getElementById('pizzacounter')
-    el.attributes['data-to'].value = base
-}
+// function setPizzaCounter(){
+//     let base = (Math.round((new Date()).getTime() / 10e5 / 250))
+//     let el = document.getElementById('pizzacounter')
+//     el.attributes['data-to'].value = base
+// }
 
-function setAge() {
-    let currentYear = +(new Date()).getFullYear()
-    let age = currentYear - 1986
+// function setAge() {
+//     let currentYear = +(new Date()).getFullYear()
+//     let age = currentYear - 1986
 
-    if(new Date() >= new Date(currentYear, 11, 14)){
-        age++
-    }
+//     if(new Date() >= new Date(currentYear, 11, 14)){
+//         age++
+//     }
 
-    document.getElementById('age').innerHTML = age
-}
+//     document.getElementById('age').innerHTML = age
+// }
 
 function sendAjaxRequest (method, url, data, success, error) {
     var xhr = new XMLHttpRequest();
@@ -101,10 +87,6 @@ function sendAjaxRequest (method, url, data, success, error) {
     };
     xhr.send(data);
 }
-/*-------------------------
-      END OF OWN FUNCTIONS
--------------------------*/
-
 
 /*-------------------------
        Page Pilling
