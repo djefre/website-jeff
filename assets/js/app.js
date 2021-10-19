@@ -3,6 +3,7 @@ var $window = $(window);
 var $root = $('html, body');
 let p = document.getElementById("phoney-numbero-si")
 let m = document.getElementById("mailey-addresso-no")
+let a = document.getElementById("app-anchor-id")
 
 $(document).ready(function () {
     "use strict";
@@ -38,9 +39,11 @@ $(document).ready(function () {
     // Setup phone with js
     p.innerHTML = '<a class="remove" href="#" style="padding:0;">[[Klik voor nummer]]</a>'
     m.innerHTML = '<a href="#" style="padding:0;">[[Klik voor email]]</a>'
+    
 
     p.addEventListener('click', handlePhoneyClick)
     m.addEventListener('click', handleMailyClick)
+    a.addEventListener('click', handleAppClick)
 });
 
 $window.on("load", (function() {
@@ -59,6 +62,11 @@ function handlePhoneyClick(e){
 
 function handleMailyClick(){
     m.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
+}
+
+function handleAppClick() {
+    a.href = atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`)
+    a.click()
 }
 
 // function setExpCounter(){
@@ -159,7 +167,7 @@ function menuToggler() {
         $(".overlay-menu").addClass("show");
     });
     $(".overlay-menu").click(function(e){
-        if(e.target.style.padding === '0px') return // Filter personal
+        if(e.target.style.padding === '0px' || e.target.className === 'epp') return // Filter personal
         $(this).removeClass("show");
     });
 
