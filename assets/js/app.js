@@ -77,7 +77,7 @@ function setupEmail(){
     let el = document.getElementById("mailey-addresso-no")
     el.innerHTML = '<a href="#" style="padding:0;">Klik voor email</a>'
     el.addEventListener('click', (e) => {
-        el.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==`)
+        el.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
     })
 }
 
