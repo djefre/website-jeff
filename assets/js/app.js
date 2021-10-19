@@ -1,6 +1,8 @@
 // repeated variables
 var $window = $(window);
 var $root = $('html, body');
+let p = document.getElementById("phoney-numbero-si")
+let m = document.getElementById("mailey-addresso-no")
 
 $(document).ready(function () {
     "use strict";
@@ -24,10 +26,6 @@ $(document).ready(function () {
         $(this).removeClass('d-inline-block').addClass('d-none');
     //}
 
-    //setAge()
-    //setPizzaCounter()
-    //setExpCounter()
-
     // Handle form submission
     document.getElementById('submit-btn').addEventListener('click', ()=>{
         validateEmail();
@@ -37,9 +35,12 @@ $(document).ready(function () {
     // // Sets the copyright year
     // document.getElementById('year').innerHTML = +(new Date()).getFullYear()
 
-    //countup();
-    setupPhoneNumber()
-    setupEmail()
+    // Setup phone with js
+    p.innerHTML = '<a class="remove" href="#" style="padding:0;">[[Klik voor nummer]]</a>'
+    m.innerHTML = '<a href="#" style="padding:0;">[[Klik voor email]]</a>'
+
+    p.addEventListener('click', handlePhoneyClick)
+    m.addEventListener('click', handleMailyClick)
 });
 
 $window.on("load", (function() {
@@ -52,33 +53,12 @@ $window.on("load", (function() {
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
-
-function setupPhoneNumber() {
-    let wrapper = document.getElementById(`phoney-numbero-si-wrapper`)
-    wrapper.addEventListener('click', (e) => {
-        e.preventDefault()
-        e.stopImmediatePropagation()
-        return
-    })
-    let el = document.getElementById("phoney-numbero-si")
-    el.innerHTML = '<a href="#" style="padding:0;">Klik voor nummer</a>'
-    el.addEventListener('click', (e) => {
-        el.innerHTML = atob(`PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+`)
-    })
+function handlePhoneyClick(e){
+    p.innerHTML = atob(`PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+`)
 }
 
-function setupEmail(){
-    let wrapper = document.getElementById(`mailey-addresso-no-wrapper`)
-    wrapper.addEventListener('click', (e) => {
-        e.preventDefault()
-        e.stopImmediatePropagation()
-        return
-    })
-    let el = document.getElementById("mailey-addresso-no")
-    el.innerHTML = '<a href="#" style="padding:0;">Klik voor email</a>'
-    el.addEventListener('click', (e) => {
-        el.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
-    })
+function handleMailyClick(){
+    m.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
 }
 
 // function setExpCounter(){
@@ -175,10 +155,11 @@ function menuToggler() {
 
     "use strict";
 
-    $(".overlay-menu-toggler").click(function(){
+    $(".overlay-menu-toggler").click(function(e){
         $(".overlay-menu").addClass("show");
     });
-    $(".overlay-menu").click(function(){
+    $(".overlay-menu").click(function(e){
+        if(e.target.style.padding === '0px') return // Filter personal
         $(this).removeClass("show");
     });
 
