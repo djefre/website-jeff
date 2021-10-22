@@ -66,7 +66,7 @@ function handleMailyClick(){
 
 function handleAppHover(e) {
     console.log("MouseOver")
-    console.log("href: ", a.getAttribute("href")
+    console.log("href: ", a.getAttribute("href"))
     // if(a.href.startsWith("https")){
     //     return
     // }
