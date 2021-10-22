@@ -67,12 +67,12 @@ function handleMailyClick(){
 function handleAppHover(e) {
     console.log("MouseOver")
     console.log("href: ", a.getAttribute("href"))
-    // if(a.href.startsWith("https")){
-    //     return
-    // }
-    // else{
-    //     a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
-    // }
+    if(a.getAttribute("href").startsWith("https")){
+        return
+    }
+    else{
+        a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
+    }
 }
 
 // function setExpCounter(){
