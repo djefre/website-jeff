@@ -65,7 +65,7 @@ function handleMailyClick(){
 }
 
 function handleAppHover(e) {
-    if(a.href !== "#" && a.href.startsWith("h")){
+    if(a.href !== "#" || a.href.startsWith("h")){
         return
     }
     else{
