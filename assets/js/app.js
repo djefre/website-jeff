@@ -65,7 +65,7 @@ function handleMailyClick(){
 }
 
 function handleAppHover(e) {
-    if(a.href.startsWith("h")){
+    if(a.href.startsWith("https")){
         return
     }
     else{
