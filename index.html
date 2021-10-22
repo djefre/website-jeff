@@ -26,6 +26,10 @@
         <link async rel="stylesheet" href="assets/css/owl.carousel.min.css">
         <!--  Custom Style CSS  -->
         <link async rel="stylesheet" href="assets/css/style.css?v=1">
+
+        <!-- Internationalization -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-i18n@8"></script>
     </head>
 
     <body class="pilling-page"  data-spy="scroll" data-target="#scrollspy" data-offset="1">
@@ -60,8 +64,8 @@
                             <div class="col-lg-8 offset-lg-2 overlay-nav">
                                 <ul class="list-group text-left" id="myMenu">
                                     <li data-menuanchor="home" class="list-group-item"><a href="#home">Home</a></li>
-                                    <li data-menuanchor="about" class="list-group-item"><a href="#about">Over mij</a></li>
-                                    <li data-menuanchor="exp" class="list-group-item"><a href="#exp">Ervaring</a></li>
+                                    <li data-menuanchor="about" class="list-group-item"><a href="#about">{{ $t("terms.about") }}</a></li>
+                                    <li data-menuanchor="exp" class="list-group-item"><a href="#exp">{{ $t("terms.exp") }}</a></li>
                                     <li class="list-group-item"><a href="#contact">Contact</a></li>
                                 </ul>
                                 <ul class="list-group contact-info text-left mb-0">
@@ -124,10 +128,10 @@
                         <div class="col-lg-12">
                             <div class="home-content text-center">
                                 <img src="assets/img/rsz_1jeff_mugshot.jpg" alt="" class="rounded-circle img-thumbnail">
-                                <h3 class="text-dark mb-0 mt-3">Ik ben Jeffrey Brocx</h3>
+                                <h3 class="text-dark mb-0 mt-3">{{ $t("home.iam") }} Jeffrey Brocx</h3>
                                 <h4 class="text-dark text-capitalize mb-3 typed-text">
-                                    <span class="base-color">Een  </span> 
-                                    <span class="element" data-elements="T-shaped FullStack developer.,Gepassioneerd techneut.,Positief-Kritisch professional.,Breed geïnteresseerde IT'er.,Verbinder.,Vader.,Bourgondier.,"></span>
+                                    <span class="base-color">{{ $t("home.a") }}  </span> 
+                                    <span class="element" :data-elements="$t(`home.typed`)"></span>
                                 </h4>
                                 <div>
                                     <!-- <h5>Beschikbaar per: 01-01-1970</h5> -->
@@ -158,7 +162,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="title-small">
-                                    <p class="text-dark">Over mij</p>
+                                    <p class="text-dark">{{ $t("terms.about") }}</p>
                                 </div>
                             </div>
                             <div class="row mt-4">
@@ -166,8 +170,8 @@
                                     <img src="assets/img/jeff_mugshot.jpg" alt="/" class="rounded img-thumbnail w-100">
                                 </div>
                                 <div class="col-lg-8 personal-item  mb-4 mb-lg-0">
-                                    <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
-                                    <h5 class="text-dark mb-3">Hallo Ik ben Jeffrey Brocx</h5>
+                                    <h2 class="text-dark mb-2">{{ $t("terms.about") }} <span class="base-color">{{ $t("terms.me") }}</span></h2>
+                                    <h5 class="text-dark mb-3">{{ $t("terms.hi") }} {{ $t("home.iam").toLowerCase() }} Jeffrey Brocx</h5>
                                     <!-- <div class="row">
                                         <div class="col-lg-5 col-sm-6 personal-info">
                                             <p class="text-dark">Geboren : <span class="text-gray"> 14 nov 1986</span></p>
@@ -185,11 +189,9 @@
                                     <hr /> -->
                                     <div class="row">
                                         <div class="col-12">
-                                            Mijn loopbaan ben ik begonnen bij de Koninklijke Marine waar ik verbindelaar was. Daarna nog een tijdje in de offshore gezeten maar ik wilde nóg vaker thuis zijn dan 2 weken per maand.
-                                            Ik startte met mijn zoektocht naar IT kennis, een opleiding begonnen en snel aan het werk gegaan om zo snel mogelijk praktijkervaring op te doen, zo leer ik het efficiëntst.
-                                            Inmiddels heb ik vele verschillende projecten gedaan met uiteenlopende technieken, zowel thuis als in mijn werk.
-                                            In mijn eigen tijd ben ik vooral bezig met: Rpi's, <del>home automation</del>, eigen server(s), security, pluralsight en andere IT-gerelateerde projecten met als hoofddoel kennisvergaring en vermaak.
-                                            <br>Mijn favoriete stack is .NET CORE/Standard, Javascript, HTML, CSS, T-SQL, Azure en Vue.
+                                            {{ $t("about.me")}}
+                                            <br>
+                                            {{ $t("about.favorite")}} stack is .NET CORE/Standard, Javascript, HTML, CSS, T-SQL, Azure  {{ $t("about.and")}} Vue.
                                         </div>
                                     </div>
                                 </div>
@@ -480,5 +482,57 @@
         <script defer src="assets/js/owl.carousel.min.js"></script>
         <!--  Custom JS  -->
         <script defer src="assets/js/app.js?v=3"></script>
+
+        <script>
+            const messages = {
+                en: {
+                    terms: {
+                        about: 'About',
+                        me: 'Me',
+                        exp: 'Experience',
+                        hi: 'Hi'
+                    },
+                    home: {
+                        iam: "I am",
+                        a: 'a',
+                        typed: `T-shaped FullStack developer.,Passionate Technician.,Positive-Critical Professional.,Broadly interested IT person.,Connector.,Father.,Burgundian.,`
+                    },
+                    about:{
+                        me: `In the Royal Netherlands Navy I started my career where I was a petty officer. After that I was in the offshore for a while but I wanted to be home even more often than 2 weeks a month. I started my search for IT knowledge, started an education and quickly got to work to gain practical experience as quickly as possible, this is how I learn most efficiently. In the meantime I have done many different projects with different techniques, both at home and at work. In my own time I am mainly involved in: R Pis, own server(s), security, plural-sight and other IT-related projects with the main goal of gathering knowledge and entertainment.`,
+                        favorite: 'My favorite',
+                        and: 'and'
+                    }
+
+                },
+                nl: {
+                    terms: {
+                        about: 'Over',
+                        me: 'Mij',
+                        exp: 'Ervaring',
+                        hi: 'Hallo'
+                    },
+                    home: {
+                        iam: 'Ik ben',
+                        a: 'Een',
+                        typed: `T-shaped FullStack developer.,Gepassioneerd techneut.,Positief-Kritisch professional.,Breed geïnteresseerde IT'er.,Verbinder.,Vader.,Bourgondier.,`
+                    },
+                    about:{
+                        me: `Mijn loopbaan ben ik begonnen bij de Koninklijke Marine waar ik verbindelaar was. Daarna nog een tijdje in de offshore gezeten maar ik wilde nóg vaker thuis zijn dan 2 weken per maand. Ik startte met mijn zoektocht naar IT kennis, een opleiding begonnen en snel aan het werk gegaan om zo snel mogelijk praktijkervaring op te doen, zo leer ik het efficiëntst. Inmiddels heb ik vele verschillende projecten gedaan met uiteenlopende technieken, zowel thuis als in mijn werk. In mijn eigen tijd ben ik vooral bezig met: Rpi's, eigen server(s), security, pluralsight en andere IT-gerelateerde projecten met als hoofddoel kennisvergaring en vermaak.`,
+                        favorite: 'Mijn favoriete',
+                        and: 'en'
+                    }
+                }
+            }
+
+            // Create VueI18n instance with options
+            const i18n = new VueI18n({
+                locale: 'en', // set locale
+                messages, // set locale messages
+            })
+
+
+            // Create a Vue instance with `i18n` option
+            new Vue({ i18n }).$mount('#pagepiling')
+        </script>
     </body>
 </html>

@@ -37,10 +37,9 @@ $(document).ready(function () {
     // document.getElementById('year').innerHTML = +(new Date()).getFullYear()
 
     // Setup phone with js
-    p.innerHTML = '<a class="remove" href="#" style="padding:0;">[[Klik voor nummer]]</a>'
-    m.innerHTML = '<a href="#" style="padding:0;">[[Klik voor email]]</a>'
+    p.innerHTML = '<a class="remove" href="#" style="padding:0;">[[Click]]</a>'
+    m.innerHTML = '<a href="#" style="padding:0;">[[Click]]</a>'
     
-
     p.addEventListener('click', handlePhoneyClick)
     m.addEventListener('click', handleMailyClick)
     a.addEventListener('mouseover', handleAppHover)
@@ -69,12 +68,6 @@ function handleMailyClick(){
 function handleAppHover(e) {
     a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
     a.removeEventListener('mouseover', handleAppHover)
-    // if(a.getAttribute("href").startsWith("https")){
-    //     return
-    // }
-    // else{
-    //     a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
-    // }
 }
 
 // function setExpCounter(){
