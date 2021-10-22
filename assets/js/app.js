@@ -58,19 +58,23 @@ $window.on("load", (function() {
 -----------------------------------------------------------------------------*/
 function handlePhoneyClick(e){
     p.innerHTML = atob(`PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+`)
+    p.removeEventListener('click', handlePhoneyClick)
 }
 
 function handleMailyClick(){
     m.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
+    m.removeEventListener('click', handleMailyClick)
 }
 
 function handleAppHover(e) {
-    if(a.getAttribute("href").startsWith("https")){
-        return
-    }
-    else{
-        a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
-    }
+    a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
+    a.removeEventListener('mouseover', handleAppHover)
+    // if(a.getAttribute("href").startsWith("https")){
+    //     return
+    // }
+    // else{
+    //     a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
+    // }
 }
 
 // function setExpCounter(){
