@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     p.addEventListener('click', handlePhoneyClick)
     m.addEventListener('click', handleMailyClick)
-    a.addEventListener('click', handleAppClick)
+    a.addEventListener('mouseover', handleAppHover)
 });
 
 $window.on("load", (function() {
@@ -64,9 +64,13 @@ function handleMailyClick(){
     m.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
 }
 
-function handleAppClick() {
-    a.href = atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`)
-    a.click()
+function handleAppHover(e) {
+    if(a.href !== "#" && a.href.startsWith("h")){
+        return
+    }
+    else{
+        a.href = atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`)
+    }
 }
 
 // function setExpCounter(){
