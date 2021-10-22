@@ -65,12 +65,11 @@ function handleMailyClick(){
 }
 
 function handleAppHover(e) {
-    console.log(a.href)
     if(a.href.startsWith("h")){
         return
     }
     else{
-        a.href = atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`)
+        a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
     }
 }
 
