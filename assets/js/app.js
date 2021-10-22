@@ -74,7 +74,7 @@ function handleAppHover(e) {
 }
 
 // function setExpCounter(){
-//     let el = document.getElementById('expcounter')
+//     let el = document.getElementById('expcounter') 
 //     el.attributes['data-to'].value = (+(new Date()).getFullYear()) - 2015
 // }
 
