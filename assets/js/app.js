@@ -14,7 +14,6 @@ $(document).ready(function () {
     swiperSlider();
     typedJS();
     skills();
-    validateEmail();
     $('.owl-item.active .home-slide').addClass('zoom');
         
     // // Detect preferred theme and set theme to dark if user is a darkmode user
@@ -26,12 +25,6 @@ $(document).ready(function () {
         $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
         $(this).removeClass('d-inline-block').addClass('d-none');
     //}
-
-    // Handle form submission
-    document.getElementById('submit-btn').addEventListener('click', ()=>{
-        validateEmail();
-        sendEmail()
-    })
 
     // // Sets the copyright year
     // document.getElementById('year').innerHTML = +(new Date()).getFullYear()
@@ -69,49 +62,6 @@ function handleMailyClick(){
 function handleAppHover(e) {
     a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
     a.removeEventListener('mouseover', handleAppHover)
-    // if(a.getAttribute("href").startsWith("https")){
-    //     return
-    // }
-    // else{
-    //     a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
-    // }
-}
-
-// function setExpCounter(){
-//     let el = document.getElementById('expcounter') 
-//     el.attributes['data-to'].value = (+(new Date()).getFullYear()) - 2015
-// }
-
-// function setPizzaCounter(){
-//     let base = (Math.round((new Date()).getTime() / 10e5 / 250))
-//     let el = document.getElementById('pizzacounter')
-//     el.attributes['data-to'].value = base
-// }
-
-// function setAge() {
-//     let currentYear = +(new Date()).getFullYear()
-//     let age = currentYear - 1986
-
-//     if(new Date() >= new Date(currentYear, 11, 14)){
-//         age++
-//     }
-
-//     document.getElementById('age').innerHTML = age
-// }
-
-function sendAjaxRequest (method, url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        success(xhr.response, xhr.responseType);
-      } else {
-        error(xhr.status, xhr.response, xhr.responseType);
-      }
-    };
-    xhr.send(data);
 }
 
 /*-------------------------
@@ -125,10 +75,10 @@ function pagePilling(){
         menu: '#myMenu',
         direction: 'vertical',
         verticalCentered: true,
-        anchors: ['home', 'about', 'exp', 'contact'/*'services', 'portfolio', 'testimonial', 'blog'*/],
+        anchors: ['home', 'about', 'exp', /*'services', 'portfolio', 'testimonial', 'blog'*/],
         navigation: {
             'position': 'right',
-            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/ 'CONTACT']
+            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/]
         },
         loopBottom: true,
         loopTop: true,
@@ -538,77 +488,3 @@ function skills() {
 //         marker.setMap(map);
 //     }
 // }
-/*-------------------------
-     AJAX CONTACT FORM
--------------------------*/
-function validateEmail(email) {
-
-    "use strict";
-
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-function sendEmail() {
-
-    "use strict";
-
-    var email    = $('#email').val();
-    var message = $('#comments').val();
-    var data = new FormData(document.getElementById('contactForm'));
-
-    if(!email){
-        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
-        $('.toast-body').html('Email is  verplicht');
-    } else if(!validateEmail(email)){
-        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
-        $('.toast-body').html('Email is niet geldig');
-    }else if(!message){
-        $('#message').toast('show').addClass('bg-danger').removeClass('bg-success');
-        $('.toast-body').html('Bericht is verplicht');
-    }else {
-        let form = document.getElementById('contactForm')
-        let data = new FormData(form);
-        $('#submit-btn').html('Versturen...');
-        sendAjaxRequest(
-            form.method, 
-            form.action, 
-            data, 
-            // On Success
-            ()=>{
-                // ON SUCCESS
-                $('#submit-btn').html('Verstuurd!');
-                setTimeout(()=>{
-                    document.getElementById('email').value = '';
-                    document.getElementById('comments').value = '';
-                    document.getElementById('submit-btn').innerHTML = 'Verstuur'
-                }, 5000)
-
-                 $('#message').toast('show').addClass('bg-success').removeClass('bg-danger bg-warning');
-                $('.toast-body').html('<strong>Aw yee!</strong> Bedankt het bericht is succesvol verstuurd!');
-            },
-            // On Error
-            ()=>{
-                // ON REJECT
-                $('#submit-btn').html('Verstuur');
-                $('#message').toast('show').addClass('bg-danger').removeClass('bg-success bg-warning');
-                $('.toast-body').html('<strong> Error : </strong> Er is iets verkeerd gegaan, probeer het aub opnieuw.');
-            });
-
-        // $.ajax({
-        //     type: 'POST',
-        //     data: $("#contactForm").serialize(),
-        //     url:  "sendEmail.php",
-        //     beforeSend: function() {
-        //         $('#submit-btn').html('<span class="spinner-border spinner-border-sm"></span> Loading..');
-        //     },
-        //     success: function(data) {
-
-                
-        //     },
-        //     error: function(xhr) {
-
-                
-        //     },
-        // });
-    }
-}
