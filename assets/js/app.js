@@ -8,22 +8,23 @@ let a = document.getElementById("app-anchor-id")
 $(document).ready(function () {
     "use strict";
 
-    colorScheme();
-    menuToggler();
-    sliderOwlCarousel();
-    swiperSlider();
-    typedJS();
-    skills();
-    $('.owl-item.active .home-slide').addClass('zoom');
+    runBotCheck()
+    colorScheme()
+    menuToggler()
+    sliderOwlCarousel()
+    swiperSlider()
+    typedJS()
+    skills()
+    $('.owl-item.active .home-slide').addClass('zoom')
         
     // // Detect preferred theme and set theme to dark if user is a darkmode user
     // if(window.matchMedia('(prefers-color-scheme: dark)').matches){
         //// Initiate dark mode hack
         //document.getElementById('darkmodebutton').click() 
-        $("body").toggleClass('nill-dark');
-        $('.section').toggleClass('bg-dark');
-        $('.color-scheme').removeClass('d-none').addClass('d-inline-block');
-        $(this).removeClass('d-inline-block').addClass('d-none');
+        $("body").toggleClass('nill-dark')
+        $('.section').toggleClass('bg-dark')
+        $('.color-scheme').removeClass('d-none').addClass('d-inline-block')
+        $(this).removeClass('d-inline-block').addClass('d-none')
     //}
 
     // // Sets the copyright year
@@ -49,18 +50,25 @@ $window.on("load", (function() {
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
+function runBotCheck() {
+    window.navigator.permissions.query({ name: 'notifications' }).then(function (permissionStatus) {
+        const isBot = (Notification.permission === 'denied' && permissionStatus.state === 'prompt')
+        window.sessionStorage.setItem('isBot', isBot)
+    });
+}
+
 function handlePhoneyClick(e){
     p.innerHTML = atob(`PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+`)
     p.removeEventListener('click', handlePhoneyClick)
 }
 
 function handleMailyClick(){
-    m.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOnR1cmJvc3BhbWJ1ZmZlckBnbWFpbC5jb20iIHN0eWxlPSJwYWRkaW5nOjA7Ij50dXJib3NwYW1idWZmZXJAZ21haWwuY29tPC9hPg==`)
+    m.innerHTML = atob(`PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==`)
     m.removeEventListener('click', handleMailyClick)
 }
 
 function handleAppHover(e) {
-    a.setAttribute("href", atob(`aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUFob3krbWUrbWF0ZXkhKy4uLg==`))
+    a.setAttribute("href", atob('aHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUhhbGxvK0plZmZyZXkhKy4uLg=='))
     a.removeEventListener('mouseover', handleAppHover)
 }
 

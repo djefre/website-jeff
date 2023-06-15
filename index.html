@@ -1,420 +1,376 @@
 <!DOCTYPE html>
 <html lang="nl-NL">
-    <head>
-        <meta charset="UTF-8">
-        <!-- <meta name="robots" content="noindex, nofollow"> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Jeffrey Brocx</title>
-        <meta name="description" content="Dit is mijn persoonlijke ruimte op het web met informatie over mij" />
-        <meta name="keywords" content="Jeffrey Brocx ontwikkelaar webontwikkeling softwareontwikkeling software engineer" />
-        <meta name="author" content="Jeffrey Brocx" />
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Jeffrey Brocx</title>
+    <meta name="description" content="Dit is mijn persoonlijke ruimte op het web met informatie over mij" />
+    <meta name="keywords" content="Jeffrey Brocx ontwikkelaar webontwikkeling softwareontwikkeling software engineer" />
+    <meta name="author" content="Jeffrey Brocx" />
 
-        <!--  FavIcon  -->
-        <link async rel="shortcut icon" href="assets/img/logo.png">
+    <!--  FavIcon  -->
+    <link async rel="shortcut icon" href="assets/img/logo.png">
 
-        <!-- Google Fonts -->
-        <link async href="https://fonts.googleapis.com/css?family=Muli:400,600" rel="stylesheet">
-        <link async href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link async href="https://fonts.googleapis.com/css?family=Muli:400,600" rel="stylesheet">
+    <link async href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
 
-        <!--  bootstrap Css  -->
-        <link async rel="stylesheet" href="assets/css/bootstrap.min.css?v=1">
-        <!--  pagepiling Css  -->
-        <link async rel="stylesheet" type="text/css" href="assets/css/jquery.pagepiling.css" />
-        <!--  LineIcon Css  -->
-        <link async rel="stylesheet" href="assets/css/LineIcons.min.css">
-        <!--  OwlCarousel Css  -->
-        <link async rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <!--  Custom Style CSS -->
-        <link async rel="stylesheet" href="assets/css/style.css?v=1">
-    </head>
+    <!--  bootstrap Css  -->
+    <link async rel="stylesheet" href="assets/css/bootstrap.min.css?v=1">
+    <!--  pagepiling Css  -->
+    <link async rel="stylesheet" type="text/css" href="assets/css/jquery.pagepiling.css" />
+    <!--  LineIcon Css  -->
+    <link async rel="stylesheet" href="assets/css/LineIcons.min.css">
+    <!--  OwlCarousel Css  -->
+    <link async rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!--  Custom Style CSS -->
+    <link async rel="stylesheet" href="assets/css/style.css?v=1">
+</head>
 
-    <body class="pilling-page"  data-spy="scroll" data-target="#scrollspy" data-offset="1">
+<body class="pilling-page" data-spy="scroll" data-target="#scrollspy" data-offset="1">
 
-        <!--  Pre Loader  -->
-        <div id="overlayer">
-            <span class="spinner-grow spinner-grow-lg loader" role="status" aria-hidden="true"></span>
-        </div>
+    <!--  Pre Loader  -->
+    <div id="overlayer">
+        <span class="spinner-grow spinner-grow-lg loader" role="status" aria-hidden="true"></span>
+    </div>
 
-        <!--  Page Pilling  Strat  -->
-        <div id="pagepiling" class="pagepiling">
+    <!--  Page Pilling  Strat  -->
+    <div id="pagepiling" class="pagepiling">
 
-            <!--   Header Start -->
-            <header>
-                <div class="logo-area">
-                    <a href="index.html" class="logo">
-                        <img src="assets/img/logo.png">
-                    </a>
-                </div>
-                <div class="header-info-area">
-                    <a class="overlay-menu-toggler lni-menu size-md" href="javascript:void(0);"></a>
-                </div>
-            </header>
-            <!--   Header End   -->
-
-            <!--    Overlay Menu Start    -->
-            <div class="overlay-menu bg-blue py-3 px-4 text-center center-item">
-                <!-- Overlay Menu -->
-                <div id="scrollspy" class="overlay-menu-list">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 offset-lg-2 overlay-nav">
-                                <ul class="list-group text-left" id="myMenu">
-                                    <li data-menuanchor="home" class="list-group-item"><a href="#home">Home</a></li>
-                                    <li data-menuanchor="about" class="list-group-item"><a href="#about">Over mij</a></li>
-                                    <li data-menuanchor="exp" class="list-group-item"><a href="#exp">Ervaring</a></li>
-                                </ul>
-                                <ul class="list-group contact-info text-left mb-0">
-                                    <li class="list-group-item"><span>Contact Info :</span></li>
-                                    <!-- <li class="list-group-item"><span><i class="lni-map-marker"></i> Stad</span></li> -->
-                                    <li class="list-group-item">
-                                        <span id="phoney-numbero-si-wrapper">
-                                            <i class="lni-phone-handset"></i>
-                                            <span id="phoney-numbero-si" style="padding:0;">
-                                                +31 6 12 24 56 78
-                                            </span>
-                                        </span>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span id="mailey-addresso-no-wrapper">
-                                            <i class="lni-envelope"></i>
-                                            <span id="mailey-addresso-no" style="padding:0;">
-                                                sjaak@sjakiestrekkerij.inc
-                                            </span>
-                                        </span>
-                                    </li>
-                                    <!-- <li class="list-group-item"><span><i class="lni-envelope"></i> <a href="#contact">Contactformulier</a></span></li> -->
-                                    <li class="list-group-item"><span>Socials:</span></li>
-                                    <li class="list-group-item">
-                                        <ul class="list-inline socails">
-                                            <li class="list-inline-item">
-                                                <a href="https://www.linkedin.com/in/jeffrey-brocx-b5148585/" target="_blank">
-                                                    <i class="lni-linkedin-original"></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a id="app-anchor-id" href="#" target="_blank">
-                                                    <i class="lni-whatsapp"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!--   Header Start -->
+        <header>
+            <div class="logo-area">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.png">
+                </a>
             </div>
-            <!--    Overlay Menu End    -->
-
-            <!--    Home/home Start    -->
-            <section class="section pp-scrollable home home-02 full-screen p-0" id="home">
-                <div class="container-fluid">
-                    <div class="title-small">
-                        <p class="text-dark">Home</p>
-                    </div>
-                    <div class="row justify-content-center" id="home-slider">
-                        <div class="owl-carousel owl-theme">
-                            <div class="home-slide home-item1 full-screen"></div>
-                            <div class="home-slide home-item2 full-screen"></div>
-                            <div class="home-slide home-item3 full-screen"></div>
-                        </div>
-                    </div>
-                    <div class="text-center home-content">
-                        <div class="col-lg-12">
-                            <div class="home-content text-center">
-                                <img src="assets/img/rsz_1jeff_mugshot.jpg" alt="" class="rounded-circle img-thumbnail">
-                                <h3 class="text-dark mb-0 mt-3">Ik ben Jeffrey Brocx</h3>
-                                <h4 class="text-dark text-capitalize mb-3 typed-text">
-                                    <span class="base-color">Een  </span> 
-                                    <span class="element" data-elements="T-shaped FullStack developer.,Gepassioneerd techneut.,Positief-Kritisch professional.,Breed geïnteresseerde IT'er.,Verbinder.,Vader.,Bourgondier.,"></span>
-                                </h4>
-                                <div>
-                                    <!-- <h5>Beschikbaar per: 01-01-1970</h5> -->
-                                    <ul class="list-inline social-icon mt-2">
+            <div class="header-info-area">
+                <a class="overlay-menu-toggler lni-menu size-md" href="javascript:void(0);"></a>
+            </div>
+        </header>
+        <!--   Header End   -->
+        <!--    Overlay Menu Start    -->
+        <div class="overlay-menu bg-blue py-3 px-4 text-center center-item">
+            <!-- Overlay Menu -->
+            <div id="scrollspy" class="overlay-menu-list">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 overlay-nav">
+                            <ul class="list-group text-left" id="myMenu">
+                                <li data-menuanchor="home" class="list-group-item"><a href="#home">Home</a></li>
+                                <li data-menuanchor="about" class="list-group-item"><a href="#about">Over mij</a></li>
+                                <li data-menuanchor="exp" class="list-group-item"><a href="#exp">Ervaring</a></li>
+                            </ul>
+                            <ul class="list-group contact-info text-left mb-0">
+                                <li class="list-group-item"><span>Contact Info :</span></li>
+                                <!-- <li class="list-group-item"><span><i class="lni-map-marker"></i> Stad</span></li> -->
+                                <li class="list-group-item">
+                                    <span id="phoney-numbero-si-wrapper">
+                                        <i class="lni-phone-handset"></i>
+                                        <span id="phoney-numbero-si" style="padding:0;">
+                                            +31 6 12 24 56 78
+                                        </span>
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="mailey-addresso-no-wrapper">
+                                        <i class="lni-envelope"></i>
+                                        <span id="mailey-addresso-no" style="padding:0;">
+                                            sjaak@sjakiestrekkerij.inc
+                                        </span>
+                                    </span>
+                                </li>
+                                <!-- <li class="list-group-item"><span><i class="lni-envelope"></i> <a href="#contact">Contactformulier</a></span></li> -->
+                                <li class="list-group-item"><span>Socials:</span></li>
+                                <li class="list-group-item">
+                                    <ul class="list-inline socails">
                                         <li class="list-inline-item">
                                             <a href="https://www.linkedin.com/in/jeffrey-brocx-b5148585/" target="_blank">
-                                                <i class="lni-linkedin-original text-dark"></i>
+                                                <i class="lni-linkedin-original"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a id="app-anchor-id" href="#" target="_blank">
+                                                <i class="lni-whatsapp"></i>
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home-icon">
-                        <a href="#about">
-                            <i class="lni-arrow-down text-dark size-sm"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <!--   Home/home End    -->
-
-            <!--   About Start   -->
-            <section id="about" class="section pp-scrollable about text-dark">
-                <div class="display-table">
-                    <div class="display-content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="title-small">
-                                    <p class="text-dark">Over mij</p>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-lg-4">
-                                    <img src="assets/img/jeff_mugshot.jpg" alt="/" class="rounded img-thumbnail w-100">
-                                </div>
-                                <div class="col-lg-8 personal-item  mb-4 mb-lg-0">
-                                    <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
-                                    <h5 class="text-dark mb-3">Hallo Ik ben Jeffrey Brocx</h5>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            Mijn loopbaan ben ik begonnen bij de Koninklijke Marine waar ik verbindelaar was. Daarna nog een tijdje in de offshore gezeten maar ik wilde nóg vaker thuis zijn dan 2 weken per maand.
-                                            Ik startte met mijn zoektocht naar IT kennis, een opleiding begonnen en snel aan het werk gegaan om zo snel mogelijk praktijkervaring op te doen, zo leer ik het efficiëntst.
-                                            Inmiddels heb ik vele verschillende projecten gedaan met uiteenlopende technieken, zowel thuis als in mijn werk.
-                                            In mijn eigen tijd ben ik vooral bezig met: Rpi's, <del>home automation</del>, eigen server(s), security, pluralsight en andere IT-gerelateerde projecten met als hoofddoel kennisvergaring en vermaak.
-                                            <br>Mijn favoriete stack is .NET CORE/Standard, Javascript, HTML, CSS, T-SQL, Azure en Vue.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div class="container">
-                                    <div class="row mt-5">
-                                        <h6>Gewerkt voor o.a.:</h6>
-                                    </div>
-                                    <div class="row mt-4 rounded" style="align-items: baseline; background-color: rgb(255,255,255,0.5);">
-                                        <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-5 mb-5">
-                                            <img style="max-width: 10em;" src="assets/img/achmea-logo.png" />
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
-                                            <img style="max-width: 10em;" src="assets/img/tres-logo.png" />
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
-                                            <img style="max-width: 10em;" src="assets/img/elfsquad-logo.png" />
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mb-5">
-                                            <img style="max-width: 10em;" src="assets/img/arrix-logo.png" />
-                                        </div>
-                                        <!-- <div class="col-6 mt-5 mb-md-0 count-item">
-                                            <div class="count-icon">
-                                                <i class="lni-grow size-md"></i>
-                                            </div>
-                                            <div class="count-content">
-                                                <span id="expcounter" class="timer count-number" data-from="0" data-to="set in js" data-speed="5000">0</span>
-                                            </div>
-                                            <p class="mb-0">Jaren IT ervaring</p>
-                                        </div>
-                                        <div class="col-6 mt-5 mb-md-0 count-item">
-                                            <div class="count-icon">
-                                                <i class="lni-code size-md"></i>
-                                            </div>
-                                            <div class="count-content">
-                                                <span class="timer count-number" data-from="3" data-to="69" data-speed="5000">69</span>
-                                            </div>
-                                            <p class="mb-0">Technieken mee gewerkt</p>
-                                        </div> -->
-                                        <!-- <div class="col-4 mt-5 mb-md-0 count-item">
-                                            <div class="count-icon">
-                                                <i class="lni-medall size-md"></i>
-                                            </div>
-                                            <div class="count-content">
-                                                <span class="timer count-number" data-from="0" data-to="8" data-speed="5000">8</span>
-                                            </div>
-                                            <p class="mb-0 ">Tevreden klanten</p>
-                                        </div> -->
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--   About End    -->
-
-            <!--   exp Start   -->
-            <section id="exp" class="section pp-scrollable exp">
-                <div class="display-table">
-                    <div class="display-content">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="text-left">
-                                        <h2 class="text-dark mb-3">Mijn <span class="base-color">Ervaring</span></h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <!-- <div class="col-lg-6">
-                                    <h3 class="text-dark mb-2"><i class="lni-graduation base-color"></i>Opleiding</h3>
-                                    <ul class="timeline">
-                                        <li>
-                                            <h6 class="base-color mb-0">Microsoft Certified Professional</h6>
-                                            <small class="text-muted ">2014 - 2015</small>
-                                            <p class="text-dark py-3">Certificaatnummer: E852-093</p>
-                                        </li>
-                                        <li>
-                                            <h6 class="base-color mb-0">MBO4 Applicatieontwikkelaar</h6>
-                                            <small class="text-muted ">2013 - 2015</small>
-                                            <p class="text-dark py-3">Aan de Friese Poort te Drachten, opleidingsvorm was 3 dagen stage, 2 dagen school. Gezien praktijkervaring leuker is dan lezen paste dit erg goed bij me.</p>
-                                        </li>
-                                    </ul>
-                                </div> -->
-                                <div class="col-lg-12">
-                                    <h3 class="text-dark mb-2 mt-5 mt-lg-0"><i class="lni-pencil base-color"></i>Mijn laatste vier functies</h3>
-                                    <ul class="timeline">
-                                        <li>
-                                            <h6 class="base-color mb-0">FullStack Developer</h6>
-                                            <small class="text-muted">C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | IS4 | MVC | SiteCore | Vue | ALM | WebInspect</small>
-                                            <p class="text-dark py-3">
-                                                <span>
-                                                    Als FullStack dev heb ik hier zowel veel FrontEnd- BackEnd gedaan in een multidiciplinair team met ~14 collega's.
-                                                    Doordat het domein erg uitgebreid was en het applicatielandschap goed gevuld was met velerlei applicaties, heb ik hier erg veel mooie dingen mogen leren.
-                                                    Ook heb ik hier de rol van Security-Champion vervuld. 
-                                                    Security Champion is iemand die een sterke affiniteit heeft met IT security. 
-                                                    "Zij zijn aangedragen door hun manager, omdat zij zich op het vlak van IT security willen ontwikkelen en actief het aspect IT Security inbedden in hun dagelijkse werk."
-                                                </span>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <h6 class="base-color mb-0">Lead Webdeveloper</h6>
-                                            <small class="text-muted">C# | ASP.NET | .NET CORE | T-SQL | EntityFramework | JavaScript | HTML | CSS | 2FA | JQuery | Azure | Vue.js | Quasar</small>
-                                            <p class="text-dark py-3">
-                                                <span>
-                                                    In deze rol heb ik doorontwikkeld aan het bestaande applicatielandschap. Ook heb
-                                                    ik hier een nieuwe beheeromgeving gerealiseerd in .NET CORE 3.1 met een Vue.js front-end welke beiden in
-                                                    Azure draaien, dit met volledige CI/CD pipelines en stages.
-                                                    In deze beheeromgeving zit een groot stuk CRM en een licentiesysteem.
-                                                </span>
-                                                <span>
-                                                    Ook heb ik hier twee stagiares begeleid.
-                                                </span>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <h6 class="base-color mb-0">FullStack Developer</h6>
-                                            <small class="text-muted">C# | ASP.NET | .NET CORE | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | 2FA</small>
-                                            <p class="text-dark py-3">
-                                                <span>
-                                                    Hier heb ik aan verschillende maatwerk projecten gewerkt in een multidiciplinair SCRUM team van 7 collegas.
-                                                    Van simpele websites tot complexe applicaties. Mijn werk als FullStacker bestond uit het uitvragen van klanten en vervolgens
-                                                    het ontwikkelen van de uiteenlopende wensen in voornamelijk C# en javascript.
-                                                </span>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <h6 class="base-color mb-0">Lead Developer</h6>
-                                            <small class="text-muted">C# | ASP.NET | .NET CORE | T-SQL | HTML | CSS | JavaScript | Typescript | Vue | Angular | SCRUM | Entity Framework | Azure</small>
-                                            <p class="text-dark py-3">
-                                                <span>
-                                                    In deze functie ik een leidinggevende- en meewerkende ontwikkelaarsrol vertolkt waar ik technisch 
-                                                    eindverantwoordelijke was in een SCRUM-team van 5 ontwikkelaars.
-                                                    Ook heb ik hier processen en werkmethodes gestandaardiseerd en geprofessionaliseerd door inrichting- en handhaven ontwikkelprocedures, 
-                                                    code standaarden, werken met feature branches- en pull-requests met bijbehorende code-reviews.
-                                                </span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row pt-6">
-                                <div class="col-lg-6">
-                                    <div class="skill-box pt-4 pt-lg-0 mt-4 mt-lg-0">
-                                        <div class="skillbar clearfix" data-percent="95%">
-                                            <div class="skillbar-title"><span>.NET (CORE &amp; Standard)</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">95%</div>
-                                        </div>                                        
-                                        <div class="skillbar clearfix" data-percent="95%">
-                                            <div class="skillbar-title"><span>HTML5</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">95%</div>
-                                        </div>
-                                        <div class="skillbar clearfix " data-percent="85%">
-                                            <div class="skillbar-title"><span>CSS3</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">85%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="90%">
-                                            <div class="skillbar-title"><span>SQL (&amp; server)</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">90%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="88%">
-                                            <div class="skillbar-title"><span>JavaScript</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">88%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="75%">
-                                            <div class="skillbar-title"><span>TypeScript</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">75%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="skill-box pt-4 pt-lg-0 mt-4 mt-lg-0">
-                                        <div class="skillbar clearfix" data-percent="95%">
-                                            <div class="skillbar-title"><span>Vue</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">95%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="65%">
-                                            <div class="skillbar-title"><span>Angular</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">65%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="80%">
-                                            <div class="skillbar-title"><span>Azure</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">80%</div>
-                                        </div>
-                                        <div class="skillbar clearfix " data-percent="80%">
-                                            <div class="skillbar-title"><span>Windows Server</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">80%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="70%">
-                                            <div class="skillbar-title"><span>Linux (Ubuntu)</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">70%</div>
-                                        </div>
-                                        <div class="skillbar clearfix" data-percent="95%">
-                                            <div class="skillbar-title"><span>Git</span></div>
-                                            <div class="skillbar-bar"></div>
-                                            <div class="skill-bar-percent">95%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--   exp End   -->
-
-             <!--   Color Scheme  -->
-            <div>
-                <a id="darkmodebutton" class="color-scheme text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-night"></i></a>
-                <a class="color-scheme color-scheme-light text-white bg-base-color d-none" href="javascript:void(0)"><i class="lni-sun"></i></a>
             </div>
         </div>
-        <!--  Page Pilling  End -->
-
-        <!--  Typed Js  -->
-        <script async src="assets/js/typed.js"></script>
-        <!--  JavaScripts  -->
-        <script defer src="assets/js/jquery-3.4.1.min.js"></script>
-        <!--   Page Pilling Js     -->
-        <script defer src="assets/js/jquery.pagepiling.js"></script>
-        <!--  Bootstrap Js  -->
-        <script defer src="assets/js/bootstrap.js?v=1"></script>
-        <!--  Count Js  -->
-        <script defer src="assets/js/jquery.countTo.js"></script>
-        <!--  Owl carousel Js  -->
-        <script defer src="assets/js/owl.carousel.min.js"></script>
-        <!--  Custom JS  -->
-        <script defer src="assets/js/app.js?v=3"></script>
-    </body>
+        <!--    Overlay Menu End    -->
+        <!--    Home/home Start    -->
+        <section class="section pp-scrollable home home-02 full-screen p-0" id="home">
+            <div class="container-fluid">
+                <div class="title-small">
+                    <p class="text-dark">Home</p>
+                </div>
+                <div class="row justify-content-center" id="home-slider">
+                    <div class="owl-carousel owl-theme">
+                        <div class="home-slide home-item1 full-screen"></div>
+                        <div class="home-slide home-item2 full-screen"></div>
+                        <div class="home-slide home-item3 full-screen"></div>
+                    </div>
+                </div>
+                <div class="text-center home-content">
+                    <div class="col-lg-12">
+                        <div class="home-content text-center">
+                            <img src="assets/img/rsz_1jeff_mugshot.jpg" alt="" class="rounded-circle img-thumbnail">
+                            <h3 class="text-dark mb-0 mt-3">Ik ben Jeffrey Brocx</h3>
+                            <h4 class="text-dark text-capitalize mb-3 typed-text">
+                                <span class="base-color">Een  </span>
+                                <span class="element" data-elements="T-shaped Software Engineer.,Gepassioneerd techneut.,Positief-Kritisch professional.,Breed geïnteresseerde IT'er.,Verbinder.,Vader.,Bourgondier.,Dungeon Master"></span>
+                            </h4>
+                            <div>
+                                <!-- <h5>Beschikbaar per: 01-01-1970</h5> -->
+                                <ul class="list-inline social-icon mt-2">
+                                    <li class="list-inline-item">
+                                        <a href="https://www.linkedin.com/in/jeffrey-brocx-b5148585/" target="_blank">
+                                            <i class="lni-linkedin-original text-dark"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-icon">
+                    <a href="#about">
+                        <i class="lni-arrow-down text-dark size-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!--   Home/home End    -->
+        <!--   About Start   -->
+        <section id="about" class="section pp-scrollable about text-dark">
+            <div class="display-table">
+                <div class="display-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="title-small">
+                                <p class="text-dark">Over mij</p>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-4">
+                                <img src="assets/img/jeff_mugshot.jpg" alt="/" class="rounded img-thumbnail w-100">
+                            </div>
+                            <div class="col-lg-8 personal-item  mb-4 mb-lg-0">
+                                <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
+                                <h5 class="text-dark mb-3">Hallo Ik ben Jeffrey Brocx</h5>
+                                <div class="row">
+                                    <div class="col-12">
+                                        Mijn loopbaan ben ik begonnen bij de Koninklijke Marine waar ik verbindelaar was. Daarna nog een tijdje in de offshore gezeten maar ik wilde nóg vaker thuis zijn dan 2 weken per maand.
+                                        Ik startte met mijn zoektocht naar IT kennis, een opleiding begonnen en snel aan het werk gegaan om zo snel mogelijk praktijkervaring op te doen, zo leer ik het efficiëntst.
+                                        Inmiddels heb ik vele verschillende projecten gedaan met uiteenlopende technieken, zowel thuis als in mijn werk.
+                                        In mijn eigen tijd ben ik, naast mijn andere hobbies zoals BBQ'en en Dungeons and Dragons, vooral bezig met: 
+                                        Rpi's, eigen server(s), security, pluralsight en andere IT-gerelateerde projecten met als hoofddoel kennisvergaring en vermaak.
+                                        <br>Mijn favoriete stack is C# .NET (CORE), Javascript, HTML, CSS, T-SQL, Azure en Vue.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="container">
+                                <div class="row mt-5">
+                                    <h6>Gewerkt voor o.a.:</h6>
+                                </div>
+                                <div class="row mt-4 rounded" style="align-items: baseline; background-color: rgb(255,255,255,0.5);">
+                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-5 mb-5">
+                                        <img style="max-width: 10em;" src="assets/img/achmea-logo.png" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
+                                        <img style="max-width: 10em;" src="assets/img/tres-logo.png" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
+                                        <img style="max-width: 10em;" src="assets/img/elfsquad-logo.png" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mb-5">
+                                        <img style="max-width: 10em;" src="assets/img/arrix-logo.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--   About End    -->
+        <!--   exp Start   -->
+        <section id="exp" class="section pp-scrollable exp">
+            <div class="display-table">
+                <div class="display-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="text-left">
+                                    <h2 class="text-dark mb-3">Mijn <span class="base-color">Ervaring</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-12">
+                                <h3 class="text-dark mb-2 mt-5 mt-lg-0"><i class="lni-pencil base-color"></i>Mijn laatste functies</h3>
+                                <ul class="timeline">
+                                    <!--<li>
+                                        <h6 class="base-color mb-0">Sr. NET Developer</h6>
+                                        <small class="text-muted">
+                                            C# | ASP.NET | T-SQL | SCRUM | MVC | Azure | HTML | CSS | EntityFramework | Security | 
+                                        </small>
+                                        <p class="text-dark py-3">
+                                            <span>
+                                                TODO: Elaborate
+                                            </span>
+                                        </p>
+                                    </li>-->
+                                    <li>
+                                        <h6 class="base-color mb-0">Lead Developer &amp; ScrumMaster</h6>
+                                        <small class="text-muted">
+                                            C# | ASP.NET | T-SQL | SCRUM | Angular | IS4 | MVC | Microsoft Orleans | Azure | Messagepack | Microservices | Docker | Kubernetes | HTML | CSS | SignalR | EntityFramework | Security
+                                        </small>
+                                        <p class="text-dark py-3">
+                                            <span>
+                                                Hier heb ik gewerkt in de rollen van Lead Developer en Scrummaster in een 80/20
+                                                vergelijking. Dit succesvolle project bestond voornamelijk uit het toevoegen van meerdere
+                                                functies aan een bestaande chatapplicatie die dagelijks door meer dan 200K patiënten wordt gebruikt om met hun zorgverlener te chatten.
+                                                Ook mijn sterke punt, het standaardiseren van processen en werkwijzen heb ik hier mogen toepassen.
+                                                Mijn team bestond uit 3 developers en 2 DevOps engineers. Enkele andere dingen die ik hier heb gedaan,
+                                                zijn verschillende .NET-migraties en hielpen bij het stapsgewijs implementeren van microservices.
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h6 class="base-color mb-0">FullStack Developer</h6>
+                                        <small class="text-muted">C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | IS4 | MVC | SiteCore | Vue | ALM | WebInspect</small>
+                                        <p class="text-dark py-3">
+                                            <span>
+                                                Als FullStack dev heb ik hier zowel veel FrontEnd- BackEnd gedaan in een multidiciplinair team met ~14 collega's.
+                                                Doordat het domein erg uitgebreid was en het applicatielandschap goed gevuld was met velerlei applicaties, heb ik hier erg veel mooie dingen mogen leren.
+                                                Ook heb ik hier de rol van Security-Champion vervuld.
+                                                Security Champion is iemand die een sterke affiniteit heeft met IT security.
+                                                "Zij zijn aangedragen door hun manager, omdat zij zich op het vlak van IT security willen ontwikkelen en actief het aspect IT Security inbedden in hun dagelijkse werk."
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h6 class="base-color mb-0">Lead Webdeveloper</h6>
+                                        <small class="text-muted">C# | ASP.NET | .NET CORE | T-SQL | EntityFramework | JavaScript | HTML | CSS | 2FA | JQuery | Azure | Vue.js | Quasar</small>
+                                        <p class="text-dark py-3">
+                                            <span>
+                                                In deze rol heb ik doorontwikkeld aan het bestaande applicatielandschap. Ook heb
+                                                ik hier een nieuwe beheeromgeving gerealiseerd in .NET CORE 3.1 met een Vue.js front-end welke beiden in
+                                                Azure draaien, dit met volledige CI/CD pipelines en stages.
+                                                In deze beheeromgeving zit een groot stuk CRM en een licentiesysteem.
+                                            </span>
+                                            <span>
+                                                Ook heb ik hier twee stagiares begeleid.
+                                            </span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row pt-6">
+                            <div class="col-lg-6">
+                                <div class="skill-box pt-4 pt-lg-0 mt-4 mt-lg-0">
+                                    <div class="skillbar clearfix" data-percent="95%">
+                                        <div class="skillbar-title"><span>.NET (CORE &amp; Standard)</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">95%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="95%">
+                                        <div class="skillbar-title"><span>HTML5</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">95%</div>
+                                    </div>
+                                    <div class="skillbar clearfix " data-percent="85%">
+                                        <div class="skillbar-title"><span>CSS3</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">85%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="90%">
+                                        <div class="skillbar-title"><span>SQL (&amp; server)</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">90%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="88%">
+                                        <div class="skillbar-title"><span>JavaScript</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">88%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="75%">
+                                        <div class="skillbar-title"><span>TypeScript</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">75%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="skill-box pt-4 pt-lg-0 mt-4 mt-lg-0">
+                                    <div class="skillbar clearfix" data-percent="95%">
+                                        <div class="skillbar-title"><span>Vue</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">95%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="65%">
+                                        <div class="skillbar-title"><span>Angular</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">65%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="80%">
+                                        <div class="skillbar-title"><span>Azure</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">80%</div>
+                                    </div>
+                                    <div class="skillbar clearfix " data-percent="80%">
+                                        <div class="skillbar-title"><span>Windows Server</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">80%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="70%">
+                                        <div class="skillbar-title"><span>Linux (Ubuntu)</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">70%</div>
+                                    </div>
+                                    <div class="skillbar clearfix" data-percent="95%">
+                                        <div class="skillbar-title"><span>Git</span></div>
+                                        <div class="skillbar-bar"></div>
+                                        <div class="skill-bar-percent">95%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--   exp End   -->
+        <!--   Color Scheme  -->
+        <div>
+            <a id="darkmodebutton" class="color-scheme text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-night"></i></a>
+            <a class="color-scheme color-scheme-light text-white bg-base-color d-none" href="javascript:void(0)"><i class="lni-sun"></i></a>
+        </div>
+    </div>
+    <!--  Page Pilling  End -->
+    <!--  Typed Js  -->
+    <script async src="assets/js/typed.js"></script>
+    <!--  JavaScripts  -->
+    <script defer src="assets/js/jquery-3.4.1.min.js"></script>
+    <!--   Page Pilling Js     -->
+    <script defer src="assets/js/jquery.pagepiling.js"></script>
+    <!--  Bootstrap Js  -->
+    <script defer src="assets/js/bootstrap.js?v=1"></script>
+    <!--  Count Js  -->
+    <script defer src="assets/js/jquery.countTo.js"></script>
+    <!--  Owl carousel Js  -->
+    <script defer src="assets/js/owl.carousel.min.js"></script>
+    <!--  Custom JS  -->
+    <script defer src="assets/js/app.js?v=3"></script>
+</body>
 </html>
