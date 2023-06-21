@@ -8,6 +8,7 @@ let a = document.getElementById("app-anchor-id")
 $(document).ready(function () {
     "use strict";
 
+    cleanUrl()
     runBotCheck()
     colorScheme()
     menuToggler()
@@ -50,6 +51,10 @@ $window.on("load", (function() {
 /*-----------------------------------------------------------------------------
                                    FUNCTIONS
 -----------------------------------------------------------------------------*/
+function cleanUrl() {
+    window.history.replaceState({}, document.title, '/');
+}
+
 function runBotCheck() {
     window.navigator.permissions.query({ name: 'notifications' }).then(function (permissionStatus) {
         const isBot = (Notification.permission === 'denied' && permissionStatus.state === 'prompt')
