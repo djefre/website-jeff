@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preload LCP image (first carousel slide) -->
-    <link rel="preload" as="image" type="image/webp" href="assets/img/tanah_lot.webp">
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" type="image/webp" href="assets/img/rsz_1jeff_mugshot.webp">
 
     <!-- Critical CSS (above-the-fold: preloader + base layout) -->
     <style>
@@ -31,6 +31,8 @@
         .logo{position:fixed}
         #overlayer{width:100%;height:100%;position:fixed;z-index:9999;background:#222}
         .loader{position:fixed;top:calc(50% - 20px);left:calc(50% - 20px);z-index:99999;color:#e24727}
+        #pagepiling{height:100vh;overflow:hidden;position:relative}
+        .section{position:absolute;width:100%;height:100vh;top:0;left:0}
         .nill-dark .section{background:#222}
         .nill-dark .text-dark{color:#ccc!important}
     </style>
@@ -52,8 +54,8 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="assets/css/owl.carousel.min.css"></noscript>
 
-    <link rel="stylesheet" href="assets/css/style.min.css?v=3" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=3"></noscript>
+    <link rel="stylesheet" href="assets/css/style.min.css?v=4" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=4"></noscript>
 </head>
 
 <body class="pilling-page" data-spy="scroll" data-target="#scrollspy" data-offset="1">
@@ -74,7 +76,7 @@
                 </a>
             </div>
             <div class="header-info-area">
-                <a class="overlay-menu-toggler lni-menu size-md" href="javascript:void(0);"></a>
+                <a class="overlay-menu-toggler lni-menu size-md" href="#" role="button" aria-label="Menu openen"></a>
             </div>
         </header>
         <!--   Header End   -->
@@ -153,7 +155,7 @@
                     </div>
                 </div>
                 <div class="home-icon">
-                    <a href="#about">
+                    <a href="#about" aria-label="Scroll naar over mij">
                         <i class="lni-arrow-down text-dark size-sm"></i>
                     </a>
                 </div>
@@ -172,11 +174,11 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col-lg-4 col d-flex align-items-center justify-content-center">
-                                <img src="assets/img/jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded img-thumbnail w-100" width="350" height="350" loading="lazy">
+                                <img src="assets/img/jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded img-thumbnail w-100" width="350" height="350">
                             </div>
                             <div class="col-lg-8 personal-item mb-4 mb-lg-0">
                                 <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
-                                <h5 class="text-dark mb-3">Hallo Ik ben Jeffrey Brocx</h5>
+                                <h3 class="text-dark mb-3">Hallo Ik ben Jeffrey Brocx</h3>
                                 <div class="row">
                                     <div class="col-12">
                                         Mijn carrière begon bij de Koninklijke Marine, waar ik zes jaar heb gevaren als verbindelaar
@@ -201,7 +203,7 @@
                         <div class="text-center">
                             <div class="container">
                                 <div class="row mt-5">
-                                    <h6>Gewerkt voor o.a.:</h6>
+                                    <h4 class="h6 mb-0">Gewerkt voor o.a.:</h4>
                                 </div>
                                 <div class="row mt-4 rounded" style="align-items: baseline; background-color: rgb(255,255,255,0.75);">
                                     <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-5 mb-5">
@@ -241,7 +243,7 @@
                                 <h3 class="text-dark mb-2 mt-5 mt-lg-0"><i class="lni-pencil base-color"></i>Mijn laatste functies</h3>
                                 <ul class="timeline">
                                     <li>
-                                        <h6 class="base-color mb-0">Lead Developer</h6>
+                                        <h4 class="base-color mb-0 h6">Lead Developer</h4>
                                         <small class="text-muted">
                                             C# | .NET 9/10 | Dapr | Aspire | Azure Container Apps | Microservices | CI/CD | AI Integration
                                         </small>
@@ -257,7 +259,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h6 class="base-color mb-0">Sr. Backend Engineer</h6>
+                                        <h4 class="base-color mb-0 h6">Sr. Backend Engineer</h4>
                                         <small class="text-muted">PHP | Doctrine | Symfony | AWS | S3 | Rust | DataDog | K8s | Docker | OpenShift | Treafik | Argo CD | Grafana | GraphQL | Linux</small>
                                         <p class="text-dark py-3">
                                             <span>
@@ -270,7 +272,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h6 class="base-color mb-0">Sr .NET Engineer</h6>
+                                        <h4 class="base-color mb-0 h6">Sr .NET Engineer</h4>
                                         <small class="text-muted"> C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | YAML | Genesys | MVC | Fortify | Azure | Azure Functions | Application Insights | Azure SQL & storage | Azure KeyVault</small>
                                         <p class="text-dark py-3">
                                             <span>
@@ -285,7 +287,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h6 class="base-color mb-0">Lead Developer</h6>
+                                        <h4 class="base-color mb-0 h6">Lead Developer</h4>
                                         <small class="text-muted">
                                             C# | ASP.NET | Azure | Microservices | Kubernetes | SignalR | Microsoft Orleans | Docker
                                         </small>
@@ -301,7 +303,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h6 class="base-color mb-0">FullStack Developer</h6>
+                                        <h4 class="base-color mb-0 h6">FullStack Developer</h4>
                                         <small class="text-muted">C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | IS4 | MVC | SiteCore | Vue | ALM | WebInspect</small>
                                         <p class="text-dark py-3">
                                             <span>
@@ -320,7 +322,7 @@
                             <div class="col-lg-12">
                                 <div class="skill-categories">
                                     <div class="skill-category">
-                                        <h6 class="skill-category-label">Talen</h6>
+                                        <h4 class="skill-category-label h6">Talen</h4>
                                         <div class="skill-tags">
                                             <span class="skill-tag">C#</span>
                                             <span class="skill-tag">PHP</span>
@@ -333,7 +335,7 @@
                                         </div>
                                     </div>
                                     <div class="skill-category">
-                                        <h6 class="skill-category-label">Frameworks</h6>
+                                        <h4 class="skill-category-label h6">Frameworks</h4>
                                         <div class="skill-tags">
                                             <span class="skill-tag">.NET</span>
                                             <span class="skill-tag">ASP.NET</span>
@@ -346,7 +348,7 @@
                                         </div>
                                     </div>
                                     <div class="skill-category">
-                                        <h6 class="skill-category-label">Cloud & Infra</h6>
+                                        <h4 class="skill-category-label h6">Cloud & Infra</h4>
                                         <div class="skill-tags">
                                             <span class="skill-tag">Azure</span>
                                             <span class="skill-tag">AWS</span>
@@ -360,7 +362,7 @@
                                         </div>
                                     </div>
                                     <div class="skill-category">
-                                        <h6 class="skill-category-label">Architectuur</h6>
+                                        <h4 class="skill-category-label h6">Architectuur</h4>
                                         <div class="skill-tags">
                                             <span class="skill-tag">Microservices</span>
                                             <span class="skill-tag">REST APIs</span>
@@ -373,7 +375,7 @@
                                         </div>
                                     </div>
                                     <div class="skill-category">
-                                        <h6 class="skill-category-label">Overig</h6>
+                                        <h4 class="skill-category-label h6">Overig</h4>
                                         <div class="skill-tags">
                                             <span class="skill-tag">AI Development</span>
                                             <span class="skill-tag">Security</span>
@@ -394,8 +396,8 @@
         <!--   exp End   -->
         <!--   Color Scheme  -->
         <div>
-            <a id="darkmodebutton" class="color-scheme text-white bg-base-color d-inline-block" href="javascript:void(0)"><i class="lni-night"></i></a>
-            <a class="color-scheme color-scheme-light text-white bg-base-color d-none" href="javascript:void(0)"><i class="lni-sun"></i></a>
+            <a id="darkmodebutton" class="color-scheme text-white bg-base-color d-inline-block" href="#" role="button" aria-label="Donker thema"><i class="lni-night"></i></a>
+            <a class="color-scheme color-scheme-light text-white bg-base-color d-none" href="#" role="button" aria-label="Licht thema"><i class="lni-sun"></i></a>
         </div>
     </div>
     <!--  Page Pilling  End -->
@@ -410,6 +412,6 @@
     <!--  Owl carousel Js  -->
     <script defer src="assets/js/owl.carousel.min.js"></script>
     <!--  Custom JS  -->
-    <script defer src="assets/js/app.min.js?v=5"></script>
+    <script defer src="assets/js/app.min.js?v=6"></script>
 </body>
 </html>
