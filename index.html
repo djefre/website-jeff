@@ -33,6 +33,7 @@
         .loader{position:fixed;top:calc(50% - 20px);left:calc(50% - 20px);z-index:99999;color:#e24727}
         #pagepiling{height:100vh;overflow:hidden;position:relative}
         .section{position:absolute;width:100%;height:100vh;top:0;left:0}
+        .pp-section{position:absolute;width:100%;height:100vh;top:0;left:0}
         .nill-dark .section{background:#222}
         .nill-dark .text-dark{color:#ccc!important}
     </style>
@@ -42,8 +43,8 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
 
     <!--  Non-critical CSS (async loading) -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=2" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/bootstrap.min.css?v=2"></noscript>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=3" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/bootstrap.min.css?v=3"></noscript>
 
     <link rel="stylesheet" href="assets/css/jquery.pagepiling.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="assets/css/jquery.pagepiling.css"></noscript>
@@ -54,8 +55,8 @@
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="assets/css/owl.carousel.min.css"></noscript>
 
-    <link rel="stylesheet" href="assets/css/style.min.css?v=4" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=4"></noscript>
+    <link rel="stylesheet" href="assets/css/style.min.css?v=6" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=6"></noscript>
 </head>
 
 <body class="pilling-page" data-spy="scroll" data-target="#scrollspy" data-offset="1">
@@ -114,7 +115,17 @@
                                 <!-- <li class="list-group-item"><span><i class="lni-envelope"></i> <a href="#contact">Contactformulier</a></span></li> -->
                                 <li class="list-group-item"><span>Socials:</span></li>
                                 <li class="list-group-item">
-                                    <ul class="list-inline socails">
+                                    <ul class="list-inline socials">
+                                        <li class="list-inline-item">
+                                            <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank">
+                                                <i class="lni-linkedin-original"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="https://github.com/djefre" target="_blank">
+                                                <i class="lni-github"></i>
+                                            </a>
+                                        </li>
                                         <li class="list-inline-item">
                                             <a id="app-anchor-id" href="#" target="_blank">
                                                 <i class="lni-whatsapp"></i>
@@ -151,6 +162,18 @@
                                 <span class="base-color">Een  </span>
                                 <span class="element" data-elements="Lead Developer.,Techneut.,Verbinder.,Vader.,Bourgondier.,Motorrijder."></span>
                             </h4>
+                            <ul class="list-inline social-icon mt-2">
+                                <li class="list-inline-item">
+                                    <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" aria-label="LinkedIn">
+                                        <i class="lni-linkedin-original text-dark"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://github.com/djefre" target="_blank" aria-label="GitHub">
+                                        <i class="lni-github text-dark"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -174,7 +197,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col-lg-4 col d-flex align-items-center justify-content-center">
-                                <img src="assets/img/jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded img-thumbnail w-100" width="350" height="350">
+                                <img src="assets/img/jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded img-thumbnail" style="max-width:100%;width:350px;height:auto;" width="350" height="350">
                             </div>
                             <div class="col-lg-8 personal-item mb-4 mb-lg-0">
                                 <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
@@ -243,75 +266,58 @@
                                 <h3 class="text-dark mb-2 mt-3 mt-lg-0"><i class="lni-pencil base-color"></i>Mijn laatste functies</h3>
                                 <ul class="timeline">
                                     <li>
-                                        <h4 class="base-color mb-0 h6">Lead Developer</h4>
+                                        <h4 class="base-color mb-0 h6">Lead Developer <small class="text-muted" style="font-size: 0.75em;">· transport / cloud</small></h4>
                                         <small class="text-muted">
                                             C# | .NET 9/10 | Dapr | Aspire | Azure Container Apps | Microservices | CI/CD | AI Integration
                                         </small>
                                         <p class="text-dark py-3">
                                             <span>
-                                                Lead Developer en technisch strateeg bij een transportbedrijf. Verantwoordelijk voor architectuur
-                                                en doorontwikkeling van het cloud-native platform met een team van 4 developers. AI-gedreven
-                                                development workflows geïmplementeerd, resulterend in ~40% snellere oplevercycli.
-                                                Cloud-infrastructuur gearchitecteerd met .NET 9/10, Dapr en Azure Container Apps, van monoliet
-                                                naar schaalbare microservices. Engineering best practices neergezet en fungeer als technische
-                                                brug tussen business en development.
+                                                Een cloud-native platform van test naar productie gebracht met een team van 4 devs.
+                                                Gebouwd met .NET 9/10, Dapr en Azure Container Apps. Legacy software die wel een
+                                                opknapbeurt kon gebruiken, waar mogelijk omgebouwd naar schaalbare microservices.
+                                                AI in ons ontwikkelproces gevlochten, wat het opleveren flink versneld heeft.
+                                                De schakel tussen business en development.
                                             </span>
                                         </p>
                                     </li>
                                     <li>
-                                        <h4 class="base-color mb-0 h6">Sr. Backend Engineer</h4>
+                                        <h4 class="base-color mb-0 h6">Sr. Backend Engineer <small class="text-muted" style="font-size: 0.75em;">· media</small></h4>
                                         <small class="text-muted">PHP | Doctrine | Symfony | AWS | S3 | Rust | DataDog | K8s | Docker | OpenShift | Treafik | Argo CD | Grafana | GraphQL | Linux</small>
                                         <p class="text-dark py-3">
                                             <span>
-                                                Verantwoordelijk voor de ontwikkeling en het onderhoud van backend-systemen, met een sterke focus 
-                                                op prestatieoptimalisatie en schaalbaarheid. Ik werkte voornamelijk met PHP voor het ondersteunen 
-                                                en verbeteren van bestaande systemen en was actief betrokken bij migratieplannen naar nieuwere 
-                                                technologieën zoals Rust. In samenwerking met multidisciplinaire teams verbeterde ik interne processen 
-                                                en leverde ik betrouwbare oplossingen voor grootschalige mediatoepassingen.
+                                                Backend-systemen draaiende houden en sneller maken bij een groot mediaplatform.
+                                                Veel PHP, niet altijd sexy, maar wel de realiteit. Performance en schaalbaarheid
+                                                waren hier de rode draad. Daarnaast betrokken bij de migratieplannen richting Rust
+                                                voor de zwaardere stukken. Infra draaide op Kubernetes en OpenShift. Samen met het
+                                                team interne processen verbeterd en betrouwbare oplossingen neergezet.
                                             </span>
                                         </p>
                                     </li>
                                     <li>
-                                        <h4 class="base-color mb-0 h6">Sr .NET Engineer</h4>
+                                        <h4 class="base-color mb-0 h6">Sr .NET Engineer <small class="text-muted" style="font-size: 0.75em;">· verzekeringen / chat</small></h4>
                                         <small class="text-muted"> C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | YAML | Genesys | MVC | Fortify | Azure | Azure Functions | Application Insights | Azure SQL & storage | Azure KeyVault</small>
                                         <p class="text-dark py-3">
                                             <span>
-                                                Als Senior .NET Engineer bij Achmea was ik verantwoordelijk voor de ontwikkeling van generieke software, 
-                                                met een focus op chatoplossingen binnen een Agile Release Train (ART). Deze oplossingen werden gebruikt door 
-                                                merken als Centraal Beheer, FBTO, Zilveren Kruis en Interpolis. Een kernproject was de succesvolle migratie 
-                                                van on-premises systemen naar de cloud, wat resulteerde in verbeterde schaalbaarheid en efficiëntie.
-                                                Naast het standaardiseren van ontwikkelprocessen en het verhogen van kwaliteitsnormen, coachte ik junior ontwikkelaars. 
-                                                Als Security Champion lag mijn focus op systeembeveiliging en integriteit. Mijn werk droeg direct bij aan een betere operationele 
-                                                efficiëntie en effectiviteit van Achmea.
+                                                Chatoplossingen gebouwd die door meerdere grote merken van een verzekeraar werden
+                                                gebruikt. Het leukste stuk: de migratie van on-prem naar de cloud. Daarnaast junior
+                                                devs gecoacht en als Security Champion de boel scherp gehouden op beveiligingsvlak.
+                                                Ontwikkelprocessen gestandaardiseerd en kwaliteitsnormen opgeschroefd.
                                             </span>
                                         </p>
                                     </li>
                                     <li>
-                                        <h4 class="base-color mb-0 h6">Lead Developer</h4>
+                                        <h4 class="base-color mb-0 h6">Lead Developer <small class="text-muted" style="font-size: 0.75em;">· zorg / chat</small></h4>
                                         <small class="text-muted">
                                             C# | ASP.NET | Azure | Microservices | Kubernetes | SignalR | Microsoft Orleans | Docker
                                         </small>
                                         <p class="text-dark py-3">
                                             <span>
-                                                Hier heb ik gewerkt in de rollen van Lead Developer en Scrummaster in een 80/20
-                                                vergelijking. Dit succesvolle project bestond voornamelijk uit het toevoegen van meerdere
-                                                functies aan een bestaande chatapplicatie die dagelijks door meer dan 200K patiënten wordt gebruikt om met hun zorgverlener te chatten.
-                                                Ook mijn sterke punt, het standaardiseren van processen en werkwijzen heb ik hier mogen toepassen.
-                                                Mijn team bestond uit 3 developers en 2 DevOps engineers. Enkele andere dingen die ik hier heb gedaan,
-                                                zijn verschillende .NET-migraties en hielpen bij het stapsgewijs implementeren van microservices.
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <h4 class="base-color mb-0 h6">FullStack Developer</h4>
-                                        <small class="text-muted">C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | IS4 | MVC | SiteCore | Vue | ALM | WebInspect</small>
-                                        <p class="text-dark py-3">
-                                            <span>
-                                                Als FullStack dev heb ik hier zowel veel FrontEnd- BackEnd gedaan in een multidiciplinair team met ~14 collega's.
-                                                Doordat het domein erg uitgebreid was en het applicatielandschap goed gevuld was met velerlei applicaties, heb ik hier erg veel mooie dingen mogen leren.
-                                                Ook heb ik hier de rol van Security-Champion vervuld.
-                                                Security Champion is iemand die een sterke affiniteit heeft met IT security.
-                                                "Zij zijn aangedragen door hun manager, omdat zij zich op het vlak van IT security willen ontwikkelen en actief het aspect IT Security inbedden in hun dagelijkse werk."
+                                                Lead Developer en deels Scrummaster bij een chatplatform in de zorg, dagelijks
+                                                gebruikt door een grote groep patiënten om met hun zorgverlener te communiceren.
+                                                Team van 3 devs en 2 DevOps engineers. Meerdere features toegevoegd,
+                                                .NET-migraties gedaan en stap voor stap microservices geïntroduceerd. En mijn
+                                                stokpaardje: processen en werkwijzen stroomlijnen zodat iedereen weet waar ze
+                                                aan toe zijn.
                                             </span>
                                         </p>
                                     </li>
@@ -412,6 +418,6 @@
     <!--  Owl carousel Js  -->
     <script defer src="assets/js/owl.carousel.min.js"></script>
     <!--  Custom JS  -->
-    <script defer src="assets/js/app.min.js?v=6"></script>
+    <script defer src="assets/js/app.min.js?v=7"></script>
 </body>
 </html>
