@@ -43,7 +43,18 @@ $window.on("load", (function() {
     $("#overlayer").delay(200).fadeOut('slow');
     $(".loader").delay(400).fadeOut('slow');
     pagePilling();
-    // portfolioIsotop(); // USED FOR PORTFOLIO
+    // Lazy load offscreen carousel backgrounds after idle
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+            $('.home-item2').css('background-image', 'url(assets/img/m863.webp)');
+            $('.home-item3').css('background-image', 'url(assets/img/borobudur.webp)');
+        });
+    } else {
+        setTimeout(function() {
+            $('.home-item2').css('background-image', 'url(assets/img/m863.webp)');
+            $('.home-item3').css('background-image', 'url(assets/img/borobudur.webp)');
+        }, 2000);
+    }
 }));
 
 /*-----------------------------------------------------------------------------
@@ -86,10 +97,10 @@ function pagePilling(){
         menu: '#myMenu',
         direction: 'vertical',
         verticalCentered: true,
-        anchors: ['home', 'about', 'exp', /*'services', 'portfolio', 'testimonial', 'blog'*/],
+        anchors: ['home', 'about', 'exp', 'links'],
         navigation: {
             'position': 'right',
-            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/]
+            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', 'LINKS']
         },
         loopBottom: false,
         loopTop: false,

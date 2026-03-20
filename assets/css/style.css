@@ -1,3 +1,13 @@
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes skill-border-spin {
+  to { --border-angle: 360deg; }
+}
+
 /***********************
     1.GENERAL
     2.PRELOADER
@@ -259,11 +269,13 @@ header {
 }
 
 .title-small {
-  position: absolute;
-  top: calc(50% - 12px);
+  position: sticky;
+  top: calc(50vh - 12px);
   width: 280px;
-  left: -7rem;
+  margin-left: -7rem;
   z-index: 2;
+  height: 0;
+  overflow: visible;
 }
 
 .title-small p {
@@ -355,7 +367,7 @@ header {
   top: 2px;
 }
 
-.overlay-menu .overlay-menu-list .overlay-nav .contact-info .socails li i {
+.overlay-menu .overlay-menu-list .overlay-nav .contact-info .socials li i {
   font-size: 20px;
   font-weight: 400;
 }
@@ -468,11 +480,11 @@ header {
 }
 
 .home-02 .home-item2 {
-  background: url("../img/m863.webp") no-repeat center;
+  background: no-repeat center;
 }
 
 .home-02 .home-item3 {
-  background: url("../img/borobudur.webp") no-repeat center;
+  background: no-repeat center;
 }
 
 .home-02 .home-slide {
@@ -686,7 +698,7 @@ ul.timeline > li:before {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #e24727;
-  min-width: 100px;
+  min-width: 160px;
   margin-bottom: 0;
 }
 
@@ -702,16 +714,34 @@ ul.timeline > li:before {
   font-size: 13px;
   font-weight: 500;
   font-family: "Muli", sans-serif;
-  color: #2a2a2b;
-  background-color: rgba(226, 71, 39, 0.08);
-  border: 1px solid rgba(226, 71, 39, 0.25);
-  border-radius: 4px;
-  transition: all 0.2s ease;
+  color: rgba(226, 71, 39, 0.85);
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.skill-tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 1px;
+  background: conic-gradient(from var(--border-angle), rgba(226,71,39,0.12), rgba(226,71,39,0.5), rgba(226,71,39,0.12));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: skill-border-spin 6s linear infinite;
 }
 
 .skill-tag:hover {
-  background-color: rgba(226, 71, 39, 0.15);
-  border-color: rgba(226, 71, 39, 0.4);
+  color: #e24727;
+}
+
+.skill-tag:hover::before {
+  background: conic-gradient(from var(--border-angle), rgba(226,71,39,0.2), rgba(226,71,39,0.7), rgba(226,71,39,0.2));
 }
 
 /*-------------------------
@@ -801,12 +831,12 @@ ul.timeline > li:before {
           box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.4);
 }
 
-.footer .socails li i {
+.footer .socials li i {
   font-size: 20px;
   font-weight: 400;
 }
 
-.footer .socails li i:hover {
+.footer .socials li i:hover {
   color: #e24727 !important;
 }
 
@@ -894,6 +924,47 @@ ul.timeline > li:before {
 }
 
 .right-social ul li a:hover i {
+  color: #e24727 !important;
+}
+
+/*-------------------------
+        Links Section
+-------------------------*/
+.links .row {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link-card {
+  background: none;
+  border: none;
+  transition: transform 0.3s ease;
+  flex-direction: column !important;
+}
+
+.link-card:hover {
+  transform: translateY(-3px);
+}
+
+.link-card i {
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover i {
+  transform: scale(1.15);
+}
+
+.link-card p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+body:not(.nill-dark) .link-card p {
+  color: #555 !important;
+}
+
+body:not(.nill-dark) .link-card:hover p {
   color: #e24727 !important;
 }
 
@@ -1110,25 +1181,27 @@ body.nill-dark {
 }
 
 .nill-dark .skill-tag {
-  color: #f4f4f4;
-  background-color: rgba(226, 71, 39, 0.15);
-  border-color: rgba(226, 71, 39, 0.35);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .nill-dark .skill-tag:hover {
-  background-color: rgba(226, 71, 39, 0.25);
-  border-color: rgba(226, 71, 39, 0.5);
+  color: #fff;
 }
 
 .nill-dark.mono .skill-tag {
-  color: #f4f4f4;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nill-dark.mono .skill-tag::before {
+  background: conic-gradient(from var(--border-angle), rgba(255,255,255,0.08), rgba(255,255,255,0.35), rgba(255,255,255,0.08));
 }
 
 .nill-dark.mono .skill-tag:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.nill-dark.mono .skill-tag:hover::before {
+  background: conic-gradient(from var(--border-angle), rgba(255,255,255,0.15), rgba(255,255,255,0.5), rgba(255,255,255,0.15));
 }
 
 .nill-dark.mono .skill-category-label {
@@ -1181,7 +1254,7 @@ body.nill-dark {
   color: #f4f4f4 !important;
 }
 
-.nill-dark.mono .footer .socails li i:hover {
+.nill-dark.mono .footer .socials li i:hover {
   color: #919191 !important;
 }
 
