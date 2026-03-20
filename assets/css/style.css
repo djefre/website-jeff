@@ -24,6 +24,11 @@ body {
   overscroll-behavior-y: contain;
 }
 
+/* Fix subpixel gap between pagepiling sections during transitions */
+.nill-dark .pp-section {
+  outline: 1px solid #222;
+}
+
 ::-moz-selection {
   background: rgba(255, 74, 41, 0.3);
 }
@@ -459,15 +464,15 @@ header {
 }
 
 .home-02 .home-item1 {
-  background: url("../img/tanah_lot.jpg") no-repeat center;
+  background: url("../img/tanah_lot.webp") no-repeat center;
 }
 
 .home-02 .home-item2 {
-  background: url("../img/m863.jpg") no-repeat center;
+  background: url("../img/m863.webp") no-repeat center;
 }
 
 .home-02 .home-item3 {
-  background: url("../img/borobudur.jpg") no-repeat center;
+  background: url("../img/borobudur.webp") no-repeat center;
 }
 
 .home-02 .home-slide {
@@ -659,48 +664,54 @@ ul.timeline > li:before {
 }
 
 /*-------------------------
-          Skill
+        Skill Categories
 -------------------------*/
-.skill-box .skillbar {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 2px;
-  border-radius: 5px;
-  -webkit-transition: 0.1s linear;
-  transition: 0.1s linear;
-  background: #eee;
+.skill-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.skill-box .skillbar:not(:last-child) {
-  margin-bottom: 40px;
+.skill-category {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 
-.skill-box .skillbar-title {
-  position: absolute;
-  top: -28px;
-  left: -17px;
+.skill-category-label {
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e24727;
+  min-width: 100px;
+  margin-bottom: 0;
 }
 
-.skill-box .skillbar-title span {
-  margin-left: 18px;
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.skill-box .skillbar-bar {
-  height: 2px;
-  width: 0;
-  border-radius: 3px;
-  float: left;
-  background: #e24727;
-}
-
-.skill-box .skill-bar-percent {
-  position: absolute;
+.skill-tag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-size: 13px;
   font-weight: 500;
-  bottom: 8px;
-  right: 0;
+  font-family: "Muli", sans-serif;
+  color: #2a2a2b;
+  background-color: rgba(226, 71, 39, 0.08);
+  border: 1px solid rgba(226, 71, 39, 0.25);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background-color: rgba(226, 71, 39, 0.15);
+  border-color: rgba(226, 71, 39, 0.4);
 }
 
 /*-------------------------
@@ -1098,12 +1109,30 @@ body.nill-dark {
   border: 3px solid #ffffff;
 }
 
-.nill-dark.mono .skill-box .skillbar-bar {
-  background: #ffffff;
+.nill-dark .skill-tag {
+  color: #f4f4f4;
+  background-color: rgba(226, 71, 39, 0.15);
+  border-color: rgba(226, 71, 39, 0.35);
 }
 
-.nill-dark.mono .skill-box .skillbar {
-  background-color: #929292;
+.nill-dark .skill-tag:hover {
+  background-color: rgba(226, 71, 39, 0.25);
+  border-color: rgba(226, 71, 39, 0.5);
+}
+
+.nill-dark.mono .skill-tag {
+  color: #f4f4f4;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.nill-dark.mono .skill-tag:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.nill-dark.mono .skill-category-label {
+  color: #ffffff;
 }
 
 .nill-dark.mono .portfolio .portfolio-filter a.active {
