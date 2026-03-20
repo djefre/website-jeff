@@ -97,10 +97,10 @@ function pagePilling(){
         menu: '#myMenu',
         direction: 'vertical',
         verticalCentered: true,
-        anchors: ['home', 'about', 'exp', /*'services', 'portfolio', 'testimonial', 'blog'*/],
+        anchors: ['home', 'about', 'exp', 'links'],
         navigation: {
             'position': 'right',
-            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/]
+            'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', 'LINKS']
         },
         loopBottom: false,
         loopTop: false,
