@@ -6,26 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Jeffrey Brocx</title>
     <meta name="description" content="Jeffrey Brocx — Lead Developer .NET & Azure. Cloud-native architectuur, microservices en team coaching." />
-    <meta name="keywords" content="Jeffrey Brocx, Lead Developer, .NET, Azure, C#, microservices, cloud-native, Dapr, Aspire, team coaching" />
     <meta name="author" content="Jeffrey Brocx" />
 
     <!--  FavIcon  -->
-    <link async rel="shortcut icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
 
-    <!-- Google Fonts -->
-    <link async href="https://fonts.googleapis.com/css?family=Muli:400,600" rel="stylesheet">
-    <link async href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!--  bootstrap Css  -->
-    <link async rel="stylesheet" href="assets/css/bootstrap.min.css?v=1">
-    <!--  pagepiling Css  -->
-    <link async rel="stylesheet" type="text/css" href="assets/css/jquery.pagepiling.css" />
-    <!--  LineIcon Css  -->
-    <link async rel="stylesheet" href="assets/css/LineIcons.min.css">
-    <!--  OwlCarousel Css  -->
-    <link async rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <!--  Custom Style CSS -->
-    <link async rel="stylesheet" href="assets/css/style.css?v=2">
+    <!-- Preload LCP image (first carousel slide) -->
+    <link rel="preload" as="image" type="image/webp" href="assets/img/tanah_lot.webp">
+
+    <!-- Critical CSS (above-the-fold: preloader + base layout) -->
+    <style>
+        html,body{background:#222}
+        body{font-family:"Muli",sans-serif;overscroll-behavior-y:contain;margin:0}
+        ::-moz-selection{background:rgba(255,74,41,.3)}::selection{background:rgba(255,74,41,.3)}
+        .full-screen{height:100vh}
+        h1,h2,h3,h4,h5,h6{font-family:"Poppins",sans-serif;line-height:1.618}
+        .base-color{color:#e24727!important}
+        .bg-base-color{background-color:#e24727!important}
+        header{height:64px;padding:15px;width:100%;background-color:transparent;position:fixed;z-index:1030;top:0}
+        .logo{position:fixed}
+        #overlayer{width:100%;height:100%;position:fixed;z-index:9999;background:#222}
+        .loader{position:fixed;top:calc(50% - 20px);left:calc(50% - 20px);z-index:99999;color:#e24727}
+        .nill-dark .section{background:#222}
+        .nill-dark .text-dark{color:#ccc!important}
+    </style>
+
+    <!-- Google Fonts (non-blocking) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600&family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+
+    <!--  Non-critical CSS (async loading) -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=2" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/bootstrap.min.css?v=2"></noscript>
+
+    <link rel="stylesheet" href="assets/css/jquery.pagepiling.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/jquery.pagepiling.css"></noscript>
+
+    <link rel="stylesheet" href="assets/css/LineIcons.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/LineIcons.min.css"></noscript>
+
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/owl.carousel.min.css"></noscript>
+
+    <link rel="stylesheet" href="assets/css/style.min.css?v=3" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=3"></noscript>
 </head>
 
 <body class="pilling-page" data-spy="scroll" data-target="#scrollspy" data-offset="1">
@@ -42,7 +70,7 @@
         <header>
             <div class="logo-area">
                 <a href="index.html" class="logo">
-                    <img src="assets/img/logo.png">
+                    <img src="assets/img/logo.png" alt="Jeffrey Brocx" width="53" height="70">
                 </a>
             </div>
             <div class="header-info-area">
@@ -115,7 +143,7 @@
                 <div class="text-center home-content">
                     <div class="col-lg-12">
                         <div class="home-content text-center">
-                            <img src="assets/img/rsz_1jeff_mugshot.jpg" alt="" class="rounded-circle img-thumbnail">
+                            <img src="assets/img/rsz_1jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded-circle img-thumbnail" width="250" height="250">
                             <h3 class="text-dark mb-0 mt-3">Ik ben Jeffrey Brocx</h3>
                             <h4 class="text-dark text-capitalize mb-3 typed-text">
                                 <span class="base-color">Een  </span>
@@ -144,7 +172,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col-lg-4 col d-flex align-items-center justify-content-center">
-                                <img src="assets/img/jeff_mugshot.jpg" alt="/" class="rounded img-thumbnail w-100">
+                                <img src="assets/img/jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded img-thumbnail w-100" width="350" height="350" loading="lazy">
                             </div>
                             <div class="col-lg-8 personal-item mb-4 mb-lg-0">
                                 <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
@@ -177,16 +205,16 @@
                                 </div>
                                 <div class="row mt-4 rounded" style="align-items: baseline; background-color: rgb(255,255,255,0.75);">
                                     <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-5 mb-5">
-                                        <img style="max-width: 10em;" src="assets/img/achmea-logo.png" />
+                                        <img style="max-width: 10em; height: auto;" src="assets/img/achmea-logo.webp" alt="Achmea" width="1272" height="424" loading="lazy" />
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
-                                        <img style="max-width: 10em;" src="assets/img/nos-logo.svg" />
+                                        <img style="max-width: 10em; height: auto;" src="assets/img/nos-logo.svg" alt="NOS" width="405" height="143" loading="lazy" />
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
-                                        <img style="max-width: 10em;" src="assets/img/elfsquad-logo.png" />
+                                        <img style="max-width: 10em; height: auto;" src="assets/img/elfsquad-logo.webp" alt="Elfsquad" width="1000" height="195" loading="lazy" />
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mb-5">
-                                        <img style="max-width: 10em;" src="assets/img/arrix-logo.png" />
+                                        <img style="max-width: 10em; height: auto;" src="assets/img/arrix-logo.png" alt="Arrix" width="175" height="80" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -372,18 +400,16 @@
     </div>
     <!--  Page Pilling  End -->
     <!--  Typed Js  -->
-    <script async src="assets/js/typed.js"></script>
+    <script async src="assets/js/typed.min.js?v=2"></script>
     <!--  JavaScripts  -->
     <script defer src="assets/js/jquery-3.4.1.min.js"></script>
     <!--   Page Pilling Js     -->
-    <script defer src="assets/js/jquery.pagepiling.js"></script>
+    <script defer src="assets/js/jquery.pagepiling.min.js?v=2"></script>
     <!--  Bootstrap Js  -->
-    <script defer src="assets/js/bootstrap.js?v=1"></script>
-    <!--  Count Js  -->
-    <script defer src="assets/js/jquery.countTo.js"></script>
+    <script defer src="assets/js/bootstrap.min.js?v=2"></script>
     <!--  Owl carousel Js  -->
     <script defer src="assets/js/owl.carousel.min.js"></script>
     <!--  Custom JS  -->
-    <script defer src="assets/js/app.js?v=4"></script>
+    <script defer src="assets/js/app.min.js?v=5"></script>
 </body>
 </html>

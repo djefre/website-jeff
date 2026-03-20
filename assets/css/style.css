@@ -24,6 +24,11 @@ body {
   overscroll-behavior-y: contain;
 }
 
+/* Fix subpixel gap between pagepiling sections during transitions */
+.nill-dark .pp-section {
+  outline: 1px solid #222;
+}
+
 ::-moz-selection {
   background: rgba(255, 74, 41, 0.3);
 }
@@ -459,15 +464,15 @@ header {
 }
 
 .home-02 .home-item1 {
-  background: url("../img/tanah_lot.jpg") no-repeat center;
+  background: url("../img/tanah_lot.webp") no-repeat center;
 }
 
 .home-02 .home-item2 {
-  background: url("../img/m863.jpg") no-repeat center;
+  background: url("../img/m863.webp") no-repeat center;
 }
 
 .home-02 .home-item3 {
-  background: url("../img/borobudur.jpg") no-repeat center;
+  background: url("../img/borobudur.webp") no-repeat center;
 }
 
 .home-02 .home-slide {
