@@ -15,7 +15,6 @@ $(document).ready(function () {
     sliderOwlCarousel()
     swiperSlider()
     typedJS()
-    skills()
     $('.owl-item.active .home-slide').addClass('zoom')
         
     // // Detect preferred theme and set theme to dark if user is a darkmode user
@@ -236,19 +235,6 @@ function typedJS() {
     }
 }
 
-/*-------------------------
-            Skills
--------------------------*/
-function skills() {
-
-    "use strict";
-    
-    $('.skillbar').each(function () {
-        $(this).find('.skillbar-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 6000);
-    });
-}
 
 /*-------------------------
             Count up
