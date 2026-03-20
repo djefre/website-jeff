@@ -92,8 +92,8 @@ function pagePilling(){
             'position': 'right',
             'tooltips': ['HOME', 'OVER MIJ', 'ERVARING', /*'SERVICES', 'PORTFOLIO', 'CLIENT', 'BLOG',*/]
         },
-        loopBottom: true,
-        loopTop: true,
+        loopBottom: false,
+        loopTop: false,
         scrollingSpeed: 700,
         easing: 'swing',
         css3: true,
