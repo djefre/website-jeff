@@ -6,7 +6,7 @@
   <title>Jeffrey Brocx — Onafhankelijk technisch advies</title>
   <meta name="description" content="Jeffrey Brocx helpt organisaties zien waar software, AI en automatisering écht waarde opleveren. Van technische onzekerheid naar heldere keuzes en uitvoerbare stappen.">
   <meta name="author" content="Jeffrey Brocx">
-  <meta name="theme-color" content="#2a0e3a">
+  <meta name="theme-color" content="#f4eee4">
   <link rel="canonical" href="https://jeffrey.brocx.io/">
   <link rel="icon" href="assets/img/logo.png">
 
@@ -17,14 +17,17 @@
   <meta property="og:title" content="Jeffrey Brocx — Onafhankelijk technisch advies">
   <meta property="og:description" content="Ik help organisaties zien waar software, AI en automatisering écht waarde opleveren. Geen hype, geen jargon — heldere keuzes en uitvoerbare stappen.">
   <meta property="og:url" content="https://jeffrey.brocx.io/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://jeffrey.brocx.io/assets/img/jeff_mugshot.webp">
+  <meta property="og:image:alt" content="Jeffrey Brocx">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Critical: prevent flash of unstyled background -->
   <style>html,body{background:#f4eee4}</style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -40,6 +43,7 @@
       font-size: clamp(2.5rem, 7.5vw, 6.5rem);
       line-height: 0.98;
       letter-spacing: var(--tracking-tight);
+      overflow-wrap: break-word;
     }
     .h-section {
       font-family: var(--font-display);
@@ -71,6 +75,8 @@
       font-size: var(--text-xs);
       letter-spacing: var(--tracking-wider);
       text-transform: uppercase;
+      text-align: center;
+      line-height: 1.6;
     }
 
     /* --- Section index marker (01 / 02 ...) --------------------------- */
@@ -89,7 +95,7 @@
       border-block: var(--border-thick) solid var(--color-border);
     }
     .bleed-primary h2 { color: var(--color-primary-ink); }
-    .bleed-primary .section-index { color: var(--color-accent); }
+    .bleed-primary .section-index { color: var(--color-primary-ink); }
 
     .bleed-accent {
       background: var(--color-accent);
@@ -104,6 +110,7 @@
       border-block: var(--border-thick) solid var(--color-border);
     }
     .bleed-ink h2 { color: var(--color-background); }
+    .bleed-ink .section-index { color: var(--color-background); }
 
     /* --- Top bar ------------------------------------------------------ */
     .topbar {
@@ -323,6 +330,21 @@
 
     @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeffrey Brocx",
+    "url": "https://jeffrey.brocx.io/",
+    "jobTitle": "Lead Developer & technisch adviseur",
+    "image": "https://jeffrey.brocx.io/assets/img/jeff_mugshot.webp",
+    "sameAs": [
+      "https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/",
+      "https://github.com/djefre"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Naar inhoud</a>
@@ -347,7 +369,7 @@
 
           <h1 class="display mb-7">
             Ik help organisaties zien waar
-            <span class="mark">software, AI&nbsp;&amp;&nbsp;automatisering</span>
+            <span class="mark">software, AI &amp; automatisering</span>
             écht waarde opleveren.
           </h1>
 
@@ -495,36 +517,36 @@
         <p class="section-index">04 — HOE IK WERK</p>
         <h2 class="h-section mb-8">Vijf principes</h2>
 
-        <div>
+        <div style="max-width: 46rem;">
           <article class="principle">
             <span class="principle__num">01</span>
             <h3>Geen hype zonder waarde</h3>
-            <p style="max-width:70ch;">AI is geen doel. Automatisering is geen doel. Cloud is geen doel. De vraag is altijd:
+            <p>AI is geen doel. Automatisering is geen doel. Cloud is geen doel. De vraag is altijd:
               welk probleem lossen we op, welke waarde ontstaat er, en welke risico's brengt het mee?</p>
           </article>
           <article class="principle">
             <span class="principle__num">02</span>
-            <h3>Eerst begrijpen, dan adviseren</h3>
-            <p style="max-width:70ch;">Geen standaardoplossing voordat de context helder is. Elke organisatie heeft bestaande
-              systemen, mensen en politieke werkelijkheid. Die negeren is hoe je plannen krijgt die niemand uitvoert.</p>
+            <h3>Eerlijk over wat je niet moet doen</h3>
+            <p>Niet alles wat technisch kan, verdient budget. De optie "voorlopig niets" leg ik ook
+              op tafel — ook als ik het werk zelf zou kunnen doen.</p>
           </article>
           <article class="principle">
             <span class="principle__num">03</span>
-            <h3>Techniek moet businesswaarde dragen</h3>
-            <p style="max-width:70ch;">Architectuur is geen academische oefening. Goede architectuur helpt om sneller, veiliger
-              en betrouwbaarder resultaten te halen — anders is het versiering.</p>
+            <h3>Eerst begrijpen, dan adviseren</h3>
+            <p>Geen standaardoplossing voordat de context helder is. Elke organisatie heeft bestaande
+              systemen, mensen en politieke werkelijkheid. Die negeren is hoe je plannen krijgt die niemand uitvoert.</p>
           </article>
           <article class="principle">
             <span class="principle__num">04</span>
-            <h3>Security en kwaliteit vanaf het begin</h3>
-            <p style="max-width:70ch;">Achteraf repareren is duurder dan vooraf nadenken. Zeker als je AI of automatisering
-              boven op processen wil zetten die intern nog niet op orde zijn.</p>
+            <h3>Techniek moet businesswaarde dragen</h3>
+            <p>Architectuur is geen academische oefening. Goede architectuur helpt om sneller, veiliger
+              en betrouwbaarder resultaten te halen — anders is het versiering.</p>
           </article>
           <article class="principle">
             <span class="principle__num">05</span>
-            <h3>Eerlijk over wat je niet moet doen</h3>
-            <p style="max-width:70ch;">Niet alles wat technisch kan, verdient budget. De optie "voorlopig niets" leg ik ook
-              op tafel — ook als ik het werk zelf zou kunnen doen.</p>
+            <h3>Security en kwaliteit vanaf het begin</h3>
+            <p>Achteraf repareren is duurder dan vooraf nadenken. Zeker als je AI of automatisering
+              boven op processen wil zetten die intern nog niet op orde zijn.</p>
           </article>
         </div>
       </div>
@@ -533,7 +555,7 @@
     <!-- ============================= CONTACT ============================= -->
     <section id="contact" class="section bleed-accent">
       <div class="container">
-        <p class="section-index" style="color: var(--color-primary-ink); opacity:.85;">05 — CONTACT</p>
+        <p class="section-index" style="color: var(--color-primary-ink);">05 — CONTACT</p>
         <h2 class="h-section mb-6" style="max-width: 20ch;">Benieuwd waar bij jullie de grootste kansen liggen?</h2>
         <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 54ch; color: var(--color-primary-ink);">
           Eén bericht is genoeg. Vertel kort wat er speelt — dan denk ik vrijblijvend mee of, en waar,
@@ -542,17 +564,17 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 font-mono text-lg">
           <div>
-            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);opacity:.85;">Mail</div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);">Mail</div>
             <button type="button" class="reveal-btn"
               data-reveal="PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==">Klik voor mailadres</button>
           </div>
           <div>
-            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);opacity:.85;">Telefoon</div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);">Telefoon</div>
             <button type="button" class="reveal-btn"
               data-reveal="PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+">Klik voor nummer</button>
           </div>
           <div>
-            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);opacity:.85;">WhatsApp</div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);">WhatsApp</div>
             <button type="button" class="reveal-btn"
               data-reveal="PGEgaHJlZj0iaHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUhhbGxvK0plZmZyZXkhK0lrK3phZytqZSt3ZWJzaXRlIiB0YXJnZXQ9Il9ibGFuayIgcmVsPSJub29wZW5lciIgc3R5bGU9InBhZGRpbmc6MDsiPk9wZW4gV2hhdHNBcHA8L2E+">Klik voor WhatsApp</button>
           </div>
@@ -583,7 +605,11 @@
     // Reveal obfuscated contact details on first interaction (anti-scrape).
     document.querySelectorAll('[data-reveal]').forEach(function (el) {
       el.addEventListener('click', function () {
-        el.outerHTML = atob(el.dataset.reveal);
+        var tmp = document.createElement('div');
+        tmp.innerHTML = atob(el.dataset.reveal);
+        var node = tmp.firstElementChild;
+        el.replaceWith(node);
+        if (node && typeof node.focus === 'function') { node.focus(); }
       }, { once: true });
     });
     document.getElementById('year').textContent = new Date().getFullYear();
