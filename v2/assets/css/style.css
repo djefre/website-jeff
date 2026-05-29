@@ -826,6 +826,8 @@ body {
   .md\:col-span-8   { grid-column: span 8 / span 8; }
   .md\:text-left    { text-align: left; }
   .md\:text-center  { text-align: center; }
+  .md\:text-2xl     { font-size: var(--text-2xl); }
+  .md\:text-3xl     { font-size: var(--text-3xl); }
   .md\:text-4xl     { font-size: var(--text-4xl); }
   .md\:text-5xl     { font-size: var(--text-5xl); }
   .md\:text-6xl     { font-size: var(--text-6xl); }
@@ -835,6 +837,7 @@ body {
   .md\:p-8          { padding: var(--space-8); }
   .md\:py-10        { padding-block: var(--space-10); }
   .md\:gap-6        { gap: var(--space-6); }
+  .md\:gap-7        { gap: var(--space-7); }
   .md\:gap-8        { gap: var(--space-8); }
 }
 
@@ -861,6 +864,7 @@ body {
 
 @media (min-width: 1280px) {
   .xl\:grid-cols-4  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .xl\:grid-cols-5  { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .xl\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
   .xl\:text-9xl     { font-size: var(--text-9xl); }
 }

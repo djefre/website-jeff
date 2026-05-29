@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="nl-NL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeffrey Brocx — Lead Developer &amp; Technical Advisor</title>
+  <meta name="description" content="Jeffrey Brocx — senior softwarearchitect en technisch adviseur. Tien jaar .NET, Azure en cloud-native architectuur. Security-first, nuchter, uitvoerbaar.">
+  <meta name="author" content="Jeffrey Brocx">
+  <meta name="theme-color" content="#2a0e3a">
+  <link rel="canonical" href="https://jeffrey.brocx.io/">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Jeffrey Brocx">
+  <meta property="og:title" content="Jeffrey Brocx — Lead Developer &amp; Technical Advisor">
+  <meta property="og:description" content="Senior softwarearchitect en technisch adviseur. Tien jaar .NET, Azure en cloud-native architectuur. Security-first, nuchter, uitvoerbaar.">
+  <meta property="og:url" content="https://jeffrey.brocx.io/">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Critical: prevent flash of unstyled background -->
+  <style>html,body{background:#f4eee4}</style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* ====================================================================
+       PAGE-SPECIFIC STYLES — built on top of the brutalism framework.
+       Only what the framework doesn't already provide lives here.
+       ==================================================================== */
+
+    /* --- Display & section headings ----------------------------------- */
+    .display {
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+      font-size: clamp(2.5rem, 9vw, 8.5rem);
+      line-height: 0.95;
+      letter-spacing: var(--tracking-tight);
+    }
+    .h-section {
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+      font-size: clamp(1.875rem, 6vw, 4rem);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    /* --- Section index marker (00 / 01 / 02 ...) ---------------------- */
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      color: var(--color-accent);
+      margin-bottom: var(--space-3);
+    }
+
+    /* --- Bleed bands -------------------------------------------------- */
+    .bleed-primary {
+      background: var(--color-primary);
+      color: var(--color-primary-ink);
+      border-block: var(--border-thick) solid var(--color-border);
+    }
+    .bleed-primary h2,
+    .bleed-primary h3 { color: var(--color-primary-ink); }
+    .bleed-primary .eyebrow { color: var(--color-primary-ink); opacity: 0.7; }
+
+    .bleed-accent {
+      background: var(--color-accent);
+      color: var(--color-primary-ink);
+      border-block: var(--border-thick) solid var(--color-border);
+    }
+    .bleed-accent h2 { color: var(--color-primary-ink); }
+    .bleed-accent .eyebrow { color: var(--color-primary-ink); opacity: 0.85; }
+
+    /* --- Top bar ------------------------------------------------------ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-sticky);
+      background: var(--color-background);
+      border-bottom: var(--border-thick) solid var(--color-border);
+    }
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding-block: var(--space-3);
+    }
+    .topbar__brand {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-tight);
+      font-size: var(--text-lg);
+    }
+    .topbar__nav {
+      display: none;
+      gap: var(--space-5);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+    .topbar__nav a { padding-bottom: 2px; border-bottom: 2px solid transparent; }
+    .topbar__nav a:hover { border-bottom-color: var(--color-accent); }
+    @media (min-width: 768px) { .topbar__nav { display: flex; } }
+
+    /* --- Hero --------------------------------------------------------- */
+    .hero {
+      position: relative;
+      background: var(--color-primary);
+      color: var(--color-primary-ink);
+      border-bottom: var(--border-thick) solid var(--color-border);
+      overflow: hidden;
+    }
+    /* hand-rolled brutalist grid texture */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--color-primary-ink) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-primary-ink) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    .hero > .container { position: relative; }
+    .hero .eyebrow { color: var(--color-primary-ink); opacity: 0.7; }
+    .hero__role {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-primary-ink);
+      opacity: 0.85;
+    }
+
+    /* --- Marquee (tech ticker) --------------------------------------- */
+    .marquee {
+      background: var(--color-text);
+      color: var(--color-background);
+      border-bottom: var(--border-thick) solid var(--color-border);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee__track {
+      display: inline-flex;
+      gap: var(--space-6);
+      padding-block: var(--space-3);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      animation: marquee 32s linear infinite;
+    }
+    .marquee__track span { display: inline-flex; align-items: center; gap: var(--space-6); }
+    .marquee__track span::after { content: "/"; color: var(--color-accent); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* --- Stats -------------------------------------------------------- */
+    .stat__num {
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: var(--tracking-tight);
+    }
+    .stat__label {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-2);
+    }
+
+    /* --- Focus-area cards -------------------------------------------- */
+    .focus__num {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      letter-spacing: var(--tracking-wider);
+    }
+    .focus h3 {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-xl);
+      letter-spacing: var(--tracking-tight);
+      margin-block: var(--space-3) var(--space-2);
+    }
+
+    /* --- Checklist (arrow rows) -------------------------------------- */
+    .checklist { display: flex; flex-direction: column; }
+    .checklist li {
+      padding: var(--space-4) 0 var(--space-4) var(--space-6);
+      border-bottom: var(--border-base) solid var(--color-border);
+      position: relative;
+    }
+    .checklist li:first-child { border-top: var(--border-base) solid var(--color-border); }
+    .checklist li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: var(--space-4);
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      font-weight: var(--weight-bold);
+    }
+
+    /* --- Portrait ----------------------------------------------------- */
+    .portrait {
+      border: var(--border-thick) solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    /* --- Principles --------------------------------------------------- */
+    .principle {
+      padding: var(--space-6) 0;
+      border-top: var(--border-thick) solid var(--color-primary-ink);
+    }
+    .principle:last-child { border-bottom: var(--border-thick) solid var(--color-primary-ink); }
+    .principle__num {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      letter-spacing: var(--tracking-widest);
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+    .principle h3 {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-2xl);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-2);
+    }
+    @media (min-width: 768px) { .principle h3 { font-size: var(--text-3xl); } }
+
+    /* --- Contact reveal ---------------------------------------------- */
+    .reveal-btn {
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+    .reveal-btn:hover { color: var(--color-text); }
+    .bleed-accent .reveal-btn:hover { color: var(--color-text); }
+
+    /* --- Skip link ---------------------------------------------------- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: var(--z-toast);
+      background: var(--color-text);
+      color: var(--color-background);
+      padding: var(--space-3) var(--space-5);
+      font-family: var(--font-mono);
+    }
+    .skip-link:focus { left: var(--space-4); top: var(--space-4); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee__track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Naar inhoud</a>
+
+  <!-- ============================= TOP BAR ============================= -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar__inner">
+        <a href="#top" class="topbar__brand">Jeffrey&nbsp;Brocx</a>
+        <nav class="topbar__nav" aria-label="Hoofdnavigatie">
+          <a href="#focus">Focus</a>
+          <a href="#track">Track&nbsp;record</a>
+          <a href="#principes">Principes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+    <section id="top" class="hero">
+      <div class="container">
+        <div class="py-9 md:py-10">
+          <p class="eyebrow mb-6">Software · Architectuur · AI · Security</p>
+
+          <h1 class="display mb-7">
+            Eerst&nbsp;begrijpen.<br>
+            Dan&nbsp;prioriteren.<br>
+            Dan&nbsp;uitvoeren.
+          </h1>
+
+          <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 54ch; color: var(--color-primary-ink);">
+            Senior softwarearchitect en onafhankelijk technisch adviseur. Ik breng technische
+            complexiteit terug naar heldere keuzes — zonder hype, zonder jargon, zonder
+            PowerPoint-theater.
+          </p>
+
+          <p class="hero__role">Jeffrey Brocx — Lead Developer / Technical Advisor</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= MARQUEE ============================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>.NET</span><span>C#</span><span>Azure</span><span>Cloud-native</span>
+        <span>Microservices</span><span>CI/CD</span><span>DevOps</span><span>AI</span>
+        <span>Automatisering</span><span>Security-first</span><span>Architectuur</span>
+        <!-- duplicate for seamless loop -->
+        <span>.NET</span><span>C#</span><span>Azure</span><span>Cloud-native</span>
+        <span>Microservices</span><span>CI/CD</span><span>DevOps</span><span>AI</span>
+        <span>Automatisering</span><span>Security-first</span><span>Architectuur</span>
+      </div>
+    </div>
+
+    <!-- ============================== STATS ============================== -->
+    <section class="section" style="padding-block: var(--space-8);">
+      <div class="container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          <div>
+            <div class="stat__num">10+</div>
+            <div class="stat__label">jaar .NET &amp; Azure</div>
+          </div>
+          <div>
+            <div class="stat__num">Mln.</div>
+            <div class="stat__label">eindgebruikers bediend</div>
+          </div>
+          <div>
+            <div class="stat__num">NATO</div>
+            <div class="stat__label">clearance — Kon. Marine</div>
+          </div>
+          <div>
+            <div class="stat__num">Business ↔ Dev</div>
+            <div class="stat__label">brug tussen beide</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FOCUS ============================== -->
+    <section id="focus" class="section bleed-primary">
+      <div class="container">
+        <p class="section-index">01 — WAAR IK GOED IN BEN</p>
+        <h2 class="h-section mb-8">Waar ik me op richt</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+
+          <article class="focus card">
+            <span class="focus__num">A1</span>
+            <h3>Softwarearchitectuur &amp; modernisering</h3>
+            <p>Organisch gegroeide systemen terugbrengen naar een architectuur die schaalt zonder te klappen.</p>
+          </article>
+
+          <article class="focus card">
+            <span class="focus__num">A2</span>
+            <h3>Cloud &amp; Azure</h3>
+            <p>Cloud-native ontwerp, kostenbeheersing en een infrastructuur die meegroeit met de business.</p>
+          </article>
+
+          <article class="focus card">
+            <span class="focus__num">A3</span>
+            <h3>AI &amp; automatisering</h3>
+            <p>Handmatig, repetitief werk vervangen door betrouwbare automatisering — AI als middel, nooit als doel.</p>
+          </article>
+
+          <article class="focus card">
+            <span class="focus__num">A4</span>
+            <h3>Security-first engineering</h3>
+            <p>Security en kwaliteit vanaf regel één. Achteraf repareren is altijd duurder dan vooraf nadenken.</p>
+          </article>
+
+          <article class="focus card">
+            <span class="focus__num">A5</span>
+            <h3>Developmentprocessen &amp; CI/CD</h3>
+            <p>Teams sneller laten leveren met quality gates, standaarden en pijplijnen die voor je werken.</p>
+          </article>
+
+          <article class="focus card">
+            <span class="focus__num">A6</span>
+            <h3>Onafhankelijk technisch advies</h3>
+            <p>Een senior blik die niets te verkopen heeft — toetsing van keuzes, leveranciers en roadmaps.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== TRACK RECORD =========================== -->
+    <section id="track" class="section">
+      <div class="container">
+        <p class="section-index">02 — ACHTERGROND</p>
+        <h2 class="h-section mb-8">Track record</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-8 items-start">
+
+          <div class="md:col-span-4">
+            <img src="assets/img/jeff_mugshot.webp" alt="Portret van Jeffrey Brocx"
+                 class="portrait" width="320" height="320" loading="lazy" decoding="async">
+          </div>
+
+          <div class="md:col-span-8">
+            <p class="text-lg leading-snug mb-6" style="max-width: 62ch;">
+              Tien jaar .NET en Azure. Software gebouwd en begeleid voor miljoenen eindgebruikers
+              bij Achmea, NOS en de zorg. Vandaag Lead Developer binnen een operationeel
+              transportbedrijf — een MKB-omgeving die ik dagelijks van binnenuit zie — en daarnaast
+              technisch adviseur voor organisaties die hun softwarelandschap willen verbeteren.
+            </p>
+
+            <ul class="checklist mb-6">
+              <li><strong>10+ jaar .NET, Azure en cloud-native architectuur</strong> — systemen die schalen zonder te klappen.</li>
+              <li><strong>Software voor miljoenen eindgebruikers</strong> — Achmea (o.a. Centraal Beheer, Zilveren Kruis, Interpolis), NOS, Arts en Zorg.</li>
+              <li><strong>Security-first vanuit de Koninklijke Marine</strong> — Chef Verbindingsdienst, NATO-clearance voor geclassificeerde communicatie.</li>
+              <li><strong>Praat met directie én developers</strong> — vertaalt techniek naar keuzes zonder jargon, en businesswensen naar werkbare specs.</li>
+            </ul>
+
+            <p class="font-mono text-sm text-muted">
+              <a href="../cv.pdf" download class="underline" style="text-underline-offset:4px;">↓ Download CV (PDF)</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PRINCIPES ============================ -->
+    <section id="principes" class="section bleed-primary">
+      <div class="container">
+        <p class="section-index">03 — HOE IK WERK</p>
+        <h2 class="h-section mb-8">Vijf principes</h2>
+
+        <div>
+          <article class="principle">
+            <span class="principle__num">01</span>
+            <h3>Geen hype zonder waarde</h3>
+            <p>AI is geen doel. Automatisering is geen doel. Cloud is geen doel. De vraag is altijd:
+              welk probleem lossen we op, welke waarde ontstaat er, en welke risico's brengt het mee?</p>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">02</span>
+            <h3>Eerst begrijpen, dan adviseren</h3>
+            <p>Geen standaardoplossing voordat de context helder is. Elke organisatie heeft bestaande
+              systemen, mensen en politieke werkelijkheid. Die negeren is hoe je plannen krijgt die niemand uitvoert.</p>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">03</span>
+            <h3>Techniek moet businesswaarde dragen</h3>
+            <p>Architectuur is geen academische oefening. Goede architectuur helpt om sneller, veiliger
+              en betrouwbaarder resultaten te halen — anders is het versiering.</p>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">04</span>
+            <h3>Security en kwaliteit vanaf het begin</h3>
+            <p>Achteraf repareren is duurder dan vooraf nadenken. Zeker als je AI of automatisering
+              boven op processen wil zetten die intern nog niet op orde zijn.</p>
+          </article>
+
+          <article class="principle">
+            <span class="principle__num">05</span>
+            <h3>Eerlijk over wat je niet moet doen</h3>
+            <p>Niet alles wat technisch kan, verdient budget. De optie "voorlopig niets" leg ik ook
+              op tafel — ook als ik het werk zelf zou kunnen doen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT ============================= -->
+    <section id="contact" class="section bleed-accent">
+      <div class="container">
+        <p class="section-index" style="color: var(--color-primary-ink); opacity:.85;">04 — CONTACT</p>
+        <h2 class="h-section mb-6">Even sparren?</h2>
+        <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 52ch; color: var(--color-primary-ink);">
+          Loop je tegen een technische keuze aan en wil je een onafhankelijke blik? Stuur een bericht
+          of bel gerust — dan kijken we kort of ik kan helpen.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-5 md:gap-8 items-start font-mono text-lg">
+          <div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);opacity:.85;">Mail</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==">Klik voor mailadres</button>
+          </div>
+          <div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);opacity:.85;">Telefoon</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+">Klik voor nummer</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="border-t-thick">
+    <div class="container">
+      <div class="py-6 flex flex-col md:flex-row justify-between gap-4 font-mono text-sm text-muted">
+        <div>© <span id="year">2026</span> Jeffrey Brocx</div>
+        <div>Software · Architectuur · AI · Security</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal obfuscated contact details on first interaction (anti-scrape).
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        el.outerHTML = atob(el.dataset.reveal);
+      }, { once: true });
+    });
+    // Keep the footer year current without a build step.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

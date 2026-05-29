@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="nl-NL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Software, AI & Automation Opportunity Scan — onafhankelijk technisch advies voor MKB-organisaties die hun software, processen en automatisering serieus willen verbeteren.">
+  <meta name="theme-color" content="#2a0e3a">
+  <title>Jeffrey Brocx — Software, AI & Automation Scan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Page-specific tweaks on top of the framework */
+    .hero-bleed { background: var(--color-primary); color: var(--color-primary-ink); }
+    .hero-bleed .eyebrow,
+    .hero-bleed .mono-line { color: var(--color-primary-ink); opacity: 0.7; }
+    .hero-bleed h1 { color: var(--color-primary-ink); }
+
+    .display {
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+      font-size: clamp(2.25rem, 9vw, 9rem);
+      line-height: var(--leading-none);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    .h-section {
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+      font-size: clamp(1.875rem, 6vw, 4rem);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    .bleed-primary {
+      background: var(--color-primary);
+      color: var(--color-primary-ink);
+      border-block: var(--border-thick) solid var(--color-border);
+    }
+    .bleed-primary .eyebrow { color: var(--color-primary-ink); opacity: 0.7; }
+    .bleed-primary h2 { color: var(--color-primary-ink); }
+
+    .bleed-accent {
+      background: var(--color-accent);
+      color: var(--color-primary-ink);
+      border-block: var(--border-thick) solid var(--color-border);
+    }
+    .bleed-accent h2 { color: var(--color-primary-ink); }
+    .bleed-accent .eyebrow { color: var(--color-primary-ink); opacity: 0.8; }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-medium);
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+    .bleed-primary .step-num { color: var(--color-accent); }
+
+    .principle-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-base);
+      color: var(--color-accent);
+      letter-spacing: var(--tracking-widest);
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .checklist li {
+      padding: var(--space-4) 0 var(--space-4) var(--space-6);
+      border-bottom: var(--border-base) solid var(--color-border);
+      position: relative;
+    }
+    .checklist li:first-child { border-top: var(--border-base) solid var(--color-border); }
+    .checklist li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: var(--space-4);
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      font-weight: var(--weight-bold);
+    }
+    .bleed-primary .checklist li {
+      border-color: var(--color-primary-ink);
+    }
+    .bleed-primary .checklist li:first-child {
+      border-top-color: var(--color-primary-ink);
+    }
+
+    .portrait {
+      border: var(--border-thick) solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.05);
+    }
+
+    .price-strip {
+      margin-top: var(--space-7);
+      padding: var(--space-5) var(--space-6);
+      border: var(--border-thick) solid var(--color-border);
+      background: var(--color-text);
+      color: var(--color-background);
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-xl);
+      letter-spacing: var(--tracking-tight);
+      box-shadow: var(--shadow-md);
+    }
+
+    .principle {
+      padding: var(--space-6) 0;
+      border-top: var(--border-thick) solid var(--color-primary-ink);
+    }
+    .principle:last-child {
+      border-bottom: var(--border-thick) solid var(--color-primary-ink);
+    }
+    .principle h3 {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-2xl);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-2);
+    }
+    @media (min-width: 768px) {
+      .principle h3 { font-size: var(--text-3xl); }
+    }
+
+    .reveal-btn {
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+    .reveal-btn:hover { color: var(--color-accent); }
+    .bleed-accent .reveal-btn:hover { color: var(--color-text); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================= HERO ============================= -->
+  <header class="hero-bleed">
+    <div class="container">
+      <div class="py-9 md:py-10">
+        <div class="eyebrow mb-7">SOFTWARE · AI · AUTOMATION</div>
+
+        <h1 class="display mb-6">
+          Eerst&nbsp;begrijpen.<br>
+          Dan&nbsp;prioriteren.<br>
+          Dan&nbsp;uitvoeren.
+        </h1>
+
+        <p class="text-xl md:text-2xl leading-snug mb-7" style="max-width: 50ch;">
+          Onafhankelijk technisch advies voor MKB-organisaties die hun software, processen en automatisering serieus willen verbeteren.
+        </p>
+
+        <div class="mono-line font-mono text-sm tracking-widest uppercase">
+          Jeffrey Brocx · Lead Developer / Technical Advisor
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================= SCAN ============================= -->
+  <section id="scan" class="section">
+    <div class="container">
+      <div class="eyebrow mb-4">Hoofdaanbod</div>
+      <h2 class="h-section mb-5">
+        Software, AI &amp; Automation<br>Opportunity&nbsp;Scan
+      </h2>
+      <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 50ch;">
+        Van technische onzekerheid naar een concrete roadmap in 1 tot 3 weken.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-8">
+
+        <div>
+          <div class="eyebrow mb-4">Wat je krijgt</div>
+          <ul class="checklist">
+            <li>Executive summary voor directie of MT</li>
+            <li>Kansen- en risicomatrix met impact en complexiteit</li>
+            <li>Advies over uitvoering: zelf, samen of uitbesteden</li>
+            <li>Technische risicoanalyse</li>
+            <li>Quick wins voor de korte termijn</li>
+            <li>Concreet plan voor de eerste 30, 60 en 90 dagen</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="eyebrow mb-4">Wat je daarna weet</div>
+          <ul class="checklist">
+            <li>Waar AI en automatisering écht waarde toevoegen</li>
+            <li>Welke technische risico's prioriteit hebben</li>
+            <li>Welke quick wins direct opgepakt kunnen worden</li>
+            <li>Wat intern kan en waar externe hulp verstandig is</li>
+            <li>Welke keuzes je juist níét moet maken</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="price-strip">
+        Vanaf €2.500 — vaste prijs, afgestemd op jouw situatie. Doorlooptijd 1-3 weken. Geen uurtje-factuurtje, geen open einde.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WERKWIJZE ============================ -->
+  <section id="werkwijze" class="section bleed-primary">
+    <div class="container">
+      <div class="eyebrow mb-4">Proces</div>
+      <h2 class="h-section mb-8">Hoe het werkt</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6 md:gap-7">
+        <div>
+          <div class="step-num">01 — INTAKE</div>
+          <p>Doelen, systemen, betrokkenen en afbakening scherp krijgen. Geen eindeloze analyse.</p>
+        </div>
+        <div>
+          <div class="step-num">02 — ANALYSE</div>
+          <p>Software, processen, team en risico's beoordelen vanuit meerdere invalshoeken.</p>
+        </div>
+        <div>
+          <div class="step-num">03 — PRIORITERING</div>
+          <p>Kansen en risico's wegen op impact, effort, complexiteit en timing.</p>
+        </div>
+        <div>
+          <div class="step-num">04 — ROADMAP</div>
+          <p>Heldere aanbevelingen, prioriteit, wie verantwoordelijk is en vervolgstappen voor de eerste 30, 60 en 90 dagen.</p>
+        </div>
+        <div>
+          <div class="step-num">05 — BESPREKING</div>
+          <p>Resultaten doorlopen met directie, MT of IT-team. Daarna kun je zelfstandig verder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WIE IK BEN ============================ -->
+  <section id="wie" class="section">
+    <div class="container">
+      <div class="eyebrow mb-4">Wie</div>
+      <h2 class="h-section mb-8">Jeffrey Brocx</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-8 items-start">
+
+        <div class="md:col-span-4">
+          <img src="assets/img/jeff_mugshot.webp" alt="Portret Jeffrey Brocx" class="portrait" width="320" height="320" loading="lazy">
+        </div>
+
+        <div class="md:col-span-8">
+          <p class="text-lg leading-snug mb-6" style="max-width: 60ch;">
+            Tien jaar .NET en Azure. Software gebouwd en begeleid voor miljoenen eindgebruikers bij Achmea, NOS en de zorg. Vandaag Lead Developer binnen transportbedrijf AB Texel — een operationeel MKB-bedrijf dat ik dagelijks van binnenuit zie — en daarnaast technisch adviseur voor andere MKB-organisaties die hun softwarelandschap willen verbeteren.
+          </p>
+
+          <ul class="checklist mb-6">
+            <li><strong>10+ jaar .NET, Azure en cloud-native architectuur</strong> — systemen die schalen zonder te klappen</li>
+            <li><strong>Software voor miljoenen eindgebruikers</strong> — Achmea (onder andere Centraal Beheer, Zilveren Kruis en Interpolis), NOS, Arts en Zorg</li>
+            <li><strong>Security-first vanuit de Koninklijke Marine</strong> — Chef Verbindingsdienst, NATO-clearance voor geclassificeerde communicatie</li>
+            <li><strong>Praat met directie én developers in hun eigen taal</strong> — vertaalt techniek naar keuzes zonder jargon, en businesswensen naar werkbare specs</li>
+          </ul>
+
+          <p class="font-mono text-sm text-muted">
+            <a href="../cv.pdf" download>↓ Download CV (PDF)</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PRINCIPES ============================ -->
+  <section id="principes" class="section bleed-primary">
+    <div class="container">
+      <div class="eyebrow mb-4">Hoe ik werk</div>
+      <h2 class="h-section mb-8">Vijf principes</h2>
+
+      <div>
+        <article class="principle">
+          <span class="principle-num">01 — Geen hype zonder waarde</span>
+          <h3>AI is geen doel. Automatisering is geen doel. Cloud is geen doel.</h3>
+          <p>De vraag is altijd: welk probleem lossen we op, welke waarde ontstaat er, en welke risico's brengt het mee?</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle-num">02 — Eerst begrijpen, dan adviseren</span>
+          <h3>Geen standaardoplossing voordat de context helder is.</h3>
+          <p>Elke organisatie heeft bestaande systemen, mensen, processen en politieke werkelijkheid. Die negeren is hoe je mooie plannen krijgt die niemand uitvoert.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle-num">03 — Techniek moet businesswaarde dragen</span>
+          <h3>Architectuur is geen academische oefening.</h3>
+          <p>Anders is het versiering. Goede architectuur helpt om sneller, veiliger en betrouwbaarder resultaten te halen.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle-num">04 — Security en kwaliteit vanaf het begin</span>
+          <h3>Achteraf repareren is duurder dan vooraf nadenken.</h3>
+          <p>Zeker als je AI of automatisering boven op processen wil zetten. Als die intern niet op orde zijn, wordt het opruimen het echte project.</p>
+        </article>
+
+        <article class="principle">
+          <span class="principle-num">05 — Eerlijk over wat je niet moet doen</span>
+          <h3>Ik adviseer ook tegen werk dat ik zelf zou kunnen factureren.</h3>
+          <p>Niet alles wat technisch kan, verdient budget. De meeste leveranciers schrijven graag een offerte; ik leg de optie "voorlopig niets" ook op tafel.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA ============================ -->
+  <section id="contact" class="section bleed-accent">
+    <div class="container">
+      <div class="eyebrow mb-4">Volgende stap</div>
+      <h2 class="h-section mb-6">
+        Plan een intake.
+      </h2>
+      <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 50ch;">
+        Dertig minuten, geen verkoopgesprek. Vertel kort wat er speelt — dan kijken we samen of een scan de moeite waard is.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-5 md:gap-8 items-start font-mono text-lg">
+        <div>
+          <div class="eyebrow mb-2">Mail</div>
+          <button type="button" class="reveal-btn" data-reveal="PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==">Klik voor mailadres</button>
+        </div>
+        <div>
+          <div class="eyebrow mb-2">Telefoon</div>
+          <button type="button" class="reveal-btn" data-reveal="PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+">Klik voor nummer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="border-t-thick">
+    <div class="container">
+      <div class="py-6 flex flex-col md:flex-row justify-between gap-4 font-mono text-sm text-muted">
+        <div>Jeffrey Brocx · 2026</div>
+        <div>Onafhankelijk technisch advies — Software · AI · Automation</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        el.outerHTML = atob(el.dataset.reveal);
+      }, { once: true });
+    });
+  </script>
+
+</body>
+</html>
