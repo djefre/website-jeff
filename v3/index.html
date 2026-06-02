@@ -272,14 +272,13 @@
     .logos {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: var(--border-base);
-      max-width: 680px;
       border: var(--border-thick) solid var(--color-border);
       box-shadow: var(--shadow-md);
       background: var(--color-border);
     }
     .logos__cell {
       display: flex; align-items: center; justify-content: center;
-      padding: var(--space-5) var(--space-4); min-height: 92px;
+      padding: var(--space-5) var(--space-4); min-height: 112px;
       background: var(--color-surface);
     }
     .logos__cell img {
@@ -290,14 +289,15 @@
     /* Optical sizing — balance visual weight across differing logo shapes,
        not just match heights. Tall/compact marks get more height; long thin
        wordmarks get less. Selector specificity must beat `.logos__cell img`. */
-    .logos__cell img.logo--nos     { height: 33px; }
-    .logos__cell img.logo--abnamro { height: 26px; }
-    .logos__cell img.logo--achmea  { height: 29px; }
-    .logos__cell img.logo--zk      { height: 34px; }
-    .logos__cell img.logo--cb      { height: 52px; }
-    .logos__cell img.logo--ipo     { height: 22px; }
+    .logos__cell img.logo--nos     { height: 40px; }
+    .logos__cell img.logo--abnamro { height: 40px; }
+    .logos__cell img.logo--achmea  { height: 46px; }
+    .logos__cell img.logo--zk      { height: 44px; }
+    .logos__cell img.logo--cb      { height: 62px; }
+    .logos__cell img.logo--ipo     { height: 28px; }
     .logos__cell:hover img { filter: grayscale(0); opacity: 1; }
-    @media (min-width: 768px) { .logos { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px)  { .logos { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1280px) { .logos { grid-template-columns: repeat(6, 1fr); } .logos__cell { padding: var(--space-5) var(--space-3); } }
 
     /* --- Skills ------------------------------------------------------- */
     .skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
@@ -477,11 +477,11 @@
 
         <div class="proof__stats mt-8">
           <div>
-            <div class="proof__num">10+</div>
-            <div class="proof__label">jaar in software</div>
+            <div class="proof__num">10 jr</div>
+            <div class="proof__label">Software ontwerpen en bouwen</div>
           </div>
           <div>
-            <div class="proof__num">100K+</div>
+            <div class="proof__num">2.3M+</div>
             <div class="proof__label">gebruikers bediend</div>
           </div>
           <div>
@@ -490,7 +490,7 @@
           </div>
           <div>
             <div class="proof__num">NATO</div>
-            <div class="proof__label">clearance · security-first</div>
+            <div class="proof__label">CTS clearance · security-first</div>
           </div>
         </div>
 
