@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="nl-NL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeffrey Brocx — Lead Developer, leider & security-first engineer</title>
+  <meta name="description" content="Jeffrey Brocx — een zeldzame combinatie van diepe technische expertise, leiderschap, discipline en security-first denken. Tien jaar .NET en Azure, zes jaar Koninklijke Marine.">
+  <meta name="author" content="Jeffrey Brocx">
+  <meta name="theme-color" content="#2a0e3a">
+  <link rel="canonical" href="https://jeffrey.brocx.io/">
+  <link rel="icon" href="assets/img/logo.png">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Jeffrey Brocx">
+  <meta property="og:title" content="Jeffrey Brocx — een zeldzame combinatie">
+  <meta property="og:description" content="Diepe technische expertise, leiderschap, discipline en security-first denken in één persoon. Tien jaar .NET en Azure, zes jaar Koninklijke Marine.">
+  <meta property="og:url" content="https://jeffrey.brocx.io/">
+  <meta property="og:image" content="https://jeffrey.brocx.io/assets/img/jeff_mugshot.webp">
+  <meta property="og:image:alt" content="Jeffrey Brocx">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Critical: prevent flash of unstyled background -->
+  <style>html,body{background:#f4eee4}</style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* ====================================================================
+       PAGE-SPECIFIC STYLES — built on top of the brutalism framework.
+       Tokens, utilities and components live in style.css; this layer is
+       only for the bespoke sections of this page.
+       ==================================================================== */
+
+    /* --- Display & section headings ----------------------------------- */
+    .display {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: clamp(2.75rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: var(--tracking-tightest);
+      overflow-wrap: break-word;
+    }
+    .h-section {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: clamp(1.875rem, 6vw, 4rem);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    /* Inline brutalist highlight */
+    .mark {
+      background: var(--color-accent);
+      color: var(--color-primary-ink);
+      padding: 0 0.12em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    /* Rotated sticker badge */
+    .sticker {
+      display: inline-block;
+      transform: rotate(-2.5deg);
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: var(--border-thick) solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* --- Section index marker (01 / 02 ...) --------------------------- */
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      color: var(--color-accent);
+      margin-bottom: var(--space-3);
+    }
+
+    /* --- Bleed bands -------------------------------------------------- */
+    .bleed-primary {
+      background: var(--color-primary);
+      color: var(--color-primary-ink);
+      border-block: var(--border-thick) solid var(--color-border);
+    }
+    .bleed-primary h2,
+    .bleed-primary h3 { color: var(--color-primary-ink); }
+    .bleed-primary .section-index { color: var(--color-primary-ink); opacity: 0.75; }
+
+    .bleed-accent {
+      background: var(--color-accent);
+      color: var(--color-primary-ink);
+      border-block: var(--border-thick) solid var(--color-border);
+    }
+    .bleed-accent h2 { color: var(--color-primary-ink); }
+    .bleed-accent .section-index { color: var(--color-primary-ink); }
+
+    /* --- Top bar ------------------------------------------------------ */
+    .topbar {
+      position: sticky; top: 0; z-index: var(--z-sticky);
+      background: var(--color-background);
+      border-bottom: var(--border-thick) solid var(--color-border);
+    }
+    .topbar__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-4); padding-block: var(--space-3);
+    }
+    .topbar__brand {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-tight);
+      font-size: var(--text-lg);
+    }
+    .topbar__nav { display: none; gap: var(--space-5); }
+    .topbar__nav a {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+    }
+    .topbar__nav a:hover { color: var(--color-accent); }
+    .topbar__cta {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 2px;
+    }
+    .topbar__cta:hover { color: var(--color-accent); }
+    @media (min-width: 1024px) { .topbar__nav { display: flex; } }
+
+    /* --- Hero --------------------------------------------------------- */
+    .hero {
+      position: relative;
+      background: var(--color-primary);
+      color: var(--color-primary-ink);
+      border-bottom: var(--border-thick) solid var(--color-border);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--color-primary-ink) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-primary-ink) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.06; pointer-events: none;
+    }
+    .hero > .container { position: relative; }
+    .hero .eyebrow { color: var(--color-primary-ink); opacity: 0.7; }
+    .hero__role {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-primary-ink); opacity: 0.85;
+    }
+
+    /* --- Marquee ------------------------------------------------------ */
+    .marquee {
+      background: var(--color-text);
+      color: var(--color-background);
+      border-bottom: var(--border-thick) solid var(--color-border);
+      overflow: hidden; white-space: nowrap;
+    }
+    .marquee__track {
+      display: inline-flex; gap: var(--space-6);
+      padding-block: var(--space-3);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-wider);
+      text-transform: uppercase;
+      animation: marquee 40s linear infinite;
+    }
+    .marquee__track span { display: inline-flex; align-items: center; gap: var(--space-6); }
+    .marquee__track span::after { content: "✱"; color: var(--color-accent); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* --- Combination (the thesis: four facets) ------------------------ */
+    .combo { display: grid; grid-template-columns: 1fr; gap: var(--space-5); }
+    .combo__card {
+      border: var(--border-thick) solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-6);
+      display: flex; flex-direction: column; min-height: 240px;
+    }
+    .combo__card--1 { background: var(--color-primary); color: var(--color-primary-ink); }
+    .combo__card--2 { background: var(--color-accent);  color: var(--color-primary-ink); }
+    .combo__card--3 { background: var(--color-surface); color: var(--color-text); }
+    .combo__card--4 { background: var(--color-text);    color: var(--color-background); }
+    .combo__nr {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-widest);
+      opacity: 0.75; margin-bottom: var(--space-5);
+    }
+    .combo__title {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-3xl);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-4);
+    }
+    .combo__card p { margin-top: auto; font-size: var(--text-lg); line-height: var(--leading-snug); }
+    @media (min-width: 768px) { .combo { grid-template-columns: 1fr 1fr; } }
+
+    /* --- About / portrait --------------------------------------------- */
+    .portrait {
+      border: var(--border-thick) solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+      width: 100%; max-width: 360px; aspect-ratio: 4 / 5;
+      object-fit: cover; filter: grayscale(1) contrast(1.05);
+    }
+
+    /* --- Proof stats -------------------------------------------------- */
+    .proof__stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+    .proof__num {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1; letter-spacing: var(--tracking-tight);
+    }
+    .proof__label { font-family: var(--font-mono); font-size: var(--text-sm); opacity: 0.7; margin-top: var(--space-2); }
+    @media (min-width: 768px) { .proof__stats { grid-template-columns: repeat(4, 1fr); } }
+
+    /* --- Experience timeline ------------------------------------------ */
+    .xp { display: grid; grid-template-columns: 1fr; gap: 0; border: var(--border-thick) solid var(--color-border); }
+    .xp__item { padding: var(--space-6); border-bottom: var(--border-base) solid var(--color-border); }
+    .xp__item:last-child { border-bottom: 0; }
+    .xp__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); margin-bottom: var(--space-3); }
+    .xp__role {
+      font-family: var(--font-display);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-2xl);
+      letter-spacing: var(--tracking-tight);
+    }
+    .xp__sector {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wider);
+      color: var(--color-accent);
+    }
+    .xp__stack {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .xp__body { font-size: var(--text-lg); line-height: var(--leading-snug); max-width: 70ch; }
+    .xp__metric {
+      display: inline-block; margin-top: var(--space-4);
+      font-family: var(--font-mono); font-size: var(--text-sm);
+      background: var(--color-accent); color: var(--color-primary-ink);
+      padding: var(--space-1) var(--space-3);
+    }
+    @media (min-width: 768px) { .xp__role { font-size: var(--text-3xl); } }
+
+    /* --- Logos (on light surface so grayscale logos read) ------------- */
+    .logos {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+      border: var(--border-thick) solid var(--color-border);
+      background: var(--color-surface);
+    }
+    .logos__cell {
+      display: flex; align-items: center; justify-content: center;
+      padding: var(--space-5); min-height: 96px;
+      border-right: var(--border-base) solid var(--color-border);
+      border-bottom: var(--border-base) solid var(--color-border);
+    }
+    .logos__cell img {
+      max-height: 38px; width: auto;
+      filter: grayscale(1); opacity: 0.8;
+      transition: filter var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out);
+    }
+    .logos__cell:hover img { filter: grayscale(0); opacity: 1; }
+    @media (min-width: 768px) { .logos { grid-template-columns: repeat(5, 1fr); } .logos__cell { border-bottom: 0; } }
+
+    /* --- Skills ------------------------------------------------------- */
+    .skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+    .skills__group h3 {
+      font-family: var(--font-mono); font-size: var(--text-sm);
+      text-transform: uppercase; letter-spacing: var(--tracking-wider);
+      color: var(--color-accent); margin-bottom: var(--space-3);
+      padding-bottom: var(--space-2); border-bottom: var(--border-base) solid var(--color-border);
+    }
+    .skills__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    @media (min-width: 768px) { .skills { grid-template-columns: 1fr 1fr; gap: var(--space-7); } }
+
+    /* --- Quote -------------------------------------------------------- */
+    .quote {
+      border: var(--border-thick) solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      background: var(--color-surface);
+      padding: var(--space-7) var(--space-6);
+    }
+    .quote__text {
+      font-family: var(--font-display); font-weight: var(--weight-medium);
+      font-size: var(--text-2xl); line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5);
+    }
+    .quote__who { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-text-muted); }
+
+    /* --- Contact reveal ----------------------------------------------- */
+    .reveal-btn {
+      cursor: pointer; font: inherit; color: inherit;
+      background: transparent; border: 0; padding: 0;
+      text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
+    }
+    .reveal-btn:hover { color: var(--color-text); }
+
+    /* --- Skip link ---------------------------------------------------- */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: var(--z-toast);
+      background: var(--color-text); color: var(--color-background);
+      padding: var(--space-3) var(--space-5); font-family: var(--font-mono);
+    }
+    .skip-link:focus { left: var(--space-4); top: var(--space-4); }
+
+    @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeffrey Brocx",
+    "url": "https://jeffrey.brocx.io/",
+    "jobTitle": "Lead Developer",
+    "image": "https://jeffrey.brocx.io/assets/img/jeff_mugshot.webp",
+    "knowsAbout": [".NET", "Azure", "Cloud-native architectuur", "Microservices", "Security", "Technisch leiderschap"],
+    "sameAs": [
+      "https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/",
+      "https://github.com/djefre"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Naar inhoud</a>
+
+  <!-- ============================= TOP BAR ============================= -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar__inner">
+        <a href="#top" class="topbar__brand">Jeffrey&nbsp;Brocx</a>
+        <nav class="topbar__nav" aria-label="Hoofdmenu">
+          <a href="#combinatie">Combinatie</a>
+          <a href="#over">Over mij</a>
+          <a href="#ervaring">Ervaring</a>
+          <a href="#skills">Skills</a>
+        </nav>
+        <a href="#contact" class="topbar__cta">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+    <section id="top" class="hero">
+      <div class="container">
+        <div class="py-9 md:py-10">
+          <p class="eyebrow mb-6">Lead Developer · Ex-Koninklijke Marine · Security-first</p>
+
+          <h1 class="display mb-7">
+            Een <span class="mark">zeldzame</span> combinatie.
+          </h1>
+
+          <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 60ch; color: var(--color-primary-ink);">
+            Ik verbind diepe technische expertise met leiderschap, discipline en
+            security-first denken. Sterk in complexe systemen — én in richting geven,
+            keuzes maken en teams meenemen en neerzetten.
+          </p>
+
+          <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <p class="hero__role">Tien jaar .NET &amp; Azure · zes jaar Koninklijke Marine</p>
+            <span class="sticker">Diepe techniek · Leiderschap · Discipline · Security</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= MARQUEE ============================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Complexe&nbsp;systemen</span><span>Leiderschap</span><span>Cloud-native</span><span>Discipline</span>
+        <span>Security-first</span><span>.NET&nbsp;&amp;&nbsp;Azure</span>
+        <span>Complexe&nbsp;systemen</span><span>Leiderschap</span><span>Cloud-native</span><span>Discipline</span>
+        <span>Security-first</span><span>.NET&nbsp;&amp;&nbsp;Azure</span>
+      </div>
+    </div>
+
+    <!-- ========================== COMBINATIE ============================ -->
+    <section id="combinatie" class="section">
+      <div class="container">
+        <p class="section-index">01 — DE COMBINATIE</p>
+        <h2 class="h-section mb-8" style="max-width: 24ch;">Vier dingen die zelden in één persoon samenkomen.</h2>
+
+        <div class="combo">
+          <article class="combo__card combo__card--1">
+            <div class="combo__nr">01</div>
+            <div class="combo__title">Diepe technische expertise</div>
+            <p>Complexe systemen, cloud-native architectuur, microservices. Tien jaar .NET en Azure — van eerste regel code tot productie op schaal.</p>
+          </article>
+          <article class="combo__card combo__card--2">
+            <div class="combo__nr">02</div>
+            <div class="combo__title">Leiderschap</div>
+            <p>Richting geven, keuzes maken en teams meenemen en neerzetten. De schakel tussen wat de business wil en wat technisch slim is.</p>
+          </article>
+          <article class="combo__card combo__card--3">
+            <div class="combo__nr">03</div>
+            <div class="combo__title">Discipline</div>
+            <p>Gevormd bij de Koninklijke Marine: rust onder druk, structuur, en de gewoonte om dingen echt af te maken — niet half.</p>
+          </article>
+          <article class="combo__card combo__card--4">
+            <div class="combo__nr">04</div>
+            <div class="combo__title">Security-first denken</div>
+            <p>Security is geen sluitpost. Als Security Champion en met een achtergrond in securitygevoelige omgevingen denk ik vooraf na, niet achteraf.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= OVER MIJ ============================= -->
+    <section id="over" class="section bleed-primary">
+      <div class="container">
+        <p class="section-index">02 — OVER MIJ</p>
+        <h2 class="h-section mb-8" style="max-width: 22ch;">Van de brug van een marineschip naar cloud-native software.</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-8 items-start">
+          <div class="md:col-span-4">
+            <img src="assets/img/jeff_mugshot.webp" alt="Portret van Jeffrey Brocx"
+                 class="portrait" width="360" height="450" loading="lazy" decoding="async">
+          </div>
+          <div class="md:col-span-8">
+            <p class="text-lg md:text-xl leading-snug mb-5" style="max-width: 62ch;">
+              Mijn carrière begon bij de Koninklijke Marine, waar ik zes jaar voer als verbindelaar
+              en Chef Verbindingsdienst. Na een periode in de offshore-industrie stapte ik over naar
+              IT — om meer thuis te zijn en mijn passie voor technologie te volgen.
+            </p>
+            <p class="text-lg leading-snug mb-5" style="max-width: 62ch; opacity:.9;">
+              Inmiddels meer dan tien jaar in softwareontwikkeling. Ik heb mooie dingen mogen bouwen:
+              van chatplatforms voor honderdduizenden patiënten tot de systemen achter het grootste
+              nieuwsplatform van Nederland. Wat ik het liefst doe is teams beter maken — samen bouwen,
+              processen stroomlijnen en de vertaalslag maken tussen business en techniek.
+            </p>
+            <p class="text-lg leading-snug" style="max-width: 62ch; opacity:.9;">
+              De discipline en het security-bewustzijn uit mijn tijd bij de marine neem ik overal in mee.
+              Buiten werk vind je me in de keuken, in de natuur, op het water of op de motor.
+            </p>
+          </div>
+        </div>
+
+        <div class="proof__stats mt-8">
+          <div>
+            <div class="proof__num">10+</div>
+            <div class="proof__label">jaar in software</div>
+          </div>
+          <div>
+            <div class="proof__num">100K+</div>
+            <div class="proof__label">gebruikers bediend</div>
+          </div>
+          <div>
+            <div class="proof__num">6 jr</div>
+            <div class="proof__label">Koninklijke Marine</div>
+          </div>
+          <div>
+            <div class="proof__num">NATO</div>
+            <div class="proof__label">clearance · security-first</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= ERVARING ============================= -->
+    <section id="ervaring" class="section">
+      <div class="container">
+        <p class="section-index">03 — ERVARING</p>
+        <h2 class="h-section mb-8">Waar de combinatie zich bewees.</h2>
+
+        <!-- NB: rollen sectorgewijs getagd, zoals v1. Opdrachtgevers staan
+             expliciet in de logo-strip hieronder. Wil je een specifiek bedrijf
+             aan een specifieke rol koppelen? Geef het door, dan zet ik het erbij. -->
+        <div class="xp">
+          <article class="xp__item">
+            <div class="xp__head">
+              <span class="xp__role">Lead Developer</span>
+              <span class="xp__sector">Transport / Cloud · heden</span>
+            </div>
+            <p class="xp__stack">C# · .NET 9/10 · Dapr · .NET Aspire · Azure Container Apps · Microservices · CI/CD · AI-integratie</p>
+            <p class="xp__body">
+              Een cloud-native platform van test naar productie gebracht met een team van vier developers.
+              Legacy waar nodig omgebouwd naar schaalbare microservices, en AI in het ontwikkelproces gevlochten
+              wat het opleveren flink versnelde. De schakel tussen business en development.
+            </p>
+            <span class="xp__metric">Team van 4 · test → productie</span>
+            <!-- SLOT: extra kwantificeerbaar resultaat? (bv. doorlooptijd, deploys/week) -->
+          </article>
+
+          <article class="xp__item">
+            <div class="xp__head">
+              <span class="xp__role">Senior Backend Engineer</span>
+              <span class="xp__sector">Media</span>
+            </div>
+            <p class="xp__stack">PHP · Symfony · Doctrine · AWS · S3 · Rust · Kubernetes · OpenShift · Docker · GraphQL · DataDog · Grafana</p>
+            <p class="xp__body">
+              Backend-systemen draaiende gehouden en sneller gemaakt bij een groot mediaplatform. Performance en
+              schaalbaarheid als rode draad, plus betrokkenheid bij de migratieplannen richting Rust voor de
+              zwaardere onderdelen. Infra op Kubernetes en OpenShift.
+            </p>
+            <span class="xp__metric">Grootste nieuwsplatform van NL</span>
+          </article>
+
+          <article class="xp__item">
+            <div class="xp__head">
+              <span class="xp__role">Senior .NET Engineer</span>
+              <span class="xp__sector">Verzekeringen / Chat</span>
+            </div>
+            <p class="xp__stack">C# · ASP.NET · T-SQL · Entity Framework · Azure · Azure Functions · KeyVault · Fortify · Genesys · MVC</p>
+            <p class="xp__body">
+              Chatoplossingen gebouwd die door meerdere grote merken van een verzekeraar werden gebruikt. Het
+              hoogtepunt: de migratie van on-prem naar de cloud. Daarnaast junior developers gecoacht en als
+              Security Champion de boel scherp gehouden op beveiligingsvlak.
+            </p>
+            <span class="xp__metric">On-prem → cloud · Security Champion</span>
+          </article>
+
+          <article class="xp__item">
+            <div class="xp__head">
+              <span class="xp__role">Lead Developer</span>
+              <span class="xp__sector">Zorg / Chat</span>
+            </div>
+            <p class="xp__stack">C# · ASP.NET · Azure · Microservices · Kubernetes · SignalR · Microsoft Orleans · Docker</p>
+            <p class="xp__body">
+              Lead Developer en deels Scrummaster bij een zorgchatplatform, dagelijks gebruikt door een grote groep
+              patiënten om met hun zorgverlener te communiceren. Team van drie developers en twee DevOps-engineers.
+              Features toegevoegd, .NET-migraties gedaan en stap voor stap microservices geïntroduceerd.
+            </p>
+            <span class="xp__metric">100K+ patiënten · team van 5</span>
+          </article>
+        </div>
+
+        <!-- Gewerkt voor -->
+        <p class="eyebrow mt-8 mb-3">Gewerkt voor o.a.</p>
+        <div class="logos">
+          <div class="logos__cell"><img src="assets/img/achmea-logo.webp" alt="Achmea" width="1272" height="424" loading="lazy"></div>
+          <div class="logos__cell"><img src="assets/img/nos-logo.svg" alt="NOS" width="405" height="143" loading="lazy"></div>
+          <div class="logos__cell"><img alt="ABN AMRO" width="175" height="80" loading="lazy" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjk1IiBoZWlnaHQ9IjczIiB2aWV3Qm94PSIwIDAgMjk1IDczIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc1OF8yOTE2OCkiPgo8cGF0aCBkPSJNOTEuMTQgNS4yODAwMUg4Mi4zNUw3My41MyAzNy4xM0g4MC4xTDgxLjkxIDMwLjA3SDkwLjk5TDkyLjc2IDM3LjEzSDk5Ljc4TDkxLjEzIDUuMjgwMDFIOTEuMTRaTTgzLjI0IDI1LjE4TDg2LjI4IDExLjQxSDg2LjM3TDg5LjU4IDI1LjE4SDgzLjIzSDgzLjI0Wk0xMjAuNDIgMjAuNjNWMjAuNTVDMTI0LjA0IDE5LjgzIDEyNS44NSAxNy4xOSAxMjUuODUgMTMuNTNDMTI1Ljg1IDYuNzQwMDEgMTIxLjY2IDUuMjgwMDEgMTE2LjU4IDUuMjgwMDFIMTA0Ljc2VjM3LjEzSDExNi41NEMxMTkuMzYgMzcuMTMgMTI2LjM3IDM2Ljc4IDEyNi4zNyAyOC43MUMxMjYuMzcgMjQuMzQgMTI1LjE0IDIxLjMgMTIwLjQyIDIwLjYzWk0xMTEuNDIgMTAuMThIMTE1LjUyQzExNy43NyAxMC4xOCAxMTkuMzYgMTEuODkgMTE5LjM2IDE0LjIzQzExOS4zNiAxNy4zMiAxMTcuMzQgMTguMjggMTE1Ljg4IDE4LjI4SDExMS40MlYxMC4xN1YxMC4xOFpNMTE1LjEyIDMyLjIzSDExMS40MlYyMy4xOUgxMTUuM0MxMTguNjUgMjMuMTkgMTE5LjcxIDI0LjkxIDExOS43MSAyNy43M0MxMTkuNzEgMzIuMTkgMTE2LjUzIDMyLjIzIDExNS4xMSAzMi4yM0gxMTUuMTJaTTEzNC4zMSAzNy4xM1Y1LjI4MDAxSDE0My4zMUwxNTEuNzggMjcuMzRIMTUxLjg3VjUuMjgwMDFIMTU4LjA5VjM3LjEzSDE0OS4zMUwxNDAuNjIgMTMuODRIMTQwLjUzVjM3LjEzSDEzNC4zMVpNMTkyLjE4IDUuMjgwMDFIMTgzLjRMMTc0LjU4IDM3LjEzSDE4MS4xNUwxODIuOTYgMzAuMDdIMTkyLjA1TDE5My44MSAzNy4xM0gyMDAuODJMMTkyLjE3IDUuMjgwMDFIMTkyLjE4Wk0xODQuMjggMjUuMThMMTg3LjMzIDExLjQxSDE4Ny40MkwxOTAuNjQgMjUuMThIMTg0LjI4Wk0yMDYuNDcgMzcuMTNWNS4yODAwMUgyMTcuMTlMMjIyLjE4IDI2Ljk0SDIyMi4yN0wyMjcuNTYgNS4yODAwMUgyMzcuOTNWMzcuMTNIMjMxLjQ1VjEyLjU2SDIzMS4zNkwyMjUuMjMgMzcuMTNIMjE4Ljg4TDIxMy4wNiAxMi41NkgyMTIuOTdWMzcuMTNIMjA2LjQ4SDIwNi40N1pNMjY1LjQ5IDI3Ljc4QzI2NS40OSAyMi4wNCAyNjEuMTYgMjEuNyAyNTkuNzEgMjEuNTJWMjEuNDNDMjY0LjAzIDIwLjcyIDI2NS42MiAxNy42OCAyNjUuNjIgMTMuNjJDMjY1LjYyIDguMTkwMDEgMjYyLjcxIDUuMjgwMDEgMjU4LjE3IDUuMjgwMDFIMjQ1Ljg2VjM3LjEzSDI1Mi41M1YyMy45NEgyNTQuMjRDMjU5LjM2IDIzLjk0IDI1OS4wMiAyNy4xNiAyNTkuMDIgMzAuOTZDMjU5LjAyIDMzLjAzIDI1OC44NCAzNS4yIDI1OS43MiAzNy4xM0gyNjYuMjVDMjY1LjYzIDM1LjgxIDI2NS41IDI5LjgxIDI2NS41IDI3Ljc4SDI2NS40OVpNMjU1LjQ3IDE5LjA1SDI1Mi41MlYxMC4xOUgyNTUuNDdDMjU3LjU5IDEwLjE5IDI1OC44NyAxMS4zMyAyNTguODcgMTQuMzhDMjU4Ljg3IDE2LjQgMjU4LjEyIDE5LjA1IDI1NS40NyAxOS4wNVpNMjgzLjgzIDQuNzYwMDFDMjcyLjg1IDQuNzYwMDEgMjcyLjg1IDEyLjc4IDI3Mi44NSAyMS4yMUMyNzIuODUgMjkuNjQgMjcyLjg1IDM3LjY3IDI4My44MyAzNy42N0MyOTQuODEgMzcuNjcgMjk0LjgxIDI5LjU1IDI5NC44MSAyMS4yMUMyOTQuODEgMTIuODcgMjk0LjgxIDQuNzYwMDEgMjgzLjgzIDQuNzYwMDFaTTI4My44MyAzMi45QzI4MC4wOSAzMi45IDI3OS42IDI5LjM4IDI3OS42IDIxLjIxQzI3OS42IDEzLjA0IDI4MC4wOSA5LjUyMDAxIDI4My44MyA5LjUyMDAxQzI4Ny41NyA5LjUyMDAxIDI4OC4wNyAxMy4wNiAyODguMDcgMjEuMjFDMjg4LjA3IDI5LjM2IDI4Ny41OSAzMi45IDI4My44MyAzMi45Wk0xNjguMDQgMjMuOUwxNjMuNDUgMTkuMzFMMTY4LjA0IDE0LjczTDE3Mi42MyAxOS4zMUwxNjguMDQgMjMuOVoiIGZpbGw9IiMwMDRDNEMiLz4KPHBhdGggZD0iTTI3LjEyIDcyLjFMNTQuMDkgNDUuMDhWMC4wNDAwMzkxSDAuMDQwMDM5MVY0NS4wOEwyNy4xMiA3Mi4xWiIgZmlsbD0iIzAwQTI5NiIvPgo8cGF0aCBkPSJNNTQuMDkwMSA0NS4wODAxTDI3LjEyMDEgMTguMDYwMVY3Mi4xMDAxTDU0LjA5MDEgNDUuMDgwMVoiIGZpbGw9IiNGM0MwMDAiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8zNzU4XzI5MTY4Ij4KPHJlY3Qgd2lkdGg9IjI5NSIgaGVpZ2h0PSI3MyIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></div>
+          <div class="logos__cell"><img src="assets/img/elfsquad-logo.webp" alt="Elfsquad" width="1000" height="195" loading="lazy"></div>
+          <div class="logos__cell"><img src="assets/img/arrix-logo.png" alt="Arrix" width="175" height="80" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SKILLS ============================== -->
+    <section id="skills" class="section bleed-accent">
+      <div class="container">
+        <p class="section-index">04 — SKILLS</p>
+        <h2 class="h-section mb-8">Waar ik mee werk.</h2>
+
+        <div class="skills">
+          <div class="skills__group">
+            <h3>Talen</h3>
+            <div class="skills__tags">
+              <span class="tag">C#</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+              <span class="tag">PHP</span><span class="tag">T-SQL</span><span class="tag">HTML</span>
+              <span class="tag">CSS</span><span class="tag">YAML</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Frameworks</h3>
+            <div class="skills__tags">
+              <span class="tag">.NET</span><span class="tag">ASP.NET</span><span class="tag">Entity Framework</span>
+              <span class="tag">Blazor</span><span class="tag">Vue.js</span><span class="tag">Angular</span>
+              <span class="tag">Symfony</span><span class="tag">Sitecore</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Cloud &amp; Infra</h3>
+            <div class="skills__tags">
+              <span class="tag">Azure</span><span class="tag">Azure DevOps</span><span class="tag">Container Apps</span>
+              <span class="tag">Azure Functions</span><span class="tag">CI/CD</span><span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span><span class="tag">Bicep</span><span class="tag">AWS</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Architectuur</h3>
+            <div class="skills__tags">
+              <span class="tag">Microservices</span><span class="tag">Dapr</span><span class="tag">.NET Aspire</span>
+              <span class="tag">SignalR</span><span class="tag">Microsoft Orleans</span><span class="tag">REST APIs</span>
+              <span class="tag">GraphQL</span><span class="tag">MVC</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Leiderschap &amp; proces</h3>
+            <div class="skills__tags">
+              <span class="tag">Team Leadership</span><span class="tag">Coaching</span><span class="tag">Agile / SCRUM / SAFe</span>
+              <span class="tag">Scrummaster</span><span class="tag">Stakeholdermanagement</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Security &amp; overig</h3>
+            <div class="skills__tags">
+              <span class="tag">Security Champion</span><span class="tag">Fortify</span><span class="tag">IdentityServer</span>
+              <span class="tag">AI Development</span><span class="tag">Genesys</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== QUOTES ============================== -->
+    <section id="quotes" class="section">
+      <div class="container">
+        <p class="section-index">05 — WAT ANDEREN ZEGGEN</p>
+        <h2 class="h-section mb-8">Aanbevelingen.</h2>
+
+        <!-- SLOT: 1–3 echte quotes/aanbevelingen invullen (naam · functie · relatie).
+             Mogen van LinkedIn-aanbevelingen komen. Placeholders hieronder. -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <figure class="quote">
+            <blockquote class="quote__text">“[ Aanbeveling van een oud-collega of manager komt hier — over leiderschap, techniek of de combinatie. ]”</blockquote>
+            <figcaption class="quote__who">— Naam · Functie · context</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote class="quote__text">“[ Tweede aanbeveling — bij voorkeur over impact, betrouwbaarheid of teamwerk. ]”</blockquote>
+            <figcaption class="quote__who">— Naam · Functie · context</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT ============================= -->
+    <section id="contact" class="section bleed-primary">
+      <div class="container">
+        <p class="section-index">06 — CONTACT</p>
+        <h2 class="h-section mb-6" style="max-width: 20ch;">Even sparren of kennismaken?</h2>
+        <p class="text-xl md:text-2xl leading-snug mb-8" style="max-width: 54ch; color: var(--color-primary-ink);">
+          Eén bericht is genoeg. Of het nu over techniek, een team of gewoon een goed gesprek gaat —
+          ik hoor graag van je.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 font-mono text-lg">
+          <div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);">Mail</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIHN0eWxlPSJwYWRkaW5nOjA7Ij5qZWZmcmV5QGJyb2N4LmlvPC9hPg==">Klik voor mailadres</button>
+          </div>
+          <div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);">Telefoon</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgc3R5bGU9InBhZGRpbmc6MDsiPjA2IC0gNTMgNjYgODYgOTc8L2E+">Klik voor nummer</button>
+          </div>
+          <div>
+            <div class="eyebrow mb-2" style="color:var(--color-primary-ink);">WhatsApp</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0iaHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUhhbGxvK0plZmZyZXkhK0lrK3phZytqZSt3ZWJzaXRlIiB0YXJnZXQ9Il9ibGFuayIgcmVsPSJub29wZW5lciIgc3R5bGU9InBhZGRpbmc6MDsiPk9wZW4gV2hhdHNBcHA8L2E+">Klik voor WhatsApp</button>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-5 mt-8 font-mono text-sm" style="color:var(--color-primary-ink);">
+          <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" rel="noopener" class="underline" style="text-underline-offset:4px;">LinkedIn ↗</a>
+          <a href="https://github.com/djefre" target="_blank" rel="noopener" class="underline" style="text-underline-offset:4px;">GitHub ↗</a>
+          <a href="https://stuff.brocx.io" target="_blank" rel="noopener" class="underline" style="text-underline-offset:4px;">stuff.brocx.io ↗</a>
+          <a href="cv.pdf" download class="underline" style="text-underline-offset:4px;">CV (PDF) ↓</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="border-t-thick">
+    <div class="container">
+      <div class="py-6 flex flex-col md:flex-row justify-between gap-4 font-mono text-sm text-muted">
+        <div>© <span id="year">2026</span> Jeffrey Brocx</div>
+        <!-- SLOT: subtiele verwijzing naar advies./dev. zodra die live zijn -->
+        <div>Lead Developer · .NET &amp; Azure · Security-first</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal obfuscated contact details on first interaction (anti-scrape).
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = atob(el.dataset.reveal);
+        var node = tmp.firstElementChild;
+        el.replaceWith(node);
+        if (node && typeof node.focus === 'function') { node.focus(); }
+      }, { once: true });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
