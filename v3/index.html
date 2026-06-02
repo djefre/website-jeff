@@ -228,15 +228,40 @@
     }
 
     /* --- Proof stats -------------------------------------------------- */
-    .proof__stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+    .proof__stats {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-7) var(--space-5);
+    }
+    .proof__stat { --rule: 1px solid rgba(245, 237, 251, 0.18); }
+    .proof__stat:nth-child(even) { border-left: var(--rule); padding-left: var(--space-5); }
+    .proof__tick {
+      display: block; width: 30px; height: 5px;
+      background: var(--color-accent); margin-bottom: var(--space-4);
+    }
     .proof__num {
       font-family: var(--font-display);
       font-weight: var(--weight-bold);
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      line-height: 1; letter-spacing: var(--tracking-tight);
+      font-size: clamp(2.25rem, 4.6vw, 3.5rem);
+      line-height: 0.95; letter-spacing: var(--tracking-tight);
+      font-variant-numeric: tabular-nums;
     }
-    .proof__label { font-family: var(--font-mono); font-size: var(--text-sm); opacity: 0.7; margin-top: var(--space-2); }
-    @media (min-width: 768px) { .proof__stats { grid-template-columns: repeat(4, 1fr); } }
+    .proof__unit {
+      font-size: 0.48em; font-weight: var(--weight-medium);
+      opacity: 0.55; margin-left: 0.14em; letter-spacing: 0;
+    }
+    .proof__label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      line-height: var(--leading-snug);
+      opacity: 0.62; margin-top: var(--space-3);
+    }
+    @media (min-width: 768px) {
+      .proof__stats { grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+      .proof__stat:nth-child(even) { border-left: 0; padding-left: 0; }
+      .proof__stat:not(:first-child) { border-left: var(--rule); padding-left: var(--space-6); }
+    }
 
     /* --- Work (outcome-framed, deliberately NOT a CV) ----------------- */
     .work__item {
@@ -476,21 +501,25 @@
         </div>
 
         <div class="proof__stats mt-8">
-          <div>
-            <div class="proof__num">10 jr</div>
+          <div class="proof__stat">
+            <span class="proof__tick" aria-hidden="true"></span>
+            <div class="proof__num">10<span class="proof__unit">jr</span></div>
             <div class="proof__label">Software ontwerpen en bouwen</div>
           </div>
-          <div>
-            <div class="proof__num">2.3M+</div>
-            <div class="proof__label">gebruikers bediend</div>
+          <div class="proof__stat">
+            <span class="proof__tick" aria-hidden="true"></span>
+            <div class="proof__num">2.3M<span class="proof__unit">+</span></div>
+            <div class="proof__label">Gebruikers bediend</div>
           </div>
-          <div>
-            <div class="proof__num">6 jr</div>
+          <div class="proof__stat">
+            <span class="proof__tick" aria-hidden="true"></span>
+            <div class="proof__num">6<span class="proof__unit">jr</span></div>
             <div class="proof__label">Koninklijke Marine</div>
           </div>
-          <div>
+          <div class="proof__stat">
+            <span class="proof__tick" aria-hidden="true"></span>
             <div class="proof__num">NATO</div>
-            <div class="proof__label">CTS clearance · security-first</div>
+            <div class="proof__label">CTS&nbsp;clearance · security-first</div>
           </div>
         </div>
 
