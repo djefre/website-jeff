@@ -1,6 +1,6 @@
 # v3 — Advies & blueprint persoonlijke site
 
-> Status: advies / nog niet gebouwd. Doel van dit document: vastleggen wat v3 wordt, waarom, en in welke volgorde we het bouwen. Beslissingen hieronder zijn met Jeffrey afgestemd (juni 2026).
+> **Status (juni 2026): skelet gebouwd + opgeschoond.** Stappen 1–5 van het plan onderaan zijn grotendeels gedaan: volledige paginastructuur staat (`index.html`), CSS opgesplitst in framework (`style.css`) + paginastijlen (`page.css`), inline styles verwijderd, semantiek/contrast verbeterd. Zie [`README.md`](README.md) voor de actuele architectuur en conventies. Dit document blijft de **achtergrond/onderbouwing** (waarom de positionering en opzet zo zijn) en de openstaande contentpunten (quotes, cijfers). Beslissingen hieronder zijn met Jeffrey afgestemd.
 
 ---
 
@@ -45,7 +45,7 @@ v1 is gebouwd op een gekocht thema: **jQuery + Bootstrap + jquery.pagepiling + o
 
 ## 2. Visuele review v2 (de bouwstijl voor v3)
 
-v2 is al hand-rolled neo-brutalism en de juiste richting. Echte tokens uit [`v2/assets/css/style.css`](../v2/assets/css/style.css):
+v2 is al hand-rolled neo-brutalism en de juiste richting. Echte tokens uit [`archive/v2/assets/css/style.css`](../archive/v2/assets/css/style.css):
 
 ```
 --color-background  #f4eee4   (cream)

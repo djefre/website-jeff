@@ -1,0 +1,493 @@
+/* ======================================================================
+   page.css — bespoke styles for jeffrey.brocx.io
+   ----------------------------------------------------------------------
+   Built on top of the brutalism framework in style.css. Tokens, utilities
+   and components live there; this file only styles the sections unique to
+   this page.
+
+   Sections:
+     1.  Page utilities (measure, link, emphasis)
+     2.  Display & section headings
+     3.  Section index (auto-numbered)
+     4.  Bleed bands
+     5.  Top bar
+     6.  Hero
+     7.  Marquee
+     8.  Combination (the thesis)
+     9.  About / portrait
+     10. Proof stats
+     11. Work
+     12. Logos
+     13. Skills
+     14. Quote
+     15. Contact reveal
+     16. Skip link
+     17. Motion preferences
+   ====================================================================== */
+
+
+/* 1. PAGE UTILITIES
+   ====================================================================== */
+
+/* Readable line length (measure). Prefer these over inline max-width. */
+.measure      { max-width: 62ch; }   /* body / long-form copy   */
+.measure-lead { max-width: 56ch; }   /* larger lead paragraphs  */
+
+/* Underlined link with a consistent offset. */
+.link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* Soft emphasis — dims whatever text colour is inherited. */
+.text-soft   { opacity: 0.90; }
+.text-softer { opacity: 0.75; }
+
+
+/* 2. DISPLAY & SECTION HEADINGS
+   ====================================================================== */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: clamp(2.75rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-tightest);
+  overflow-wrap: break-word;
+}
+
+.h-section {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: clamp(1.875rem, 6vw, 4rem);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  max-width: 24ch;          /* keeps headings to a few tight lines */
+}
+
+/* Inline brutalist highlight */
+.mark {
+  background: var(--color-accent);
+  color: var(--color-primary-ink);
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Rotated sticker badge */
+.sticker {
+  display: inline-block;
+  transform: rotate(-2.5deg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.6;
+}
+
+
+/* 3. SECTION INDEX — auto-numbered "01 — LABEL"
+   ----------------------------------------------------------------------
+   Numbering follows DOM order, so reordering sections never needs a
+   manual renumber. Markup only holds the label (e.g. "DE COMBINATIE").
+   ====================================================================== */
+
+body { counter-reset: section-counter; }
+
+.section-index {
+  counter-increment: section-counter;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+.section-index::before {
+  content: counter(section-counter, decimal-leading-zero) " — ";
+}
+
+
+/* 4. BLEED BANDS
+   ====================================================================== */
+
+.bleed-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-ink);
+  border-block: var(--border-thick) solid var(--color-border);
+}
+.bleed-primary h2,
+.bleed-primary h3 { color: var(--color-primary-ink); }
+.bleed-primary .section-index { color: var(--color-primary-ink); opacity: 0.75; }
+
+.bleed-accent {
+  background: var(--color-accent);
+  color: var(--color-primary-ink);
+  border-block: var(--border-thick) solid var(--color-border);
+}
+.bleed-accent h2 { color: var(--color-primary-ink); }
+.bleed-accent .section-index { color: var(--color-primary-ink); }
+
+/* Eyebrows inside dark/coloured bands inherit the light ink colour. */
+.bleed-primary .eyebrow,
+.bleed-accent  .eyebrow { color: var(--color-primary-ink); }
+
+
+/* 5. TOP BAR
+   ====================================================================== */
+
+.topbar {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: var(--color-background);
+  border-bottom: var(--border-thick) solid var(--color-border);
+}
+.topbar__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-4); padding-block: var(--space-3);
+}
+.topbar__brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  font-size: var(--text-lg);
+}
+.topbar__nav { display: none; gap: var(--space-5); }
+.topbar__nav a {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.topbar__nav a:hover { color: var(--color-accent); }
+.topbar__cta {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+.topbar__cta:hover { color: var(--color-accent); }
+@media (min-width: 1024px) { .topbar__nav { display: flex; } }
+
+
+/* 6. HERO
+   ====================================================================== */
+
+.hero {
+  position: relative;
+  background: var(--color-primary);
+  color: var(--color-primary-ink);
+  border-bottom: var(--border-thick) solid var(--color-border);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--color-primary-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-primary-ink) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.06; pointer-events: none;
+}
+.hero > .container { position: relative; }
+.hero .eyebrow { color: var(--color-primary-ink); opacity: 0.7; }
+.hero__role {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-primary-ink); opacity: 0.85;
+}
+
+
+/* 7. MARQUEE
+   ====================================================================== */
+
+.marquee {
+  background: var(--color-text);
+  color: var(--color-background);
+  border-bottom: var(--border-thick) solid var(--color-border);
+  overflow: hidden; white-space: nowrap;
+}
+.marquee__track {
+  display: inline-flex; gap: var(--space-6);
+  padding-block: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  animation: marquee 40s linear infinite;
+}
+.marquee__track span { display: inline-flex; align-items: center; gap: var(--space-6); }
+.marquee__track span::after { content: "✱"; color: var(--color-accent); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+
+/* 8. COMBINATION (the thesis: four facets)
+   ====================================================================== */
+
+.combo { display: grid; grid-template-columns: 1fr; gap: var(--space-5); }
+.combo__card {
+  border: var(--border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+  display: flex; flex-direction: column; min-height: 240px;
+}
+.combo__card--1 { background: var(--color-primary); color: var(--color-primary-ink); }
+.combo__card--2 { background: var(--color-accent);  color: var(--color-primary-ink); }
+.combo__card--3 { background: var(--color-surface); color: var(--color-text); }
+.combo__card--4 { background: var(--color-text);    color: var(--color-background); }
+.combo__nr {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  opacity: 0.75; margin-bottom: var(--space-5);
+}
+.combo__title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-4);
+  color: inherit;            /* override UA heading colour; cards set their own */
+}
+.combo__card p { margin-top: auto; font-size: var(--text-lg); line-height: var(--leading-snug); }
+@media (min-width: 768px) { .combo { grid-template-columns: 1fr 1fr; } }
+
+
+/* 9. ABOUT / PORTRAIT
+   ====================================================================== */
+
+.portrait {
+  border: var(--border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  width: 100%; max-width: 360px; aspect-ratio: 4 / 5;
+  object-fit: cover; filter: grayscale(1) contrast(1.05);
+}
+
+
+/* 10. PROOF STATS
+   ====================================================================== */
+
+.proof__stats {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-7) var(--space-5);
+}
+.proof__stat { --rule: 1px solid rgba(245, 237, 251, 0.18); }
+.proof__stat:nth-child(even) { border-left: var(--rule); padding-left: var(--space-5); }
+.proof__tick {
+  display: block; width: 30px; height: 5px;
+  background: var(--color-accent); margin-bottom: var(--space-4);
+}
+.proof__num {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: clamp(2.25rem, 4.6vw, 3.5rem);
+  line-height: 0.95; letter-spacing: var(--tracking-tight);
+  font-variant-numeric: tabular-nums;
+}
+.proof__unit {
+  font-size: 0.48em; font-weight: var(--weight-medium);
+  opacity: 0.55; margin-left: 0.14em; letter-spacing: 0;
+}
+.proof__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-snug);
+  opacity: 0.72; margin-top: var(--space-3);
+}
+@media (min-width: 768px) {
+  .proof__stats { grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+  .proof__stat:nth-child(even) { border-left: 0; padding-left: 0; }
+  .proof__stat:not(:first-child) { border-left: var(--rule); padding-left: var(--space-6); }
+}
+
+
+/* 11. WORK (outcome-framed, deliberately NOT a CV)
+   ----------------------------------------------------------------------
+   "Genummerd grootboek": elk item is een drie-zone grid —
+   index | lead (sector + statement) | meta (rol + context + chips).
+   Sector- en rol-eyebrow hebben gelijke hoogte, zodat het statement en
+   de context op één gedeelde datumlijn beginnen (lost de uitlijning
+   structureel op i.p.v. met marges). Stapelt onder 768px.
+   ====================================================================== */
+
+.work__item {
+  padding: var(--space-7) 0;
+  border-top: var(--border-thick) solid var(--color-border);
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+.work__item:last-child { border-bottom: var(--border-thick) solid var(--color-border); }
+
+/* Index (01–04) — echoot de nummering van de Combinatie-sectie. */
+.work__index {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono); font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-widest); color: var(--color-accent);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+/* Eyebrows — sector (lead) + rol (meta). Gelijke hoogte = gedeelde datumlijn. */
+.work__sector,
+.work__role {
+  display: block; margin-bottom: var(--space-4);
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  text-transform: uppercase; letter-spacing: var(--tracking-wider);
+}
+.work__sector { color: var(--color-accent); }
+.work__role   { color: var(--color-text-muted); }
+
+/* Lopende rol — accent-pill i.p.v. "· heden" in de tekst. */
+.work__now {
+  display: inline-block; margin-left: var(--space-3);
+  padding: 0 var(--space-2);
+  background: var(--color-accent); color: var(--color-primary-ink);
+  font-size: var(--text-2xs); letter-spacing: var(--tracking-wide);
+  vertical-align: middle;
+}
+
+.work__statement {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: var(--text-2xl); line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight); max-width: 24ch;
+}
+.work__context {
+  margin-top: var(--space-4); font-size: var(--text-lg);
+  line-height: var(--leading-snug); color: var(--color-text-muted);
+  max-width: 56ch;
+}
+
+/* Meta-rail — tech/rol-chips vullen de rechterkolom met bewijs. */
+.work__stack {
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+.work__stack .tag {
+  font-size: var(--text-2xs); padding: var(--space-1) var(--space-2);
+}
+
+@media (min-width: 768px) {
+  /* Geen 1fr/1fr: smalle indexkolom, statement iets breder dan context. */
+  .work__item {
+    display: grid;
+    grid-template-columns: var(--space-7) minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: var(--space-7); align-items: start;
+  }
+  .work__statement { font-size: var(--text-4xl); }
+  .work__context   { margin-top: 0; }
+}
+
+/* Ingetogen hover-affordance (reduced-motion-veilig: enkel kleur). */
+@media (hover: hover) {
+  .work__item:hover { background: var(--color-surface); }
+  .work__item:hover .work__index { color: var(--color-text); }
+}
+
+
+/* 12. LOGOS — deliberate light "card" inset on the dark section
+   ----------------------------------------------------------------------
+   Grid lines are drawn by the gap revealing the card's border-coloured
+   background, so the layout stays clean at any column count.
+   ====================================================================== */
+
+.logos {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: var(--border-base);
+  border: var(--border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  background: var(--color-border);
+}
+.logos__cell {
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-5) var(--space-4); min-height: 112px;
+  background: var(--color-surface);
+}
+.logos__cell img {
+  width: auto; max-width: 100%; height: 30px;
+  filter: grayscale(1); opacity: 0.82;
+  transition: filter var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out);
+}
+/* Optical sizing — balance visual weight across differing logo shapes,
+   not just match heights. Tall/compact marks get more height; long thin
+   wordmarks get less. Selector specificity must beat `.logos__cell img`. */
+.logos__cell img.logo--nos     { height: 40px; }
+.logos__cell img.logo--abnamro { height: 40px; }
+.logos__cell img.logo--achmea  { height: 46px; }
+.logos__cell img.logo--zk      { height: 44px; }
+.logos__cell img.logo--cb      { height: 62px; }
+.logos__cell img.logo--ipo     { height: 28px; }
+.logos__cell:hover img { filter: grayscale(0); opacity: 1; }
+@media (min-width: 768px)  { .logos { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1280px) { .logos { grid-template-columns: repeat(6, 1fr); } .logos__cell { padding: var(--space-5) var(--space-3); } }
+
+
+/* 13. SKILLS
+   ====================================================================== */
+
+.skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+.skills__group h3 {
+  font-family: var(--font-mono); font-size: var(--text-sm);
+  text-transform: uppercase; letter-spacing: var(--tracking-wider);
+  color: var(--color-accent); margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2); border-bottom: var(--border-base) solid var(--color-border);
+}
+/* On the accent band, accent-on-accent would vanish — use the light ink. */
+.bleed-accent .skills__group h3 { color: var(--color-primary-ink); }
+.skills__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+@media (min-width: 768px) { .skills { grid-template-columns: 1fr 1fr; gap: var(--space-7); } }
+
+
+/* 14. QUOTE
+   ====================================================================== */
+
+.quote {
+  border: var(--border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  background: var(--color-surface);
+  padding: var(--space-7) var(--space-6);
+}
+.quote__text {
+  font-family: var(--font-display); font-weight: var(--weight-medium);
+  font-size: var(--text-2xl); line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5);
+}
+.quote__who { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-text-muted); }
+
+
+/* 15. CONTACT REVEAL
+   ====================================================================== */
+
+.reveal-btn {
+  cursor: pointer; font: inherit; color: inherit;
+  background: transparent; border: 0; padding: 0;
+  text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
+}
+.reveal-btn:hover { color: var(--color-text); }
+
+
+/* 16. SKIP LINK
+   ====================================================================== */
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: var(--z-toast);
+  background: var(--color-text); color: var(--color-background);
+  padding: var(--space-3) var(--space-5); font-family: var(--font-mono);
+}
+.skip-link:focus { left: var(--space-4); top: var(--space-4); }
+
+
+/* 17. MOTION PREFERENCES
+   ====================================================================== */
+
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
