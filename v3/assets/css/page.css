@@ -14,6 +14,7 @@
      6.  Hero
      7.  Marquee
      8.  Combination (the thesis)
+     8b. Role (altitude — how the thesis shows up in the work)
      9.  About / portrait
      10. Proof stats
      11. Work
@@ -261,6 +262,47 @@ body { counter-reset: section-counter; }
 }
 .combo__card p { margin-top: auto; font-size: var(--text-lg); line-height: var(--leading-snug); }
 @media (min-width: 768px) { .combo { grid-template-columns: 1fr 1fr; } }
+
+
+/* 8b. ROLE — the altitude Jeffrey operates at (tech-adviseur / lead / CTO-niveau)
+   ----------------------------------------------------------------------
+   Vier surface-cards die de Combinatie-facetten vertalen naar de rol die
+   hij pakt. Bewust lichter dan de gekleurde Combinatie-kaarten ernaast:
+   dit is "hoe het zich uit in het werk", niet "wie hij is". Stapelt onder
+   768px. Ingetogen brutalist hover-lift, alleen waar hover bestaat; de
+   globale reduced-motion-regel in style.css zet enkel de animatie uit.
+   ====================================================================== */
+
+.role { display: grid; grid-template-columns: 1fr; gap: var(--space-5); }
+.role__card {
+  background: var(--color-surface);
+  border: var(--border-thick) solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-6);
+  display: flex; flex-direction: column;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+.role__cat {
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  text-transform: uppercase; letter-spacing: var(--tracking-wider);
+  color: var(--color-accent); margin-bottom: var(--space-4);
+}
+.role__title {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: var(--text-2xl); line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight); margin-bottom: var(--space-3);
+  color: inherit;            /* override UA heading colour */
+}
+.role__card p {
+  font-size: var(--text-lg); line-height: var(--leading-snug);
+  color: var(--color-text-muted);
+}
+@media (hover: hover) {
+  .role__card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-lg); }
+}
+@media (min-width: 768px) { .role { grid-template-columns: 1fr 1fr; } }
 
 
 /* 9. ABOUT / PORTRAIT
