@@ -238,58 +238,66 @@
     .proof__label { font-family: var(--font-mono); font-size: var(--text-sm); opacity: 0.7; margin-top: var(--space-2); }
     @media (min-width: 768px) { .proof__stats { grid-template-columns: repeat(4, 1fr); } }
 
-    /* --- Experience timeline ------------------------------------------ */
-    .xp { display: grid; grid-template-columns: 1fr; gap: 0; border: var(--border-thick) solid var(--color-border); }
-    .xp__item { padding: var(--space-6); border-bottom: var(--border-base) solid var(--color-border); }
-    .xp__item:last-child { border-bottom: 0; }
-    .xp__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); margin-bottom: var(--space-3); }
-    .xp__role {
-      font-family: var(--font-display);
-      font-weight: var(--weight-bold);
-      font-size: var(--text-2xl);
-      letter-spacing: var(--tracking-tight);
+    /* --- Work (outcome-framed, deliberately NOT a CV) ----------------- */
+    .work__item {
+      padding: var(--space-6) 0;
+      border-top: var(--border-thick) solid var(--color-border);
     }
-    .xp__sector {
-      font-family: var(--font-mono);
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-wider);
+    .work__item:last-child { border-bottom: var(--border-thick) solid var(--color-border); }
+    .work__sector {
+      display: inline-block; margin-bottom: var(--space-3);
+      font-family: var(--font-mono); font-size: var(--text-xs);
+      text-transform: uppercase; letter-spacing: var(--tracking-wider);
       color: var(--color-accent);
     }
-    .xp__stack {
-      font-family: var(--font-mono);
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-4);
+    .work__statement {
+      font-family: var(--font-display); font-weight: var(--weight-bold);
+      font-size: var(--text-2xl); line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight); max-width: 24ch;
     }
-    .xp__body { font-size: var(--text-lg); line-height: var(--leading-snug); max-width: 70ch; }
-    .xp__metric {
-      display: inline-block; margin-top: var(--space-4);
-      font-family: var(--font-mono); font-size: var(--text-sm);
-      background: var(--color-accent); color: var(--color-primary-ink);
-      padding: var(--space-1) var(--space-3);
+    .work__context {
+      margin-top: var(--space-4); font-size: var(--text-lg);
+      line-height: var(--leading-snug); color: var(--color-text-muted);
+      max-width: 60ch;
     }
-    @media (min-width: 768px) { .xp__role { font-size: var(--text-3xl); } }
+    @media (min-width: 768px) {
+      .work__item { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: start; }
+      .work__statement { font-size: var(--text-4xl); }
+      .work__context { margin-top: 0; }
+    }
 
-    /* --- Logos (on light surface so grayscale logos read) ------------- */
+    /* --- Logos — deliberate light "card" inset on the dark section ----
+       Grid lines are drawn by the gap revealing the card's border-colored
+       background, so the layout stays clean at any column count. */
     .logos {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: var(--border-base);
+      max-width: 680px;
       border: var(--border-thick) solid var(--color-border);
-      background: var(--color-surface);
+      box-shadow: var(--shadow-md);
+      background: var(--color-border);
     }
     .logos__cell {
       display: flex; align-items: center; justify-content: center;
-      padding: var(--space-5); min-height: 96px;
-      border-right: var(--border-base) solid var(--color-border);
-      border-bottom: var(--border-base) solid var(--color-border);
+      padding: var(--space-5) var(--space-4); min-height: 92px;
+      background: var(--color-surface);
     }
     .logos__cell img {
-      max-height: 38px; width: auto;
-      filter: grayscale(1); opacity: 0.8;
+      width: auto; max-width: 100%; height: 30px;
+      filter: grayscale(1); opacity: 0.82;
       transition: filter var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out);
     }
+    /* Optical sizing — balance visual weight across differing logo shapes,
+       not just match heights. Tall/compact marks get more height; long thin
+       wordmarks get less. Selector specificity must beat `.logos__cell img`. */
+    .logos__cell img.logo--nos     { height: 33px; }
+    .logos__cell img.logo--abnamro { height: 26px; }
+    .logos__cell img.logo--achmea  { height: 29px; }
+    .logos__cell img.logo--zk      { height: 34px; }
+    .logos__cell img.logo--cb      { height: 52px; }
+    .logos__cell img.logo--ipo     { height: 22px; }
     .logos__cell:hover img { filter: grayscale(0); opacity: 1; }
-    @media (min-width: 768px) { .logos { grid-template-columns: repeat(5, 1fr); } .logos__cell { border-bottom: 0; } }
+    @media (min-width: 768px) { .logos { grid-template-columns: repeat(3, 1fr); } }
 
     /* --- Skills ------------------------------------------------------- */
     .skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
@@ -362,7 +370,7 @@
         <nav class="topbar__nav" aria-label="Hoofdmenu">
           <a href="#combinatie">Combinatie</a>
           <a href="#over">Over mij</a>
-          <a href="#ervaring">Ervaring</a>
+          <a href="#werk">Werk</a>
           <a href="#skills">Skills</a>
         </nav>
         <a href="#contact" class="topbar__cta">Contact</a>
@@ -485,86 +493,75 @@
             <div class="proof__label">clearance · security-first</div>
           </div>
         </div>
+
+        <p class="eyebrow mt-8 mb-4" style="color:var(--color-primary-ink); opacity:.75;">Gewerkt voor o.a.</p>
+        <div class="logos">
+          <div class="logos__cell"><img class="logo--nos" src="assets/img/nos-logo.svg" alt="NOS" width="405" height="143" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--abnamro" alt="ABN AMRO" width="295" height="73" loading="lazy" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjk1IiBoZWlnaHQ9IjczIiB2aWV3Qm94PSIwIDAgMjk1IDczIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc1OF8yOTE2OCkiPgo8cGF0aCBkPSJNOTEuMTQgNS4yODAwMUg4Mi4zNUw3My41MyAzNy4xM0g4MC4xTDgxLjkxIDMwLjA3SDkwLjk5TDkyLjc2IDM3LjEzSDk5Ljc4TDkxLjEzIDUuMjgwMDFIOTEuMTRaTTgzLjI0IDI1LjE4TDg2LjI4IDExLjQxSDg2LjM3TDg5LjU4IDI1LjE4SDgzLjIzSDgzLjI0Wk0xMjAuNDIgMjAuNjNWMjAuNTVDMTI0LjA0IDE5LjgzIDEyNS44NSAxNy4xOSAxMjUuODUgMTMuNTNDMTI1Ljg1IDYuNzQwMDEgMTIxLjY2IDUuMjgwMDEgMTE2LjU4IDUuMjgwMDFIMTA0Ljc2VjM3LjEzSDExNi41NEMxMTkuMzYgMzcuMTMgMTI2LjM3IDM2Ljc4IDEyNi4zNyAyOC43MUMxMjYuMzcgMjQuMzQgMTI1LjE0IDIxLjMgMTIwLjQyIDIwLjYzWk0xMTEuNDIgMTAuMThIMTE1LjUyQzExNy43NyAxMC4xOCAxMTkuMzYgMTEuODkgMTE5LjM2IDE0LjIzQzExOS4zNiAxNy4zMiAxMTcuMzQgMTguMjggMTE1Ljg4IDE4LjI4SDExMS40MlYxMC4xN1YxMC4xOFpNMTE1LjEyIDMyLjIzSDExMS40MlYyMy4xOUgxMTUuM0MxMTguNjUgMjMuMTkgMTE5LjcxIDI0LjkxIDExOS43MSAyNy43M0MxMTkuNzEgMzIuMTkgMTE2LjUzIDMyLjIzIDExNS4xMSAzMi4yM0gxMTUuMTJaTTEzNC4zMSAzNy4xM1Y1LjI4MDAxSDE0My4zMUwxNTEuNzggMjcuMzRIMTUxLjg3VjUuMjgwMDFIMTU4LjA5VjM3LjEzSDE0OS4zMUwxNDAuNjIgMTMuODRIMTQwLjUzVjM3LjEzSDEzNC4zMVpNMTkyLjE4IDUuMjgwMDFIMTgzLjRMMTc0LjU4IDM3LjEzSDE4MS4xNUwxODIuOTYgMzAuMDdIMTkyLjA1TDE5My44MSAzNy4xM0gyMDAuODJMMTkyLjE3IDUuMjgwMDFIMTkyLjE4Wk0xODQuMjggMjUuMThMMTg3LjMzIDExLjQxSDE4Ny40MkwxOTAuNjQgMjUuMThIMTg0LjI4Wk0yMDYuNDcgMzcuMTNWNS4yODAwMUgyMTcuMTlMMjIyLjE4IDI2Ljk0SDIyMi4yN0wyMjcuNTYgNS4yODAwMUgyMzcuOTNWMzcuMTNIMjMxLjQ1VjEyLjU2SDIzMS4zNkwyMjUuMjMgMzcuMTNIMjE4Ljg4TDIxMy4wNiAxMi41NkgyMTIuOTdWMzcuMTNIMjA2LjQ4SDIwNi40N1pNMjY1LjQ5IDI3Ljc4QzI2NS40OSAyMi4wNCAyNjEuMTYgMjEuNyAyNTkuNzEgMjEuNTJWMjEuNDNDMjY0LjAzIDIwLjcyIDI2NS42MiAxNy42OCAyNjUuNjIgMTMuNjJDMjY1LjYyIDguMTkwMDEgMjYyLjcxIDUuMjgwMDEgMjU4LjE3IDUuMjgwMDFIMjQ1Ljg2VjM3LjEzSDI1Mi41M1YyMy45NEgyNTQuMjRDMjU5LjM2IDIzLjk0IDI1OS4wMiAyNy4xNiAyNTkuMDIgMzAuOTZDMjU5LjAyIDMzLjAzIDI1OC44NCAzNS4yIDI1OS43MiAzNy4xM0gyNjYuMjVDMjY1LjYzIDM1LjgxIDI2NS41IDI5LjgxIDI2NS41IDI3Ljc4SDI2NS40OVpNMjU1LjQ3IDE5LjA1SDI1Mi41MlYxMC4xOUgyNTUuNDdDMjU3LjU5IDEwLjE5IDI1OC44NyAxMS4zMyAyNTguODcgMTQuMzhDMjU4Ljg3IDE2LjQgMjU4LjEyIDE5LjA1IDI1NS40NyAxOS4wNVpNMjgzLjgzIDQuNzYwMDFDMjcyLjg1IDQuNzYwMDEgMjcyLjg1IDEyLjc4IDI3Mi44NSAyMS4yMUMyNzIuODUgMjkuNjQgMjcyLjg1IDM3LjY3IDI4My44MyAzNy42N0MyOTQuODEgMzcuNjcgMjk0LjgxIDI5LjU1IDI5NC44MSAyMS4yMUMyOTQuODEgMTIuODcgMjk0LjgxIDQuNzYwMDEgMjgzLjgzIDQuNzYwMDFaTTI4My44MyAzMi45QzI4MC4wOSAzMi45IDI3OS42IDI5LjM4IDI3OS42IDIxLjIxQzI3OS42IDEzLjA0IDI4MC4wOSA5LjUyMDAxIDI4My44MyA5LjUyMDAxQzI4Ny41NyA5LjUyMDAxIDI4OC4wNyAxMy4wNiAyODguMDcgMjEuMjFDMjg4LjA3IDI5LjM2IDI4Ny41OSAzMi45IDI4My44MyAzMi45Wk0xNjguMDQgMjMuOUwxNjMuNDUgMTkuMzFMMTY4LjA0IDE0LjczTDE3Mi42MyAxOS4zMUwxNjguMDQgMjMuOVoiIGZpbGw9IiMwMDRDNEMiLz4KPHBhdGggZD0iTTI3LjEyIDcyLjFMNTQuMDkgNDUuMDhWMC4wNDAwMzkxSDAuMDQwMDM5MVY0NS4wOEwyNy4xMiA3Mi4xWiIgZmlsbD0iIzAwQTI5NiIvPgo8cGF0aCBkPSJNNTQuMDkwMSA0NS4wODAxTDI3LjEyMDEgMTguMDYwMVY3Mi4xMDAxTDU0LjA5MDEgNDUuMDgwMVoiIGZpbGw9IiNGM0MwMDAiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8zNzU4XzI5MTY4Ij4KPHJlY3Qgd2lkdGg9IjI5NSIgaGVpZ2h0PSI3MyIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></div>
+          <div class="logos__cell"><img class="logo--achmea" src="assets/img/achmea-logo.webp" alt="Achmea" width="1272" height="424" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--zk" src="assets/img/zilverenkruis-logo.svg" alt="Zilveren Kruis" width="300" height="92" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--cb" src="assets/img/centraalbeheer-logo.svg" alt="Centraal Beheer" width="213" height="150" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--ipo" src="assets/img/interpolis-logo.svg" alt="Interpolis" width="143" height="27" loading="lazy"></div>
+        </div>
       </div>
     </section>
 
-    <!-- ============================= ERVARING ============================= -->
-    <section id="ervaring" class="section">
+    <!-- ============================== WERK ============================== -->
+    <section id="werk" class="section">
       <div class="container">
-        <p class="section-index">03 — ERVARING</p>
-        <h2 class="h-section mb-8">Waar de combinatie zich bewees.</h2>
+        <p class="section-index">03 — WERK</p>
+        <h2 class="h-section mb-8" style="max-width: 20ch;">Een greep uit wat ik bouwde en leidde.</h2>
 
-        <!-- NB: rollen sectorgewijs getagd, zoals v1. Opdrachtgevers staan
-             expliciet in de logo-strip hieronder. Wil je een specifiek bedrijf
-             aan een specifieke rol koppelen? Geef het door, dan zet ik het erbij. -->
-        <div class="xp">
-          <article class="xp__item">
-            <div class="xp__head">
-              <span class="xp__role">Lead Developer</span>
-              <span class="xp__sector">Transport / Cloud · heden</span>
+        <div class="work">
+          <article class="work__item">
+            <div>
+              <span class="work__sector">Zorg</span>
+              <p class="work__statement">Een chatplatform voor honderd­duizenden patiënten.</p>
             </div>
-            <p class="xp__stack">C# · .NET 9/10 · Dapr · .NET Aspire · Azure Container Apps · Microservices · CI/CD · AI-integratie</p>
-            <p class="xp__body">
-              Een cloud-native platform van test naar productie gebracht met een team van vier developers.
-              Legacy waar nodig omgebouwd naar schaalbare microservices, en AI in het ontwikkelproces gevlochten
-              wat het opleveren flink versnelde. De schakel tussen business en development.
+            <p class="work__context">
+              Dagelijks gebruikt om met de zorgverlener te communiceren. Als Lead Developer een team
+              aangestuurd, .NET-migraties gedaan en stap voor stap microservices geïntroduceerd.
             </p>
-            <span class="xp__metric">Team van 4 · test → productie</span>
-            <!-- SLOT: extra kwantificeerbaar resultaat? (bv. doorlooptijd, deploys/week) -->
           </article>
 
-          <article class="xp__item">
-            <div class="xp__head">
-              <span class="xp__role">Senior Backend Engineer</span>
-              <span class="xp__sector">Media</span>
+          <article class="work__item">
+            <div>
+              <span class="work__sector">Media</span>
+              <p class="work__statement">De systemen achter het grootste nieuws­platform van Nederland.</p>
             </div>
-            <p class="xp__stack">PHP · Symfony · Doctrine · AWS · S3 · Rust · Kubernetes · OpenShift · Docker · GraphQL · DataDog · Grafana</p>
-            <p class="xp__body">
-              Backend-systemen draaiende gehouden en sneller gemaakt bij een groot mediaplatform. Performance en
-              schaalbaarheid als rode draad, plus betrokkenheid bij de migratieplannen richting Rust voor de
-              zwaardere onderdelen. Infra op Kubernetes en OpenShift.
+            <p class="work__context">
+              Backend op schaal, met performance en betrouwbaarheid als rode draad — en betrokken bij de
+              migratie van de zwaarste onderdelen richting Rust.
             </p>
-            <span class="xp__metric">Grootste nieuwsplatform van NL</span>
           </article>
 
-          <article class="xp__item">
-            <div class="xp__head">
-              <span class="xp__role">Senior .NET Engineer</span>
-              <span class="xp__sector">Verzekeringen / Chat</span>
+          <article class="work__item">
+            <div>
+              <span class="work__sector">Verzekeringen</span>
+              <p class="work__statement">Verzekerings­software van on-prem naar de cloud.</p>
             </div>
-            <p class="xp__stack">C# · ASP.NET · T-SQL · Entity Framework · Azure · Azure Functions · KeyVault · Fortify · Genesys · MVC</p>
-            <p class="xp__body">
-              Chatoplossingen gebouwd die door meerdere grote merken van een verzekeraar werden gebruikt. Het
-              hoogtepunt: de migratie van on-prem naar de cloud. Daarnaast junior developers gecoacht en als
-              Security Champion de boel scherp gehouden op beveiligingsvlak.
+            <p class="work__context">
+              Chatoplossingen voor meerdere grote merken van een verzekeraar. Als Security Champion de lat
+              voor beveiliging hooggehouden en junior developers gecoacht.
             </p>
-            <span class="xp__metric">On-prem → cloud · Security Champion</span>
           </article>
 
-          <article class="xp__item">
-            <div class="xp__head">
-              <span class="xp__role">Lead Developer</span>
-              <span class="xp__sector">Zorg / Chat</span>
+          <article class="work__item">
+            <div>
+              <span class="work__sector">Transport · heden</span>
+              <p class="work__statement">Een cloud-native platform van test naar productie.</p>
             </div>
-            <p class="xp__stack">C# · ASP.NET · Azure · Microservices · Kubernetes · SignalR · Microsoft Orleans · Docker</p>
-            <p class="xp__body">
-              Lead Developer en deels Scrummaster bij een zorgchatplatform, dagelijks gebruikt door een grote groep
-              patiënten om met hun zorgverlener te communiceren. Team van drie developers en twee DevOps-engineers.
-              Features toegevoegd, .NET-migraties gedaan en stap voor stap microservices geïntroduceerd.
+            <p class="work__context">
+              Legacy waar nodig omgebouwd naar schaalbare microservices en AI in het ontwikkelproces
+              gevlochten. De schakel tussen business en development.
             </p>
-            <span class="xp__metric">100K+ patiënten · team van 5</span>
           </article>
         </div>
 
-        <!-- Gewerkt voor -->
-        <p class="eyebrow mt-8 mb-3">Gewerkt voor o.a.</p>
-        <div class="logos">
-          <div class="logos__cell"><img src="assets/img/achmea-logo.webp" alt="Achmea" width="1272" height="424" loading="lazy"></div>
-          <div class="logos__cell"><img src="assets/img/nos-logo.svg" alt="NOS" width="405" height="143" loading="lazy"></div>
-          <div class="logos__cell"><img alt="ABN AMRO" width="175" height="80" loading="lazy" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjk1IiBoZWlnaHQ9IjczIiB2aWV3Qm94PSIwIDAgMjk1IDczIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc1OF8yOTE2OCkiPgo8cGF0aCBkPSJNOTEuMTQgNS4yODAwMUg4Mi4zNUw3My41MyAzNy4xM0g4MC4xTDgxLjkxIDMwLjA3SDkwLjk5TDkyLjc2IDM3LjEzSDk5Ljc4TDkxLjEzIDUuMjgwMDFIOTEuMTRaTTgzLjI0IDI1LjE4TDg2LjI4IDExLjQxSDg2LjM3TDg5LjU4IDI1LjE4SDgzLjIzSDgzLjI0Wk0xMjAuNDIgMjAuNjNWMjAuNTVDMTI0LjA0IDE5LjgzIDEyNS44NSAxNy4xOSAxMjUuODUgMTMuNTNDMTI1Ljg1IDYuNzQwMDEgMTIxLjY2IDUuMjgwMDEgMTE2LjU4IDUuMjgwMDFIMTA0Ljc2VjM3LjEzSDExNi41NEMxMTkuMzYgMzcuMTMgMTI2LjM3IDM2Ljc4IDEyNi4zNyAyOC43MUMxMjYuMzcgMjQuMzQgMTI1LjE0IDIxLjMgMTIwLjQyIDIwLjYzWk0xMTEuNDIgMTAuMThIMTE1LjUyQzExNy43NyAxMC4xOCAxMTkuMzYgMTEuODkgMTE5LjM2IDE0LjIzQzExOS4zNiAxNy4zMiAxMTcuMzQgMTguMjggMTE1Ljg4IDE4LjI4SDExMS40MlYxMC4xN1YxMC4xOFpNMTE1LjEyIDMyLjIzSDExMS40MlYyMy4xOUgxMTUuM0MxMTguNjUgMjMuMTkgMTE5LjcxIDI0LjkxIDExOS43MSAyNy43M0MxMTkuNzEgMzIuMTkgMTE2LjUzIDMyLjIzIDExNS4xMSAzMi4yM0gxMTUuMTJaTTEzNC4zMSAzNy4xM1Y1LjI4MDAxSDE0My4zMUwxNTEuNzggMjcuMzRIMTUxLjg3VjUuMjgwMDFIMTU4LjA5VjM3LjEzSDE0OS4zMUwxNDAuNjIgMTMuODRIMTQwLjUzVjM3LjEzSDEzNC4zMVpNMTkyLjE4IDUuMjgwMDFIMTgzLjRMMTc0LjU4IDM3LjEzSDE4MS4xNUwxODIuOTYgMzAuMDdIMTkyLjA1TDE5My44MSAzNy4xM0gyMDAuODJMMTkyLjE3IDUuMjgwMDFIMTkyLjE4Wk0xODQuMjggMjUuMThMMTg3LjMzIDExLjQxSDE4Ny40MkwxOTAuNjQgMjUuMThIMTg0LjI4Wk0yMDYuNDcgMzcuMTNWNS4yODAwMUgyMTcuMTlMMjIyLjE4IDI2Ljk0SDIyMi4yN0wyMjcuNTYgNS4yODAwMUgyMzcuOTNWMzcuMTNIMjMxLjQ1VjEyLjU2SDIzMS4zNkwyMjUuMjMgMzcuMTNIMjE4Ljg4TDIxMy4wNiAxMi41NkgyMTIuOTdWMzcuMTNIMjA2LjQ4SDIwNi40N1pNMjY1LjQ5IDI3Ljc4QzI2NS40OSAyMi4wNCAyNjEuMTYgMjEuNyAyNTkuNzEgMjEuNTJWMjEuNDNDMjY0LjAzIDIwLjcyIDI2NS42MiAxNy42OCAyNjUuNjIgMTMuNjJDMjY1LjYyIDguMTkwMDEgMjYyLjcxIDUuMjgwMDEgMjU4LjE3IDUuMjgwMDFIMjQ1Ljg2VjM3LjEzSDI1Mi41M1YyMy45NEgyNTQuMjRDMjU5LjM2IDIzLjk0IDI1OS4wMiAyNy4xNiAyNTkuMDIgMzAuOTZDMjU5LjAyIDMzLjAzIDI1OC44NCAzNS4yIDI1OS43MiAzNy4xM0gyNjYuMjVDMjY1LjYzIDM1LjgxIDI2NS41IDI5LjgxIDI2NS41IDI3Ljc4SDI2NS40OVpNMjU1LjQ3IDE5LjA1SDI1Mi41MlYxMC4xOUgyNTUuNDdDMjU3LjU5IDEwLjE5IDI1OC44NyAxMS4zMyAyNTguODcgMTQuMzhDMjU4Ljg3IDE2LjQgMjU4LjEyIDE5LjA1IDI1NS40NyAxOS4wNVpNMjgzLjgzIDQuNzYwMDFDMjcyLjg1IDQuNzYwMDEgMjcyLjg1IDEyLjc4IDI3Mi44NSAyMS4yMUMyNzIuODUgMjkuNjQgMjcyLjg1IDM3LjY3IDI4My44MyAzNy42N0MyOTQuODEgMzcuNjcgMjk0LjgxIDI5LjU1IDI5NC44MSAyMS4yMUMyOTQuODEgMTIuODcgMjk0LjgxIDQuNzYwMDEgMjgzLjgzIDQuNzYwMDFaTTI4My44MyAzMi45QzI4MC4wOSAzMi45IDI3OS42IDI5LjM4IDI3OS42IDIxLjIxQzI3OS42IDEzLjA0IDI4MC4wOSA5LjUyMDAxIDI4My44MyA5LjUyMDAxQzI4Ny41NyA5LjUyMDAxIDI4OC4wNyAxMy4wNiAyODguMDcgMjEuMjFDMjg4LjA3IDI5LjM2IDI4Ny41OSAzMi45IDI4My44MyAzMi45Wk0xNjguMDQgMjMuOUwxNjMuNDUgMTkuMzFMMTY4LjA0IDE0LjczTDE3Mi42MyAxOS4zMUwxNjguMDQgMjMuOVoiIGZpbGw9IiMwMDRDNEMiLz4KPHBhdGggZD0iTTI3LjEyIDcyLjFMNTQuMDkgNDUuMDhWMC4wNDAwMzkxSDAuMDQwMDM5MVY0NS4wOEwyNy4xMiA3Mi4xWiIgZmlsbD0iIzAwQTI5NiIvPgo8cGF0aCBkPSJNNTQuMDkwMSA0NS4wODAxTDI3LjEyMDEgMTguMDYwMVY3Mi4xMDAxTDU0LjA5MDEgNDUuMDgwMVoiIGZpbGw9IiNGM0MwMDAiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8zNzU4XzI5MTY4Ij4KPHJlY3Qgd2lkdGg9IjI5NSIgaGVpZ2h0PSI3MyIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></div>
-          <div class="logos__cell"><img src="assets/img/elfsquad-logo.webp" alt="Elfsquad" width="1000" height="195" loading="lazy"></div>
-          <div class="logos__cell"><img src="assets/img/arrix-logo.png" alt="Arrix" width="175" height="80" loading="lazy"></div>
-        </div>
+        <p class="mt-7 font-mono text-sm text-muted">
+          Volledige werkhistorie op
+          <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" rel="noopener" class="underline" style="text-underline-offset:4px;">LinkedIn&nbsp;↗</a>
+        </p>
       </div>
     </section>
 
