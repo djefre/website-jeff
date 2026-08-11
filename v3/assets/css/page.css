@@ -14,7 +14,7 @@
      6.  Hero
      7.  Marquee
      8.  Combination (the thesis)
-     8b. Role (altitude — how the thesis shows up in the work)
+     8b. Signal (when a decision-maker picks up the phone)
      9.  About / portrait
      10. Proof stats
      11. Work
@@ -30,16 +30,21 @@
 /* 1. PAGE UTILITIES
    ====================================================================== */
 
-/* Readable line length (measure). Prefer these over inline max-width. */
-.measure      { max-width: 62ch; }   /* body / long-form copy   */
+/* Readable line length (measure). Prefer these over inline max-width.
+   `ch` in Inter is wide (~0.63em), so 62ch landed at ~80 characters per
+   line — above the comfortable 45–75 band. 48ch ≈ 60 characters. */
+.measure      { max-width: 48ch; }   /* body / long-form copy   */
 .measure-lead { max-width: 56ch; }   /* larger lead paragraphs  */
 
-/* Underlined link with a consistent offset. */
+/* Underlined link with a consistent offset. The hover cue is the underline
+   colour, never the text colour — these links sit on both the cream and the
+   aubergine band, and any single text colour fails contrast on one of them. */
 .link {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
+.link:hover { text-decoration-color: var(--color-accent); }
 
 /* Soft emphasis — dims whatever text colour is inherited. */
 .text-soft   { opacity: 0.90; }
@@ -264,17 +269,18 @@ body { counter-reset: section-counter; }
 @media (min-width: 768px) { .combo { grid-template-columns: 1fr 1fr; } }
 
 
-/* 8b. ROLE — the altitude Jeffrey operates at (tech-adviseur / lead / CTO-niveau)
+/* 8b. SIGNAL — de vier situaties waarin een beslisser belt
    ----------------------------------------------------------------------
-   Vier surface-cards die de Combinatie-facetten vertalen naar de rol die
-   hij pakt. Bewust lichter dan de gekleurde Combinatie-kaarten ernaast:
-   dit is "hoe het zich uit in het werk", niet "wie hij is". Stapelt onder
-   768px. Ingetogen brutalist hover-lift, alleen waar hover bestaat; de
-   globale reduced-motion-regel in style.css zet enkel de animatie uit.
+   Vier surface-cards, geschreven vanuit herkenning bij de lezer in plaats
+   van vanuit Jeffreys taakomschrijving. Bewust lichter dan de gekleurde
+   Combinatie-kaarten ernaast: dit is "wanneer dit jou aangaat", niet "wie
+   ik ben". Stapelt onder 768px. Ingetogen brutalist hover-lift, alleen
+   waar hover bestaat; de globale reduced-motion-regel in style.css zet
+   enkel de animatie uit.
    ====================================================================== */
 
-.role { display: grid; grid-template-columns: 1fr; gap: var(--space-5); }
-.role__card {
+.signal { display: grid; grid-template-columns: 1fr; gap: var(--space-5); }
+.signal__card {
   background: var(--color-surface);
   border: var(--border-thick) solid var(--color-border);
   box-shadow: var(--shadow-md);
@@ -284,25 +290,25 @@ body { counter-reset: section-counter; }
     transform var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out);
 }
-.role__cat {
+.signal__cat {
   font-family: var(--font-mono); font-size: var(--text-xs);
   text-transform: uppercase; letter-spacing: var(--tracking-wider);
   color: var(--color-accent); margin-bottom: var(--space-4);
 }
-.role__title {
+.signal__title {
   font-family: var(--font-display); font-weight: var(--weight-bold);
   font-size: var(--text-2xl); line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight); margin-bottom: var(--space-3);
   color: inherit;            /* override UA heading colour */
 }
-.role__card p {
+.signal__card p {
   font-size: var(--text-lg); line-height: var(--leading-snug);
   color: var(--color-text-muted);
 }
 @media (hover: hover) {
-  .role__card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-lg); }
+  .signal__card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-lg); }
 }
-@media (min-width: 768px) { .role { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .signal { grid-template-columns: 1fr 1fr; } }
 
 
 /* 9. ABOUT / PORTRAIT
@@ -410,6 +416,17 @@ body { counter-reset: section-counter; }
   max-width: 56ch;
 }
 
+/* Zakelijke uitkomst — bewust kwalitatief, geen cijfers. Accent-streep links
+   zodat de beslisser deze regel kan scannen zonder de context te lezen. */
+.work__result {
+  margin-top: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: var(--border-thick) solid var(--color-accent);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+  max-width: 56ch;
+}
+
 /* Meta-rail — tech/rol-chips vullen de rechterkolom met bewijs. */
 .work__stack {
   display: flex; flex-wrap: wrap; gap: var(--space-2);
@@ -510,12 +527,16 @@ body { counter-reset: section-counter; }
 /* 15. CONTACT REVEAL
    ====================================================================== */
 
+/* Secondary reveals (telefoon / WhatsApp) look like .link, so that the
+   revealed <a> — which carries .link — is visually identical to the button
+   it replaces. Hover cues via the underline colour, not the text colour:
+   these sit on the aubergine band, where --color-text is near-invisible. */
 .reveal-btn {
   cursor: pointer; font: inherit; color: inherit;
   background: transparent; border: 0; padding: 0;
   text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px;
 }
-.reveal-btn:hover { color: var(--color-text); }
+.reveal-btn:hover { text-decoration-color: var(--color-accent); }
 
 
 /* 16. SKIP LINK
