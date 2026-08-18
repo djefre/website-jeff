@@ -1,5 +1,5 @@
 /* ======================================================================
-   page.css — bespoke styles for jeffrey.brocx.io
+   page.css: bespoke styles for jeffrey.brocx.io
    ----------------------------------------------------------------------
    Built on top of the brutalism framework in style.css. Tokens, utilities
    and components live there; this file only styles the sections unique to
@@ -20,10 +20,9 @@
      11. Work
      12. Logos
      13. Skills
-     14. Quote
-     15. Contact reveal
-     16. Skip link
-     17. Motion preferences
+     14. Contact reveal
+     15. Skip link
+     16. Motion preferences
    ====================================================================== */
 
 
@@ -32,12 +31,12 @@
 
 /* Readable line length (measure). Prefer these over inline max-width.
    `ch` in Inter is wide (~0.63em), so 62ch landed at ~80 characters per
-   line — above the comfortable 45–75 band. 48ch ≈ 60 characters. */
+   line: above the comfortable 45–75 band. 48ch ≈ 60 characters. */
 .measure      { max-width: 48ch; }   /* body / long-form copy   */
 .measure-lead { max-width: 56ch; }   /* larger lead paragraphs  */
 
 /* Underlined link with a consistent offset. The hover cue is the underline
-   colour, never the text colour — these links sit on both the cream and the
+   colour, never the text colour: these links sit on both the cream and the
    aubergine band, and any single text colour fails contrast on one of them. */
 .link {
   text-decoration: underline;
@@ -46,7 +45,7 @@
 }
 .link:hover { text-decoration-color: var(--color-accent); }
 
-/* Soft emphasis — dims whatever text colour is inherited. */
+/* Soft emphasis: dims whatever text colour is inherited. */
 .text-soft   { opacity: 0.90; }
 .text-softer { opacity: 0.75; }
 
@@ -99,7 +98,7 @@
 }
 
 
-/* 3. SECTION INDEX — auto-numbered "01 — LABEL"
+/* 3. SECTION INDEX, auto-numbered "01 · LABEL"
    ----------------------------------------------------------------------
    Numbering follows DOM order, so reordering sections never needs a
    manual renumber. Markup only holds the label (e.g. "DE COMBINATIE").
@@ -116,7 +115,7 @@ body { counter-reset: section-counter; }
   margin-bottom: var(--space-3);
 }
 .section-index::before {
-  content: counter(section-counter, decimal-leading-zero) " — ";
+  content: counter(section-counter, decimal-leading-zero) " · ";
 }
 
 
@@ -193,6 +192,10 @@ body { counter-reset: section-counter; }
   border-bottom: var(--border-thick) solid var(--color-border);
   overflow: hidden;
 }
+/* Asymmetrische padding: strak boven de eyebrow, meer lucht onder de CTA-regel.
+   Verving py-9 md:py-10, dat bovenin te veel ruimte gaf. */
+.hero__inner { padding-block: var(--space-6) var(--space-8); }
+@media (min-width: 768px) { .hero__inner { padding-block: var(--space-7) var(--space-9); } }
 .hero::before {
   content: "";
   position: absolute; inset: 0;
@@ -256,6 +259,9 @@ body { counter-reset: section-counter; }
   letter-spacing: var(--tracking-widest);
   opacity: 0.75; margin-bottom: var(--space-5);
 }
+/* Op de accent-kaart zakt 0.75 onder de 4.5:1 contrast-eis (ink composiet
+   naar #ddbff7 op violet = 3.29:1); vol dekkend haalt 4.75:1. */
+.combo__card--2 .combo__nr { opacity: 1; }
 .combo__title {
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
@@ -269,7 +275,7 @@ body { counter-reset: section-counter; }
 @media (min-width: 768px) { .combo { grid-template-columns: 1fr 1fr; } }
 
 
-/* 8b. SIGNAL — de vier situaties waarin een beslisser belt
+/* 8b. SIGNAL: de vier situaties waarin een beslisser belt
    ----------------------------------------------------------------------
    Vier surface-cards, geschreven vanuit herkenning bij de lezer in plaats
    van vanuit Jeffreys taakomschrijving. Bewust lichter dan de gekleurde
@@ -321,6 +327,33 @@ body { counter-reset: section-counter; }
   object-fit: cover; filter: grayscale(1) contrast(1.05);
 }
 
+/* Portret-compositie: accent-schaduw, lichte rotatie, sticker en loopbaanpad.
+   Geeft de foto dezelfde brutalistische behandeling als de kaarten elders. */
+.portrait-frame {
+  position: relative; display: inline-block;
+  transform: rotate(-1.5deg);
+}
+.portrait-frame .portrait {
+  display: block;
+  box-shadow: 14px 14px 0 var(--color-accent);
+}
+.portrait-frame__sticker {
+  position: absolute;
+  right: calc(-1 * var(--space-4));
+  bottom: var(--space-6);
+  transform: rotate(3deg);
+}
+.path {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+.path__arrow {
+  font-family: var(--font-mono);
+  color: var(--color-primary-ink);
+  opacity: 0.7;
+}
+
 
 /* 10. PROOF STATS
    ====================================================================== */
@@ -330,6 +363,9 @@ body { counter-reset: section-counter; }
   gap: var(--space-7) var(--space-5);
 }
 .proof__stat { --rule: 1px solid rgba(245, 237, 251, 0.18); }
+/* Woord in plaats van getal (bv. "Miljoenen"): kleiner, anders past het
+   niet in de 4-koloms grid naast de echte cijfers. */
+.proof__num--word { font-size: clamp(1.6rem, 3vw, 2.35rem); line-height: 1.1; }
 .proof__stat:nth-child(even) { border-left: var(--rule); padding-left: var(--space-5); }
 .proof__tick {
   display: block; width: 30px; height: 5px;
@@ -360,10 +396,52 @@ body { counter-reset: section-counter; }
   .proof__stat:not(:first-child) { border-left: var(--rule); padding-left: var(--space-6); }
 }
 
+/* Tekstkolom van Over mij: span 5. Het framework kent geen md:col-span-5
+   (alleen 2/3/4/6/8) en blijft vendored, dus deze span leeft hier. */
+@media (min-width: 768px) {
+  .about-body {
+    grid-column: span 5 / span 5;
+    /* Verdeel restruimte over de alinea-gaten, zodat de laatste regel op
+       dezelfde baseline eindigt als de fotokolom en de bewijsrail. */
+    align-self: stretch;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+/* Fotokolom strekt mee en pint de loopbaan-chips op de onderste baseline,
+   zodat foto-, tekst- en bewijskolom alle drie op dezelfde lijn eindigen. */
+@media (min-width: 768px) {
+  .about-visual {
+    align-self: stretch;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+  .about-visual .path { margin-top: var(--space-5); }
+}
+
+/* Bewijsrail: de vier stats als verticale kolom rechts van het Over mij-verhaal.
+   Vult de restruimte naast de .measure-tekst en zet het bewijs naast de claims
+   die het onderbouwt. Op mobiel valt de rail terug op het 2x2-grid hierboven. */
+@media (min-width: 768px) {
+  .proof__stats--rail {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-self: stretch;
+    align-content: space-between;
+    border-left: 1px solid rgba(245, 237, 251, 0.18);
+    padding-left: var(--space-6);
+  }
+  .proof__stats--rail .proof__stat,
+  .proof__stats--rail .proof__stat:not(:first-child) { border-left: 0; padding-left: 0; }
+  .proof__stats--rail .proof__num { font-size: clamp(1.75rem, 2.6vw, 2.6rem); }
+  .proof__stats--rail .proof__num--word { font-size: clamp(1.35rem, 2vw, 1.9rem); }
+}
+
 
 /* 11. WORK (outcome-framed, deliberately NOT a CV)
    ----------------------------------------------------------------------
-   "Genummerd grootboek": elk item is een drie-zone grid —
+   "Genummerd grootboek": elk item is een drie-zone grid:
    index | lead (sector + statement) | meta (rol + context + chips).
    Sector- en rol-eyebrow hebben gelijke hoogte, zodat het statement en
    de context op één gedeelde datumlijn beginnen (lost de uitlijning
@@ -377,7 +455,7 @@ body { counter-reset: section-counter; }
 }
 .work__item:last-child { border-bottom: var(--border-thick) solid var(--color-border); }
 
-/* Index (01–04) — echoot de nummering van de Combinatie-sectie. */
+/* Index: echoot de nummering van de Combinatie-sectie. */
 .work__index {
   margin-bottom: var(--space-3);
   font-family: var(--font-mono); font-size: var(--text-sm);
@@ -386,7 +464,7 @@ body { counter-reset: section-counter; }
   transition: color var(--duration-base) var(--ease-out);
 }
 
-/* Eyebrows — sector (lead) + rol (meta). Gelijke hoogte = gedeelde datumlijn. */
+/* Eyebrows: sector (lead) + rol (meta). Gelijke hoogte = gedeelde datumlijn. */
 .work__sector,
 .work__role {
   display: block; margin-bottom: var(--space-4);
@@ -395,16 +473,6 @@ body { counter-reset: section-counter; }
 }
 .work__sector { color: var(--color-accent); }
 .work__role   { color: var(--color-text-muted); }
-
-/* Lopende rol — accent-pill i.p.v. "· heden" in de tekst. */
-.work__now {
-  display: inline-block; margin-left: var(--space-3);
-  padding: 0 var(--space-2);
-  background: var(--color-accent); color: var(--color-primary-ink);
-  font-size: var(--text-2xs); letter-spacing: var(--tracking-wide);
-  vertical-align: middle;
-}
-
 .work__statement {
   font-family: var(--font-display); font-weight: var(--weight-bold);
   font-size: var(--text-2xl); line-height: var(--leading-tight);
@@ -416,7 +484,7 @@ body { counter-reset: section-counter; }
   max-width: 56ch;
 }
 
-/* Zakelijke uitkomst — bewust kwalitatief, geen cijfers. Accent-streep links
+/* Zakelijke uitkomst: bewust kwalitatief, geen cijfers. Accent-streep links
    zodat de beslisser deze regel kan scannen zonder de context te lezen. */
 .work__result {
   margin-top: var(--space-4);
@@ -427,7 +495,7 @@ body { counter-reset: section-counter; }
   max-width: 56ch;
 }
 
-/* Meta-rail — tech/rol-chips vullen de rechterkolom met bewijs. */
+/* Meta-rail: tech/rol-chips vullen de rechterkolom met bewijs. */
 .work__stack {
   display: flex; flex-wrap: wrap; gap: var(--space-2);
   margin-top: var(--space-5);
@@ -454,7 +522,7 @@ body { counter-reset: section-counter; }
 }
 
 
-/* 12. LOGOS — deliberate light "card" inset on the dark section
+/* 12. LOGOS: deliberate light "card" inset on the dark section
    ----------------------------------------------------------------------
    Grid lines are drawn by the gap revealing the card's border-coloured
    background, so the layout stays clean at any column count.
@@ -477,7 +545,7 @@ body { counter-reset: section-counter; }
   filter: grayscale(1); opacity: 0.82;
   transition: filter var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out);
 }
-/* Optical sizing — balance visual weight across differing logo shapes,
+/* Optical sizing: balance visual weight across differing logo shapes,
    not just match heights. Tall/compact marks get more height; long thin
    wordmarks get less. Selector specificity must beat `.logos__cell img`. */
 .logos__cell img.logo--nos     { height: 40px; }
@@ -494,41 +562,48 @@ body { counter-reset: section-counter; }
 /* 13. SKILLS
    ====================================================================== */
 
-.skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+/* Datasheet-rijen: mono-label links, tags rechts, dikke lijnen ertussen.
+   Echoot het "genummerde grootboek" van de Werk-sectie; de rijnummers komen
+   uit een CSS-counter, dus de markup bevat geen cijfers. */
+.skills {
+  counter-reset: skill-row;
+  border-top: var(--border-thick) solid var(--color-border);
+}
+.skills__group {
+  border-bottom: var(--border-thick) solid var(--color-border);
+  padding-block: var(--space-5);
+}
 .skills__group h3 {
   font-family: var(--font-mono); font-size: var(--text-sm);
   text-transform: uppercase; letter-spacing: var(--tracking-wider);
   color: var(--color-accent); margin-bottom: var(--space-3);
-  padding-bottom: var(--space-2); border-bottom: var(--border-base) solid var(--color-border);
 }
-/* On the accent band, accent-on-accent would vanish — use the light ink. */
+/* On the accent band, accent-on-accent would vanish; use the light ink. */
 .bleed-accent .skills__group h3 { color: var(--color-primary-ink); }
+.skills__group h3::before {
+  counter-increment: skill-row;
+  content: counter(skill-row, decimal-leading-zero);
+  display: inline-block;
+  margin-inline-end: var(--space-3);
+  opacity: 0.55;
+}
 .skills__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-@media (min-width: 768px) { .skills { grid-template-columns: 1fr 1fr; gap: var(--space-7); } }
-
-
-/* 14. QUOTE
-   ====================================================================== */
-
-.quote {
-  border: var(--border-thick) solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  background: var(--color-surface);
-  padding: var(--space-7) var(--space-6);
+@media (min-width: 768px) {
+  .skills__group {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: var(--space-6); align-items: start;
+    padding-block: var(--space-6);
+  }
+  .skills__group h3 { margin-bottom: 0; padding-top: var(--space-1); }
 }
-.quote__text {
-  font-family: var(--font-display); font-weight: var(--weight-medium);
-  font-size: var(--text-2xl); line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-tight); margin-bottom: var(--space-5);
-}
-.quote__who { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--color-text-muted); }
 
 
-/* 15. CONTACT REVEAL
+
+/* 14. CONTACT REVEAL
    ====================================================================== */
 
 /* Secondary reveals (telefoon / WhatsApp) look like .link, so that the
-   revealed <a> — which carries .link — is visually identical to the button
+   revealed <a>, which carries .link, is visually identical to the button
    it replaces. Hover cues via the underline colour, not the text colour:
    these sit on the aubergine band, where --color-text is near-invisible. */
 .reveal-btn {
@@ -539,7 +614,7 @@ body { counter-reset: section-counter; }
 .reveal-btn:hover { text-decoration-color: var(--color-accent); }
 
 
-/* 16. SKIP LINK
+/* 15. SKIP LINK
    ====================================================================== */
 
 .skip-link {
@@ -550,7 +625,7 @@ body { counter-reset: section-counter; }
 .skip-link:focus { left: var(--space-4); top: var(--space-4); }
 
 
-/* 17. MOTION PREFERENCES
+/* 16. MOTION PREFERENCES
    ====================================================================== */
 
 @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }

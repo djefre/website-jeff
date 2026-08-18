@@ -1,457 +1,530 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl-NL">
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta name="robots" content="noindex, nofollow"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Jeffrey Brocx</title>
-    <meta name="description" content="Jeffrey Brocx — Lead Developer .NET & Azure. Cloud-native architectuur, microservices en team coaching." />
-    <meta name="author" content="Jeffrey Brocx" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeffrey Brocx · Tech-adviseur &amp; Lead Developer</title>
+  <meta name="description" content="Jeffrey Brocx helpt directies en founders technische beslissingen nemen: van tweede mening op een leveranciersvoorstel tot senior besluitkracht zonder fulltime CTO.">
+  <meta name="author" content="Jeffrey Brocx">
+  <meta name="theme-color" content="#2a0e3a">
+  <link rel="canonical" href="https://jeffrey.brocx.io/">
+  <link rel="icon" href="assets/img/logo.png">
 
-    <!--  FavIcon  -->
-    <link rel="icon" href="assets/img/logo.png">
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Jeffrey Brocx">
+  <meta property="og:title" content="Jeffrey Brocx · een zeldzame combinatie">
+  <meta property="og:description" content="Ik help directies en founders betere technische beslissingen nemen. En ik schrijf nog steeds zelf de zwaarste code. Advies dat niet uit een PowerPoint komt, maar uit tien jaar productie op schaal.">
+  <meta property="og:url" content="https://jeffrey.brocx.io/">
+  <meta property="og:image" content="https://jeffrey.brocx.io/assets/img/jeff_mugshot.webp">
+  <meta property="og:image:alt" content="Jeffrey Brocx">
+  <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Resource Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Critical: prevent flash of unstyled background -->
+  <style>html,body{background:#f4eee4}</style>
 
-    <!-- Preload LCP image -->
-    <link rel="preload" as="image" type="image/webp" href="assets/img/rsz_1jeff_mugshot.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
-    <!-- Critical CSS (above-the-fold: preloader + base layout) -->
-    <style>
-        html,body{background:#222}
-        body{font-family:"Muli",sans-serif;overscroll-behavior-y:contain;margin:0}
-        ::-moz-selection{background:rgba(255,74,41,.3)}::selection{background:rgba(255,74,41,.3)}
-        .full-screen{height:100vh}
-        h1,h2,h3,h4,h5,h6{font-family:"Poppins",sans-serif;line-height:1.618}
-        .base-color{color:#e24727!important}
-        .bg-base-color{background-color:#e24727!important}
-        header{height:64px;padding:15px;width:100%;background-color:transparent;position:fixed;z-index:1030;top:0}
-        .logo{position:fixed}
-        #overlayer{width:100%;height:100%;position:fixed;z-index:9999;background:#222}
-        .loader{position:fixed;top:calc(50% - 20px);left:calc(50% - 20px);z-index:99999;color:#e24727}
-        #pagepiling{height:100vh;overflow:hidden;position:relative}
-        .section{position:absolute;width:100%;height:100vh;top:0;left:0}
-        .pp-section{position:absolute;width:100%;height:100vh;top:0;left:0}
-        .nill-dark .section{background:#222}
-        .nill-dark .text-dark{color:#ccc!important}
-    </style>
+  <!-- ?v= is een cache-buster. GitHub Pages serveert CSS met max-age=600 en de
+       CDN houdt het object soms nog langer vast, dus na een deploy kan nieuwe
+       HTML tijdelijk met oude CSS worden gecombineerd; bij een hernoemde class
+       levert dat een zichtbaar kapotte pagina op. BUMP DEZE WAARDE BIJ ELKE
+       DEPLOY DIE CSS RAAKT. -->
+  <link rel="stylesheet" href="assets/css/style.css?v=2026-08-18">
 
-    <!-- Google Fonts (non-blocking) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600&family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/css/page.css?v=2026-08-18">
 
-    <!--  Non-critical CSS (async loading) -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css?v=3" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/bootstrap.min.css?v=3"></noscript>
-
-    <link rel="stylesheet" href="assets/css/jquery.pagepiling.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/jquery.pagepiling.css"></noscript>
-
-    <link rel="stylesheet" href="assets/css/LineIcons.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/LineIcons.min.css"></noscript>
-
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/owl.carousel.min.css"></noscript>
-
-    <link rel="stylesheet" href="assets/css/style.min.css?v=7" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/style.min.css?v=7"></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeffrey Brocx",
+    "url": "https://jeffrey.brocx.io/",
+    "jobTitle": "Tech-adviseur & Lead Developer",
+    "image": "https://jeffrey.brocx.io/assets/img/jeff_mugshot.webp",
+    "knowsAbout": [".NET", "Azure", "Cloud-native architectuur", "Microservices", "Security", "Technisch leiderschap", "Technische strategie", "Architectuurbeslissingen", "Technical due diligence", "Fractional CTO"],
+    "sameAs": [
+      "https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/",
+      "https://github.com/djefre"
+    ]
+  }
+  </script>
 </head>
+<body>
+  <a href="#main" class="skip-link">Naar inhoud</a>
 
-<body class="pilling-page" data-spy="scroll" data-target="#scrollspy" data-offset="1">
+  <!-- ============================= TOP BAR ============================= -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar__inner">
+        <a href="#top" class="topbar__brand">Jeffrey&nbsp;Brocx</a>
+        <nav class="topbar__nav" aria-label="Hoofdmenu">
+          <a href="#combinatie">Combinatie</a>
+          <a href="#wanneer">Wanneer</a>
+          <a href="#over">Over mij</a>
+          <a href="#werk">Werk</a>
+          <a href="#skills">Skills</a>
+        </nav>
+        <a href="#contact" class="topbar__cta">Contact</a>
+      </div>
+    </div>
+  </header>
 
-    <!--  Pre Loader  -->
-    <div id="overlayer">
-        <span class="spinner-grow spinner-grow-lg loader" role="status" aria-hidden="true"></span>
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+    <section id="top" class="hero">
+      <div class="container">
+        <div class="hero__inner">
+          <p class="eyebrow mb-6">Tech-adviseur · Lead Developer · Technisch eindverantwoordelijk</p>
+
+          <h1 class="display mb-7">
+            Een <span class="mark">zeldzame</span> combinatie.
+          </h1>
+
+          <p class="text-xl md:text-2xl leading-snug mb-8 measure-lead">
+            Ik help directies en founders betere technische beslissingen nemen. En ik schrijf nog
+            steeds zelf de zwaarste code. Dat is de combinatie: mijn advies komt niet uit een
+            PowerPoint, maar uit tien jaar productie op schaal.
+          </p>
+
+          <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <p class="hero__role">Tien jaar .NET &amp; Azure · zes jaar Koninklijke Marine</p>
+            <span class="sticker">Strategie · Diepe techniek · Eigenaarschap</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= MARQUEE ============================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Complexe&nbsp;systemen</span><span>Leiderschap</span><span>Cloud-native</span><span>Discipline</span>
+        <span>Security-first</span><span>.NET&nbsp;&amp;&nbsp;Azure</span>
+        <span>Complexe&nbsp;systemen</span><span>Leiderschap</span><span>Cloud-native</span><span>Discipline</span>
+        <span>Security-first</span><span>.NET&nbsp;&amp;&nbsp;Azure</span>
+      </div>
     </div>
 
-    <!--  Page Pilling  Strat  -->
-    <div id="pagepiling" class="pagepiling">
+    <!-- ========================== COMBINATIE ============================ -->
+    <section id="combinatie" class="section">
+      <div class="container">
+        <p class="section-index">DE COMBINATIE</p>
+        <h2 class="h-section mb-8">Vier dingen die zelden in één persoon samenkomen.</h2>
 
-        <!--   Header Start -->
-        <header>
-            <div class="logo-area">
-                <a href="index.html" class="logo">
-                    <img src="assets/img/logo.png" alt="Jeffrey Brocx" width="53" height="70">
-                </a>
-            </div>
-            <div class="header-info-area">
-                <a class="overlay-menu-toggler lni-menu size-md" href="#" role="button" aria-label="Menu openen"></a>
-            </div>
-        </header>
-        <!--   Header End   -->
-        <!--    Overlay Menu Start    -->
-        <div class="overlay-menu bg-blue py-3 px-4 text-center center-item">
-            <!-- Overlay Menu -->
-            <div id="scrollspy" class="overlay-menu-list">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2 overlay-nav">
-                            <ul class="list-group text-left" id="myMenu">
-                                <li data-menuanchor="home" class="list-group-item"><a href="#home">Home</a></li>
-                                <li data-menuanchor="about" class="list-group-item"><a href="#about">Over mij</a></li>
-                                <li data-menuanchor="exp" class="list-group-item"><a href="#exp">Ervaring</a></li>
-                                <li data-menuanchor="links" class="list-group-item"><a href="#links">Links</a></li>
-                            </ul>
-                            <ul class="list-group contact-info text-left mb-0">
-                                <li class="list-group-item"><span>Contact Info :</span></li>
-                                <!-- <li class="list-group-item"><span><i class="lni-map-marker"></i> Stad</span></li> -->
-                                <li class="list-group-item">
-                                    <span id="phoney-numbero-si-wrapper">
-                                        <i class="lni-phone-handset"></i>
-                                        <span id="phoney-numbero-si" style="padding:0;">
-                                            +31 6 12 24 56 78
-                                        </span>
-                                    </span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span id="mailey-addresso-no-wrapper">
-                                        <i class="lni-envelope"></i>
-                                        <span id="mailey-addresso-no" style="padding:0;">
-                                            sjaak@sjakiestrekkerij.inc
-                                        </span>
-                                    </span>
-                                </li>
-                                <!-- <li class="list-group-item"><span><i class="lni-envelope"></i> <a href="#contact">Contactformulier</a></span></li> -->
-                                <li class="list-group-item"><span>Socials:</span></li>
-                                <li class="list-group-item">
-                                    <ul class="list-inline socials">
-                                        <li class="list-inline-item">
-                                            <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank">
-                                                <i class="lni-linkedin-original"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="https://github.com/djefre" target="_blank">
-                                                <i class="lni-github"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a id="app-anchor-id" href="#" target="_blank">
-                                                <i class="lni-whatsapp"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="combo">
+          <article class="combo__card combo__card--1">
+            <div class="combo__nr">01</div>
+            <h3 class="combo__title">Diepe technische expertise</h3>
+            <p>Tien jaar .NET en Azure, van de eerste regel code tot productie op schaal. Daardoor hoor ik het verschil tussen een goed plan en een goed verhaal.</p>
+          </article>
+          <article class="combo__card combo__card--2">
+            <div class="combo__nr">02</div>
+            <h3 class="combo__title">Leiderschap &amp; richting</h3>
+            <p>Ik maak de technische keuzes en blijf eigenaar van het resultaat. Teams zet ik neer en neem ik mee, en aan de directietafel vertaal ik techniek naar een besluit.</p>
+          </article>
+          <article class="combo__card combo__card--3">
+            <div class="combo__nr">03</div>
+            <h3 class="combo__title">Discipline</h3>
+            <p>Gevormd bij de Koninklijke Marine: rust als het spannend wordt, structuur als het chaotisch wordt, en dingen afmaken. Niet half.</p>
+          </article>
+          <article class="combo__card combo__card--4">
+            <div class="combo__nr">04</div>
+            <h3 class="combo__title">Security-first denken</h3>
+            <p>Security is geen sluitpost. Van NATO-verbindingen tot banksoftware werkte ik waar een fout geen optie was, dus denk ik vooraf na over risico's. Niet achteraf.</p>
+          </article>
         </div>
-        <!--    Overlay Menu End    -->
-        <!--    Home/home Start    -->
-        <section class="section pp-scrollable home home-02 full-screen p-0" id="home">
-            <div class="title-small">
-                <p class="text-dark">Home</p>
-            </div>
-            <div class="container-fluid">
-                <div class="row justify-content-center" id="home-slider">
-                    <div class="owl-carousel owl-theme">
-                        <div class="home-slide home-item1 full-screen"></div>
-                        <div class="home-slide home-item2 full-screen"></div>
-                        <div class="home-slide home-item3 full-screen"></div>
-                    </div>
-                </div>
-                <div class="text-center home-content">
-                    <div class="col-lg-12">
-                        <div class="home-content text-center">
-                            <img src="assets/img/rsz_1jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded-circle img-thumbnail" width="250" height="250">
-                            <h3 class="text-dark mb-0 mt-3">Ik ben Jeffrey Brocx</h3>
-                            <h4 class="text-dark text-capitalize mb-3 typed-text">
-                                <span class="base-color">Een  </span>
-                                <span class="element" data-elements="Lead Developer.,Techneut.,Verbinder.,Vader.,Bourgondier.,Motorrijder."></span>
-                            </h4>
-                            <ul class="list-inline social-icon mt-2">
-                                <li class="list-inline-item">
-                                    <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" aria-label="LinkedIn">
-                                        <i class="lni-linkedin-original text-dark"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="https://github.com/djefre" target="_blank" aria-label="GitHub">
-                                        <i class="lni-github text-dark"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="home-icon">
-                    <a href="#about" aria-label="Scroll naar over mij">
-                        <i class="lni-arrow-down text-dark size-sm"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!--   Home/home End    -->
-        <!--   About Start   -->
-        <section id="about" class="section pp-scrollable about text-dark">
-            <div class="title-small">
-                <p class="text-dark">Over mij</p>
-            </div>
-            <div class="display-table">
-                <div class="display-content">
-                    <div class="container">
-                        <div class="row mt-4">
-                            <div class="col-lg-4 col d-flex align-items-center justify-content-center">
-                                <img src="assets/img/jeff_mugshot.webp" alt="Jeffrey Brocx" class="rounded img-thumbnail" style="max-width:100%;width:350px;height:auto;" width="350" height="350">
-                            </div>
-                            <div class="col-lg-8 personal-item mb-4 mb-lg-0">
-                                <h2 class="text-dark mb-2">Over <span class="base-color">Mij</span></h2>
-                                <div class="row">
-                                    <div class="col-12">
-                                        Mijn carrière begon bij de Koninklijke Marine, waar ik zes jaar heb gevaren als verbindelaar
-                                        en Chef Verbindingsdienst. Na een periode in de offshore-industrie besloot ik over te stappen
-                                        naar IT om meer tijd thuis door te brengen en mijn passie voor technologie te volgen.
-                                        Inmiddels heb ik meer dan 10 jaar ervaring in softwareontwikkeling en heb ik mooie dingen
-                                        mogen bouwen, van chatplatforms voor honderdduizenden patiënten tot systemen achter
-                                        het grootste nieuwsplatform van Nederland.
-                                        <br/><br/>
-                                        Wat ik het liefst doe is teams beter maken. Ik ben op mijn best als ik samen met developers
-                                        kan bouwen, processen kan stroomlijnen en de vertaalslag kan maken tussen wat de business
-                                        wil en wat technisch slim is. De discipline en het security-bewustzijn uit mijn tijd bij de marine
-                                        neem ik overal in mee.
-                                        <br/><br/>
-                                        In mijn vrije tijd werk ik aan IT-projecten zoals Raspberry Pi's, eigen servers en security,
-                                        en blijf ik mezelf voortdurend ontwikkelen. Verder vind je mij in de keuken, in de natuur,
-                                        op het water of op de motor.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <div class="container">
-                                <div class="row mt-5">
-                                    <h4 class="h6 mb-0">Gewerkt voor o.a.:</h4>
-                                </div>
-                                <div class="row mt-4 rounded" style="align-items: baseline; background-color: rgb(255,255,255,0.75);">
-                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-5 mb-5">
-                                        <img style="max-width: 10em; height: auto;" src="assets/img/achmea-logo.webp" alt="Achmea" width="1272" height="424" loading="lazy" />
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
-                                        <img style="max-width: 10em; height: auto;" src="assets/img/nos-logo.svg" alt="NOS" width="405" height="143" loading="lazy" />
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mt-1 mb-5">
-                                        <img style="max-width: 10em; height: auto;" src="assets/img/elfsquad-logo.webp" alt="Elfsquad" width="1000" height="195" loading="lazy" />
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mb-5">
-                                        <img style="max-width: 10em; height: auto;" src="assets/img/arrix-logo.png" alt="Arrix" width="175" height="80" loading="lazy" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--   About End    -->
-        <!--   exp Start   -->
-        <section id="exp" class="section pp-scrollable exp">
-            <div class="title-small">
-                <p class="text-dark">Ervaring</p>
-            </div>
-            <div class="display-table">
-                <div class="display-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="text-left">
-                                    <h2 class="text-dark mb-3">Mijn <span class="base-color">Ervaring</span></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-2 mt-lg-4">
-                            <div class="col-lg-12">
-                                <h3 class="text-dark mb-2 mt-3 mt-lg-0"><i class="lni-pencil base-color"></i>Mijn laatste functies</h3>
-                                <ul class="timeline">
-                                    <li>
-                                        <h4 class="base-color mb-0 h6">Lead Developer <small class="text-muted" style="font-size: 0.75em;">· transport / cloud</small></h4>
-                                        <small class="text-muted">
-                                            C# | .NET 9/10 | Dapr | Aspire | Azure Container Apps | Microservices | CI/CD | AI Integration
-                                        </small>
-                                        <p class="text-dark py-3">
-                                            <span>
-                                                Een cloud-native platform van test naar productie gebracht met een team van 4 devs.
-                                                Gebouwd met .NET 9/10, Dapr en Azure Container Apps. Legacy software die wel een
-                                                opknapbeurt kon gebruiken, waar mogelijk omgebouwd naar schaalbare microservices.
-                                                AI in ons ontwikkelproces gevlochten, wat het opleveren flink versneld heeft.
-                                                De schakel tussen business en development.
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <h4 class="base-color mb-0 h6">Senior Backend Engineer <small class="text-muted" style="font-size: 0.75em;">· media</small></h4>
-                                        <small class="text-muted">PHP | Doctrine | Symfony | AWS | S3 | Rust | DataDog | K8s | Docker | OpenShift | Treafik | Argo CD | Grafana | GraphQL | Linux</small>
-                                        <p class="text-dark py-3">
-                                            <span>
-                                                Backend-systemen draaiende houden en sneller maken bij een groot mediaplatform.
-                                                Veel PHP, niet altijd sexy, maar wel de realiteit. Performance en schaalbaarheid
-                                                waren hier de rode draad. Daarnaast betrokken bij de migratieplannen richting Rust
-                                                voor de zwaardere stukken. Infra draaide op Kubernetes en OpenShift. Samen met het
-                                                team interne processen verbeterd en betrouwbare oplossingen neergezet.
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <h4 class="base-color mb-0 h6">Senior .NET Engineer <small class="text-muted" style="font-size: 0.75em;">· verzekeringen / chat</small></h4>
-                                        <small class="text-muted"> C# | ASP.NET | T-SQL | EntityFramework | SCRUM | JavaScript | HTML | CSS | YAML | Genesys | MVC | Fortify | Azure | Azure Functions | Application Insights | Azure SQL & storage | Azure KeyVault</small>
-                                        <p class="text-dark py-3">
-                                            <span>
-                                                Chatoplossingen gebouwd die door meerdere grote merken van een verzekeraar werden
-                                                gebruikt. Het leukste stuk: de migratie van on-prem naar de cloud. Daarnaast junior
-                                                devs gecoacht en als Security Champion de boel scherp gehouden op beveiligingsvlak.
-                                                Ontwikkelprocessen gestandaardiseerd en kwaliteitsnormen opgeschroefd.
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <h4 class="base-color mb-0 h6">Lead Developer <small class="text-muted" style="font-size: 0.75em;">· zorg / chat</small></h4>
-                                        <small class="text-muted">
-                                            C# | ASP.NET | Azure | Microservices | Kubernetes | SignalR | Microsoft Orleans | Docker
-                                        </small>
-                                        <p class="text-dark py-3">
-                                            <span>
-                                                Lead Developer en deels Scrummaster bij een chatplatform in de zorg, dagelijks
-                                                gebruikt door een grote groep patiënten om met hun zorgverlener te communiceren.
-                                                Team van 3 devs en 2 DevOps engineers. Meerdere features toegevoegd,
-                                                .NET-migraties gedaan en stap voor stap microservices geïntroduceerd. En mijn
-                                                stokpaardje: processen en werkwijzen stroomlijnen zodat iedereen weet waar ze
-                                                aan toe zijn.
-                                            </span>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row pt-6">
-                            <div class="col-lg-12">
-                                <div class="skill-categories">
-                                    <div class="skill-category">
-                                        <h4 class="skill-category-label h6">Talen</h4>
-                                        <div class="skill-tags">
-                                            <span class="skill-tag">C#</span>
-                                            <span class="skill-tag">JavaScript</span>
-                                            <span class="skill-tag">T-SQL</span>
-                                            <span class="skill-tag">HTML</span>
-                                            <span class="skill-tag">CSS</span>
-                                            <span class="skill-tag">YAML</span>
-                                            <span class="skill-tag">TypeScript</span>
-                                            <span class="skill-tag">PHP</span>
-                                        </div>
-                                    </div>
-                                    <div class="skill-category">
-                                        <h4 class="skill-category-label h6">Frameworks</h4>
-                                        <div class="skill-tags">
-                                            <span class="skill-tag">.NET</span>
-                                            <span class="skill-tag">ASP.NET</span>
-                                            <span class="skill-tag">Entity Framework</span>
-                                            <span class="skill-tag">Sitecore</span>
-                                            <span class="skill-tag">Vue.js</span>
-                                            <span class="skill-tag">Blazor</span>
-                                            <span class="skill-tag">Angular</span>
-                                            <span class="skill-tag">Symfony</span>
-                                        </div>
-                                    </div>
-                                    <div class="skill-category">
-                                        <h4 class="skill-category-label h6">Cloud & Infra</h4>
-                                        <div class="skill-tags">
-                                            <span class="skill-tag">Azure</span>
-                                            <span class="skill-tag">Azure DevOps</span>
-                                            <span class="skill-tag">Container Apps</span>
-                                            <span class="skill-tag">Azure Functions</span>
-                                            <span class="skill-tag">CI/CD</span>
-                                            <span class="skill-tag">Docker</span>
-                                            <span class="skill-tag">Kubernetes</span>
-                                            <span class="skill-tag">Bicep</span>
-                                            <span class="skill-tag">AWS</span>
-                                        </div>
-                                    </div>
-                                    <div class="skill-category">
-                                        <h4 class="skill-category-label h6">Architectuur</h4>
-                                        <div class="skill-tags">
-                                            <span class="skill-tag">Microservices</span>
-                                            <span class="skill-tag">Dapr</span>
-                                            <span class="skill-tag">.NET Aspire</span>
-                                            <span class="skill-tag">SignalR</span>
-                                            <span class="skill-tag">MVC</span>
-                                            <span class="skill-tag">REST APIs</span>
-                                            <span class="skill-tag">Microsoft Orleans</span>
-                                            <span class="skill-tag">GraphQL</span>
-                                        </div>
-                                    </div>
-                                    <div class="skill-category">
-                                        <h4 class="skill-category-label h6">Overig</h4>
-                                        <div class="skill-tags">
-                                            <span class="skill-tag">Security</span>
-                                            <span class="skill-tag">Team Leadership</span>
-                                            <span class="skill-tag">Agile / SCRUM / SAFe</span>
-                                            <span class="skill-tag">AI Development</span>
-                                            <span class="skill-tag">IdentityServer</span>
-                                            <span class="skill-tag">Fortify</span>
-                                            <span class="skill-tag">Genesys</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--   exp End   -->
-        <!--   Links Start   -->
-        <section id="links" class="section pp-scrollable links">
-            <div class="title-small">
-                <p class="text-dark">Links</p>
-            </div>
-            <div class="display-table">
-                <div class="display-content">
-                    <div class="container">
-                        <div class="row mt-5 justify-content-center">
-                            <div class="col-lg-4 col-md-4 col-6 mb-4 px-3">
-                                <a href="https://stuff.brocx.io" target="_blank" rel="noopener" class="link-card d-flex flex-column align-items-center justify-content-center text-decoration-none text-center h-100" style="padding: 2.5rem 1.5rem;">
-                                    <i class="lni-code-alt base-color d-block mb-3" style="font-size: 3.5rem;"></i>
-                                    <p class="text-muted mb-0">Dingen die ik bouw als niemand kijkt</p>
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-6 mb-4 px-3">
-                                <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" rel="noopener" class="link-card d-flex flex-column align-items-center justify-content-center text-decoration-none text-center h-100" style="padding: 2.5rem 1.5rem;">
-                                    <i class="lni-linkedin-original base-color d-block mb-3" style="font-size: 3.5rem;"></i>
-                                    <p class="text-muted mb-0">Professioneel netwerk en achtergrond</p>
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-6 mb-4 px-3">
-                                <a href="https://github.com/djefre" target="_blank" rel="noopener" class="link-card d-flex flex-column align-items-center justify-content-center text-decoration-none text-center h-100" style="padding: 2.5rem 1.5rem;">
-                                    <i class="lni-github base-color d-block mb-3" style="font-size: 3.5rem;"></i>
-                                    <p class="text-muted mb-0">Open source en persoonlijke projecten</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--   Links End   -->
-        <!--   Color Scheme  -->
-        <div>
-            <a id="darkmodebutton" class="color-scheme text-white bg-base-color d-inline-block" href="#" role="button" aria-label="Donker thema"><i class="lni-night"></i></a>
-            <a class="color-scheme color-scheme-light text-white bg-base-color d-none" href="#" role="button" aria-label="Licht thema"><i class="lni-sun"></i></a>
+      </div>
+    </section>
+
+    <!-- ============================== WANNEER ============================== -->
+    <!-- Vervangt de oude "Rol"-sectie, die inhoudelijk een doublure van
+         "De Combinatie" was. Zelfde kaartcomponent, ander doel: niet wie ik
+         ben, maar wanneer je me belt, geschreven vanuit herkenning bij de
+         lezer (directie / founder), niet vanuit mijn taakomschrijving. -->
+    <section id="wanneer" class="section">
+      <div class="container">
+        <p class="section-index">WANNEER JE ME BELT</p>
+        <h2 class="h-section mb-8">Er ligt een technische beslissing. En die kost geld.</h2>
+
+        <p class="text-xl md:text-2xl leading-snug mb-8 measure-lead">
+          Meestal bel je me niet omdat er iets stuk is, maar omdat er iets beslist moet worden en
+          niemand intern die knoop onafhankelijk kan doorhakken. Herken je één van deze vier, dan
+          is een gesprek de moeite waard.
+        </p>
+
+        <div class="signal">
+          <article class="signal__card">
+            <p class="signal__cat">Tweede mening</p>
+            <h3 class="signal__title">Er ligt een voorstel van een leverancier.</h3>
+            <p>Een offerte van een bouwer of SaaS-partij die intern niemand echt kan toetsen. Ik lees mee en vertel je wat er technisch werkelijk staat, inclusief wat je beter níét kunt doen.</p>
+          </article>
+          <article class="signal__card">
+            <p class="signal__cat">Prioriteit</p>
+            <h3 class="signal__title">Veel ideeën over AI, weinig volgorde.</h3>
+            <p>&ldquo;We moeten iets met AI&rdquo; is geen strategie. Ik breng het terug tot een handvol keuzes met impact, risico en volgorde, vóórdat je het budget vastlegt.</p>
+          </article>
+          <article class="signal__card">
+            <p class="signal__cat">Grip</p>
+            <h3 class="signal__title">Het team is druk, maar er komt te weinig uit.</h3>
+            <p>Development voelt traag, afhankelijk of onvoorspelbaar. Ik zoek uit waar het echt vastloopt: in de architectuur, in het proces, of tussen business en techniek in.</p>
+          </article>
+          <article class="signal__card">
+            <p class="signal__cat">Besluitkracht</p>
+            <h3 class="signal__title">Je hebt geen fulltime CTO nodig.</h3>
+            <p>Wel iemand met senior technische besluitkracht die af en toe aanschuift, meedenkt op de zwaarste keuzes en de richting bewaakt. Zonder dat je iemand in dienst neemt.</p>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================= OVER MIJ ============================= -->
+    <section id="over" class="section bleed-primary">
+      <div class="container">
+        <p class="section-index">OVER MIJ</p>
+        <h2 class="h-section mb-8">Van de brug van een marineschip naar cloud-native software.</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-8 items-start">
+          <div class="md:col-span-4 about-visual">
+            <div class="portrait-frame">
+              <img class="portrait" src="assets/img/jeff_mugshot.webp" alt="Portret van Jeffrey Brocx"
+                   width="360" height="450" loading="lazy" decoding="async">
+              <span class="sticker portrait-frame__sticker">Nog steeds hands-on</span>
+            </div>
+            <p class="path">
+              <span class="tag">Marine</span>
+              <span class="path__arrow" aria-hidden="true">→</span>
+              <span class="tag">Offshore</span>
+              <span class="path__arrow" aria-hidden="true">→</span>
+              <span class="tag">Cloud</span>
+            </p>
+          </div>
+          <div class="about-body">
+            <p class="text-base md:text-lg leading-snug mb-5 measure">
+              Ik bouw nu ruim tien jaar software en mocht vaak werken aan systemen die er écht toe
+              doen: bedrijfskritische platforms waar honderdduizenden mensen dagelijks op leunen.
+              Ik kan me slecht tot één hoekje beperken: <span class="mark">ik wil snappen hoe het hele ding werkt</span>,
+              van de cloud-architectuur bovenin tot de zwaarste code onderin de stack.
+            </p>
+            <p class="text-base leading-snug mb-5 measure text-soft">
+              Mijn pad was niet het meest voor de hand liggende. Ik begon bij de Koninklijke Marine:
+              zes jaar verbindelaar, uiteindelijk Chef Verbindingsdienst, verantwoordelijk voor
+              communicatie die het gewoon moest doen. Via de offshore-industrie stapte ik over naar
+              IT, omdat techniek me niet meer losliet.
+            </p>
+            <p class="text-base leading-snug measure text-soft">
+              Sindsdien heb ik me erin vastgebeten: .NET en Azure ken ik tot in de details, en
+              security is voor mij een eerste reflex. Maar het leukst blijft het schakelen: tussen
+              een architectuurkeuze, een team dat een stap verder komt en een directie die wil weten
+              wat er technisch op het spel staat. En als ik niet achter mijn scherm zit, vind je me
+              in de keuken, in de natuur, op het water of op de motor.
+            </p>
+          </div>
+
+          <aside class="proof__stats proof__stats--rail md:col-span-3" aria-label="Kerncijfers">
+            <div class="proof__stat">
+              <span class="proof__tick" aria-hidden="true"></span>
+              <div class="proof__num">10<span class="proof__unit">jr</span></div>
+              <div class="proof__label">Software ontworpen en gebouwd</div>
+            </div>
+            <div class="proof__stat">
+              <span class="proof__tick" aria-hidden="true"></span>
+              <div class="proof__num proof__num--word">Miljoenen</div>
+              <div class="proof__label">Gebruikers bediend</div>
+            </div>
+            <div class="proof__stat">
+              <span class="proof__tick" aria-hidden="true"></span>
+              <div class="proof__num">6<span class="proof__unit">jr</span></div>
+              <div class="proof__label">Koninklijke Marine</div>
+            </div>
+            <div class="proof__stat">
+              <span class="proof__tick" aria-hidden="true"></span>
+              <div class="proof__num">NATO</div>
+              <div class="proof__label">Gescreend tot CTS-niveau · security-first</div>
+            </div>
+          </aside>
+        </div>
+
+        <p class="eyebrow mt-8 mb-4 text-softer">Gewerkt voor o.a.</p>
+        <div class="logos">
+          <div class="logos__cell"><img class="logo--nos" src="assets/img/nos-logo.svg" alt="NOS" width="405" height="143" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--abnamro" src="assets/img/abnamro-logo.svg" alt="ABN AMRO" width="295" height="73" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--achmea" src="assets/img/achmea-logo.webp" alt="Achmea" width="1272" height="424" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--zk" src="assets/img/zilverenkruis-logo.svg" alt="Zilveren Kruis" width="300" height="92" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--cb" src="assets/img/centraalbeheer-logo.svg" alt="Centraal Beheer" width="213" height="150" loading="lazy"></div>
+          <div class="logos__cell"><img class="logo--ipo" src="assets/img/interpolis-logo.svg" alt="Interpolis" width="143" height="27" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== WERK ============================== -->
+    <section id="werk" class="section">
+      <div class="container">
+        <p class="section-index">WERK</p>
+        <h2 class="h-section mb-8">Een greep uit wat ik bouwde, leidde en richting gaf.</h2>
+
+        <div class="work">
+          <article class="work__item">
+            <div class="work__index" aria-hidden="true">01</div>
+            <div class="work__lead">
+              <span class="work__sector">Zorg</span>
+              <h3 class="work__statement">Een chatplatform voor honderd­duizenden patiënten.</h3>
+            </div>
+            <div class="work__meta">
+              <span class="work__role">Lead Developer</span>
+              <p class="work__context">
+                Dagelijks gebruikt door patiënten om met hun zorgverlener te communiceren. Ik stuurde
+                het team aan, deed de .NET-migraties en introduceerde stap voor stap microservices.
+              </p>
+              <p class="work__result">Migratie in stappen in plaats van een big bang, en een team
+                dat het platform daarna zelfstandig verder uitbouwde.</p>
+              <ul class="work__stack">
+                <li class="tag">.NET</li><li class="tag">Microservices</li><li class="tag">Teamlead</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="work__item">
+            <div class="work__index" aria-hidden="true">02</div>
+            <div class="work__lead">
+              <span class="work__sector">Media</span>
+              <h3 class="work__statement">De systemen achter het grootste nieuws­platform van Nederland.</h3>
+            </div>
+            <div class="work__meta">
+              <span class="work__role">Backend Engineer</span>
+              <p class="work__context">
+                Backend op schaal, met performance en betrouwbaarheid als rode draad. Ik dacht mee
+                over de migratie van de zwaarste onderdelen richting Rust.
+              </p>
+              <p class="work__result">Zwaardere belasting op dezelfde infrastructuur, en een
+                technologiekeuze die onderbouwd werd in plaats van gevolgd.</p>
+              <ul class="work__stack">
+                <li class="tag">.NET</li><li class="tag">Rust</li><li class="tag">Performance</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="work__item">
+            <div class="work__index" aria-hidden="true">03</div>
+            <div class="work__lead">
+              <span class="work__sector">Verzekeringen</span>
+              <h3 class="work__statement">Verzekerings­software van on-prem naar de cloud.</h3>
+            </div>
+            <div class="work__meta">
+              <span class="work__role">Security Champion</span>
+              <p class="work__context">
+                Chatoplossingen voor meerdere grote merken van een verzekeraar. Ik hield de lat voor
+                beveiliging hoog en coachte junior developers.
+              </p>
+              <p class="work__result">Security als onderdeel van het ontwerp in plaats van een
+                bevinding achteraf, en juniors die het daarna zelf bewaakten.</p>
+              <ul class="work__stack">
+                <li class="tag">Azure</li><li class="tag">Cloud-migratie</li><li class="tag">Coaching</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="work__item">
+            <div class="work__index" aria-hidden="true">04</div>
+            <div class="work__lead">
+              <span class="work__sector">Transport</span>
+              <h3 class="work__statement">Een cloud-native platform van test naar productie.</h3>
+            </div>
+            <div class="work__meta">
+              <span class="work__role">Lead Developer</span>
+              <p class="work__context">
+                Ik bouwde legacy waar nodig om naar schaalbare microservices en vlocht AI in het
+                ontwikkelproces, als schakel tussen business en development.
+              </p>
+              <p class="work__result">Legacy die de business niet langer afremt, en AI die echt in
+                het ontwikkelproces zit in plaats van in een pilot.</p>
+              <ul class="work__stack">
+                <li class="tag">Microservices</li><li class="tag">Cloud-native</li><li class="tag">AI</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="work__item">
+            <div class="work__index" aria-hidden="true">05</div>
+            <div class="work__lead">
+              <span class="work__sector">Bank</span>
+              <h3 class="work__statement">Hypotheek­software bij een Nederlandse grootbank.</h3>
+            </div>
+            <div class="work__meta">
+              <span class="work__role">Fullstack Engineer</span>
+              <p class="work__context">
+                In een team van acht ontwikkelde ik de mutatiestraat voor hypotheken door. Als security
+                champion verhielp ik zware kwetsbaarheden structureel en adviseerde ik over het
+                opnieuw inrichten van het scrumproces.
+              </p>
+              <p class="work__result">Voorspelbare sprints in plaats van verrassingen, en security
+                geborgd in de codebase in plaats van in een rapport.</p>
+              <ul class="work__stack">
+                <li class="tag">.NET</li><li class="tag">Vue.js</li><li class="tag">Security</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="mt-7 font-mono text-sm text-muted">
+          Volledige werkhistorie op
+          <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" rel="noopener" class="link">LinkedIn&nbsp;↗</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== SKILLS ============================== -->
+    <section id="skills" class="section bleed-accent">
+      <div class="container">
+        <p class="section-index">SKILLS</p>
+        <h2 class="h-section mb-8">Waar ik mee werk.</h2>
+
+        <div class="skills">
+          <div class="skills__group">
+            <h3>Talen</h3>
+            <div class="skills__tags">
+              <span class="tag">C#</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+              <span class="tag">PHP</span><span class="tag">T-SQL</span><span class="tag">HTML</span>
+              <span class="tag">CSS</span><span class="tag">YAML</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Frameworks</h3>
+            <div class="skills__tags">
+              <span class="tag">.NET</span><span class="tag">ASP.NET</span><span class="tag">Entity Framework</span>
+              <span class="tag">Blazor</span><span class="tag">Vue.js</span><span class="tag">Angular</span>
+              <span class="tag">Symfony</span><span class="tag">Sitecore</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Cloud &amp; Infra</h3>
+            <div class="skills__tags">
+              <span class="tag">Azure</span><span class="tag">Azure DevOps</span><span class="tag">Container Apps</span>
+              <span class="tag">Azure Functions</span><span class="tag">CI/CD</span><span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span><span class="tag">Bicep</span><span class="tag">AWS</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Architectuur</h3>
+            <div class="skills__tags">
+              <span class="tag">Microservices</span><span class="tag">Dapr</span><span class="tag">.NET Aspire</span>
+              <span class="tag">SignalR</span><span class="tag">Microsoft Orleans</span><span class="tag">REST APIs</span>
+              <span class="tag">GraphQL</span><span class="tag">MVC</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Strategie &amp; advies</h3>
+            <div class="skills__tags">
+              <span class="tag">Technische strategie</span><span class="tag">Architectuurbeslissingen</span><span class="tag">Technical due diligence</span>
+              <span class="tag">Directie-/stakeholderadvies</span><span class="tag">Roadmap</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Leiderschap &amp; proces</h3>
+            <div class="skills__tags">
+              <span class="tag">Team Leadership</span><span class="tag">Coaching</span><span class="tag">Agile / SCRUM / SAFe</span>
+              <span class="tag">Scrummaster</span><span class="tag">Stakeholdermanagement</span>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3>Security &amp; overig</h3>
+            <div class="skills__tags">
+              <span class="tag">Security Champion</span><span class="tag">Fortify</span><span class="tag">IdentityServer</span>
+              <span class="tag">AI Development</span><span class="tag">Genesys</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT ============================= -->
+    <section id="contact" class="section bleed-primary">
+      <div class="container">
+        <p class="section-index">CONTACT</p>
+        <h2 class="h-section mb-6">Even sparren of kennismaken?</h2>
+        <p class="text-xl md:text-2xl leading-snug mb-8 measure-lead">
+          Eén bericht is genoeg. Of het nu over techniek, een team of gewoon een goed gesprek gaat:
+          ik hoor graag van je.
+        </p>
+
+        <!-- Primary CTA: reveals into a button-styled mailto (anti-scrape).
+             Deliberately not .reveal-btn: the reveal is bound to [data-reveal],
+             and .reveal-btn would strip the button's padding/border/background. -->
+        <button type="button" class="btn btn--accent btn--lg"
+          data-reveal="PGEgaHJlZj0ibWFpbHRvOmplZmZyZXlAYnJvY3guaW8iIGNsYXNzPSJidG4gYnRuLS1hY2NlbnQgYnRuLS1sZyI+amVmZnJleUBicm9jeC5pbzwvYT4=">Klik voor mijn mailadres</button>
+
+        <div class="flex flex-wrap gap-7 mt-8 font-mono text-lg">
+          <div>
+            <div class="eyebrow mb-2">Telefoon</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0idGVsOiszMTY1MzY2ODY5NyIgY2xhc3M9ImxpbmsiPjA2IC0gNTMgNjYgODYgOTc8L2E+">Klik voor nummer</button>
+          </div>
+          <div>
+            <div class="eyebrow mb-2">WhatsApp</div>
+            <button type="button" class="reveal-btn"
+              data-reveal="PGEgaHJlZj0iaHR0cHM6Ly93YS5tZS8zMTY1MzY2ODY5Nz90ZXh0PUhhbGxvK0plZmZyZXkhK0lrK3phZytqZSt3ZWJzaXRlIiB0YXJnZXQ9Il9ibGFuayIgcmVsPSJub29wZW5lciIgY2xhc3M9ImxpbmsiPk9wZW4gV2hhdHNBcHA8L2E+">Klik voor WhatsApp</button>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-5 mt-8 font-mono text-sm">
+          <a href="https://www.linkedin.com/in/%F0%9F%92%BB-jeffrey-brocx-b5148585/" target="_blank" rel="noopener" class="link">LinkedIn ↗</a>
+          <a href="https://github.com/djefre" target="_blank" rel="noopener" class="link">GitHub ↗</a>
+          <a href="https://stuff.brocx.io" target="_blank" rel="noopener" class="link">stuff.brocx.io ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="border-t-thick">
+    <div class="container">
+      <div class="py-6 flex flex-col md:flex-row justify-between gap-4 font-mono text-sm text-muted">
+        <div>© <span id="year">2026</span> Jeffrey Brocx</div>
+        <!-- SLOT: subtiele verwijzing naar advies./dev. zodra die live zijn -->
+        <div>Tech-adviseur · Lead Developer · Security-first</div>
+      </div>
     </div>
-    <!--  Page Pilling  End -->
-    <!--  Typed Js  -->
-    <script async src="assets/js/typed.min.js?v=2"></script>
-    <!--  JavaScripts  -->
-    <script defer src="assets/js/jquery-3.4.1.min.js"></script>
-    <!--   Page Pilling Js     -->
-    <script defer src="assets/js/jquery.pagepiling.min.js?v=2"></script>
-    <!--  Bootstrap Js  -->
-    <script defer src="assets/js/bootstrap.min.js?v=2"></script>
-    <!--  Owl carousel Js  -->
-    <script defer src="assets/js/owl.carousel.min.js"></script>
-    <!--  Custom JS  -->
-    <script defer src="assets/js/app.min.js?v=8"></script>
+  </footer>
+
+  <script>
+    // Reveal obfuscated contact details on first interaction (anti-scrape).
+    //
+    // Any real interaction reveals ALL of them at once: scrollen, muis, toets
+    // of touch. Een beslisser die wil bellen mag niet eerst een knop hoeven
+    // klikken om het nummer te zien; scrapers lezen de HTML en krijgen base64.
+    // De klik op de knop zelf blijft werken als niets anders is afgevuurd
+    // (bijv. direct via toetsenbord naar de knop).
+    (function () {
+      var revealed = false;
+      function reveal() {
+        if (revealed) { return; }
+        revealed = true;
+        document.querySelectorAll('[data-reveal]').forEach(function (el) {
+          // Per element: een kapotte payload mag de andere onthullingen
+          // niet blokkeren; dit mechanisme is het doel van de pagina.
+          try {
+            var tmp = document.createElement('div');
+            tmp.innerHTML = atob(el.dataset.reveal);
+            var node = tmp.firstElementChild;
+            if (node) { el.replaceWith(node); }
+          } catch (err) { /* laat de knop staan */ }
+        });
+      }
+      ['pointerdown', 'pointermove', 'keydown', 'touchstart', 'scroll', 'wheel'].forEach(function (evt) {
+        window.addEventListener(evt, reveal, { once: true, passive: true });
+      });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        el.addEventListener('click', reveal);
+      });
+    }());
+    var yearEl = document.getElementById('year');
+    if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+  </script>
+
 </body>
 </html>
